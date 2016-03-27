@@ -18,5 +18,9 @@ namespace AssetHub.Models
         public virtual Position Position { get; set; }
 
         public virtual Room Room { get; set; }
+
+        public virtual IEnumerable<Loan> Loans { get; set; }
+
+        public virtual IEnumerable<Reservation> Reservations { get; set; }
     }
 }

@@ -177,7 +177,13 @@
     <Compile Include="Infrastructure\AssetHubUserManager.cs" />
     <Compile Include="Infrastructure\AssetHubUserValidator.cs" />
     <Compile Include="Infrastructure\IdentityConfig.cs" />
+    <Compile Include="Models\Asset.cs" />
+    <Compile Include="Models\AssetModel.cs" />
+    <Compile Include="Models\AssetUses.cs" />
+    <Compile Include="Models\Loan.cs" />
+    <Compile Include="Models\Location.cs" />
     <Compile Include="Models\Position.cs" />
+    <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\UserAccount.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
