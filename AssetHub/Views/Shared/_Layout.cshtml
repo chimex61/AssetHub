@@ -1,9 +1,15 @@
-﻿<!DOCTYPE html>
+﻿@using AssetHub.DAL
+
+@{ 
+    var isUserConnected = SessionExtension.Account(Session) != null;
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - AssetHub</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -24,6 +30,14 @@
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
+                
+                @if (isUserConnected)
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.ActionLink(SessionExtension.Account(Session)?.Name, "Index", "Account")</li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
+                    </ul>
+                }
             </div>
         </div>
     </div>
@@ -31,7 +45,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - AssetHub</p>
         </footer>
     </div>
 
