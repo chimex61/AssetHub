@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace AssetHub.Infrastructure
 {
-    public class AssetHubUserValidator : UserValidator<UserAccount> 
+    public class AssetHubUserValidator : UserValidator<User> 
     {
         public AssetHubUserValidator(AssetHubUserManager manager) : base(manager) { }
 
-        public override async Task<IdentityResult> ValidateAsync(UserAccount user)
+        public override async Task<IdentityResult> ValidateAsync(User user)
         {
             var result = await base.ValidateAsync(user);
 

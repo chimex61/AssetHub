@@ -12,9 +12,9 @@ namespace AssetHub.Models
 
         public DateTime TimeTo { get; set; }
 
-        public int AccountId { get; set; }
+        public string UserId{ get; set; }
 
-        public virtual UserAccount UserAccouunt { get; set; }
+        public virtual User User { get; set; }
 
         public virtual IEnumerable<ReservationAssetUse> ReservationAssetUses { get; set; }
     }

@@ -10,10 +10,10 @@ namespace AssetHub.DAL
     {
         private const string ACCOUNT_KEY = "ACC_KEY";
 
-        public static void Login(HttpSessionStateBase session, UserAccount account) => session[ACCOUNT_KEY] = account;
+        public static void Login(HttpSessionStateBase session, User user) => session[ACCOUNT_KEY] = user;
 
         public static void Logout(HttpSessionStateBase session) => session[ACCOUNT_KEY] = null;
 
-        public static UserAccount Account(HttpSessionStateBase session) => (UserAccount)session[ACCOUNT_KEY];
+        public static User Account(HttpSessionStateBase session) => (User)session[ACCOUNT_KEY];
     }
 }

@@ -21,8 +21,8 @@ namespace AssetHub.Models
 
     public partial class PersonLocation : Location
     {
-        public int AccountId { get; set; }
+        public string UserId { get; set; }
 
-        public virtual UserAccount UserAccount { get; set; }
+        public virtual User User { get; set; }
     }
 }

@@ -22,7 +22,7 @@ namespace AssetHub.Models
 
     public partial class AssetNote
     {
-        public int NoteId { get; set; }
+        public int AssetNoteId { get; set; }
 
         public string Title { get; set; }
 
@@ -30,16 +30,16 @@ namespace AssetHub.Models
 
         public int AssetId { get; set; }
 
-        public int UserAccountId { get; set; }
+        public string UserId { get; set; }
 
         public virtual Asset Asset { get; set; }
 
-        public virtual UserAccount UserAccount { get; set; }
+        public virtual User User { get; set; }
     }
 
     public class AssetProperty
     {
-        public int PropertyId { get; set; }
+        public int AssetPropertyId { get; set; }
 
         public string Value { get; set; }
 

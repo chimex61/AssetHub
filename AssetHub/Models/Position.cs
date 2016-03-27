@@ -9,6 +9,6 @@ namespace AssetHub.Models
 
         public string Name { get; set; }
 
-        public virtual IEnumerable<UserAccount> UserAccounts { get; set; }
+        public virtual IEnumerable<User> Users { get; set; }
     }
 }

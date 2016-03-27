@@ -9,8 +9,6 @@ namespace AssetHub.Models
 
         public string Name { get; set; }
 
-        public string Description { get; set; }
-
         public int CategoryId { get; set; }
 
         public virtual AssetModelCategory AssetModelCategory { get; set; }
@@ -29,7 +27,7 @@ namespace AssetHub.Models
 
     public partial class AssetModelProperty
     {
-        public int PropertyId { get; set; }
+        public int AssetModelPropertyId { get; set; }
 
         public string Name { get; set; }
 

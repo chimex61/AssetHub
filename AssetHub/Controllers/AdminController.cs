@@ -58,7 +58,7 @@ namespace AssetHub.Controllers
                     db.Positions.Add(position);
                 }
 
-                var user = new UserAccount
+                var user = new User
                 {
                     Name = vm.Name,
                     UserName = vm.Email,

@@ -7,7 +7,7 @@ using System.Web;
 
 namespace AssetHub.Models
 {
-    public class UserAccount : IdentityUser
+    public class User : IdentityUser
     {
         public string Name { get; set; }
 
