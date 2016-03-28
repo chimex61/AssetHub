@@ -13,24 +13,26 @@ namespace AssetHub.Models
 
         public int AssetId { get; set; }
 
-        public int LocationId { get; set; }
+        public string UserId { get; set; }
+
+        public int AssetLocationId { get; set; }
 
         public virtual Asset Asset { get; set; }
 
-        public virtual Location Location { get; set; }
+        public virtual User User { get; set; }
+
+        public virtual AssetLocation AssetLocation { get; set; }
     }
 
-    public partial class LoanAssetUse : AssetUse
+    [Table("Reservations")]
+    public partial class Reservation : AssetUse
     {
-        public int LoanId { get; set; }
 
-        public virtual Loan Loan { get; set; }
     }
 
-    public partial class ReservationAssetUse : AssetUse
+    [Table("Loans")]
+    public partial class Loan : AssetUse
     {
-        public int ReservationId { get; set; }
-
-        public virtual Reservation Reservation { get; set; }
+        public bool IsReturned { get; set; }
     }
 }

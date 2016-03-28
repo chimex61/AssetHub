@@ -17,7 +17,7 @@ namespace AssetHub.Models
 
         public virtual IEnumerable<AssetUse> AssetUses { get; set; }
 
-        public virtual IEnumerable<Location> Locations { get; set; }
+        public virtual IEnumerable<AssetLocation> Locations { get; set; }
     }
 
     public partial class AssetNote
@@ -45,10 +45,10 @@ namespace AssetHub.Models
 
         public int AssetId { get; set; }
 
-        public int ModelPropetyId { get; set; }
+        public int AssetModelPropetyId { get; set; }
 
         public virtual Asset Asset { get; set; }
 
-        public virtual AssetModelProperty ModelProperty { get; set; }
+        public virtual AssetModelProperty AssetModelProperty { get; set; }
     }
 }

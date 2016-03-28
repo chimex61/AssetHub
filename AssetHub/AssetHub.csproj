@@ -180,10 +180,8 @@
     <Compile Include="Models\Asset.cs" />
     <Compile Include="Models\AssetModel.cs" />
     <Compile Include="Models\AssetUse.cs" />
-    <Compile Include="Models\Loan.cs" />
-    <Compile Include="Models\Location.cs" />
+    <Compile Include="Models\AssetLocation.cs" />
     <Compile Include="Models\Position.cs" />
-    <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -207,6 +205,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Models.cd" />
     <None Include="Scripts\jquery-2.2.1-vsdoc.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

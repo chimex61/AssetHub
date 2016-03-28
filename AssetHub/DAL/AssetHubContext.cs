@@ -27,21 +27,13 @@ namespace AssetHub.DAL
 
         public virtual DbSet<AssetUse> AssetUses { get; set; }
 
-        public virtual DbSet<LoanAssetUse> LoanAssetUses { get; set; }
-
-        public virtual DbSet<ReservationAssetUse> ReservationAssetUses { get; set; }
-
         public virtual DbSet<Loan> Loans { get; set; }
 
-        public virtual DbSet<Location> Locations { get; set; }
+        public virtual DbSet<Reservation> Reservations { get; set; }
 
-        public virtual DbSet<PersonLocation> PersonLocations { get; set; }
-
-        public virtual DbSet<RoomLocation> RoomLocations { get; set; }
+        public virtual DbSet<AssetLocation> AssetLocations { get; set; }
 
         public virtual DbSet<Position> Positions { get; set; }
-
-        public virtual DbSet<Reservation> Reservations { get; set; }
 
         public virtual DbSet<Room> Rooms { get; set; }
 
@@ -51,7 +43,7 @@ namespace AssetHub.DAL
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Location>().HasRequired(f => f.Asset)
+            modelBuilder.Entity<AssetLocation>().HasRequired(f => f.Asset)
                 .WithRequiredDependent()
                 .WillCascadeOnDelete(false);
         }

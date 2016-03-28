@@ -19,8 +19,6 @@ namespace AssetHub.Models
 
         public virtual Room Room { get; set; }
 
-        public virtual IEnumerable<Loan> Loans { get; set; }
-
-        public virtual IEnumerable<Reservation> Reservations { get; set; }
+        public virtual IEnumerable<AssetUse> AssetUses { get; set; }
     }
 }

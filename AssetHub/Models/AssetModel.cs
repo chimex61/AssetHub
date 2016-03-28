@@ -9,7 +9,7 @@ namespace AssetHub.Models
 
         public string Name { get; set; }
 
-        public int CategoryId { get; set; }
+        public int AssetModelCategoryId { get; set; }
 
         public virtual AssetModelCategory AssetModelCategory { get; set; }
 

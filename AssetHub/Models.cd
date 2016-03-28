@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AssetHub.Models.Asset">
+    <Position X="5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAACAAAAAAIIAAAAAgEACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Asset.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AssetHub.Models.AssetNote">
+    <Position X="0.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAACAEAAAAAAAAgAAgAAAAAAAAAgCAAAAAA=</HashCode>
+      <FileName>Models\Asset.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AssetHub.Models.AssetProperty">
+    <Position X="6.75" Y="2.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAIAAAgAAAAAACAAgAAAAAAA=</HashCode>
+      <FileName>Models\Asset.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AssetHub.Models.AssetLocation">
+    <Position X="2.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAQAAACAAAAAAAAABAAAIAAAgAACAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Models\AssetLocation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AssetHub.Models.AssetModel">
+    <Position X="5.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAQgAAAAAAAABAAAAAACAAA=</HashCode>
+      <FileName>Models\AssetModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AssetHub.Models.AssetModelCategory">
+    <Position X="0.5" Y="3" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAQAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Models\AssetModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AssetHub.Models.AssetModelProperty">
+    <Position X="2.75" Y="3" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAABAAAAAAAAAIAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AssetModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AssetHub.Models.AssetUse">
+    <Position X="4" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>hAARAAAAAAAAAAAAAAAAAIgAAgAAAAAAAAAgAAAAABA=</HashCode>
+      <FileName>Models\AssetUse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AssetHub.Models.Reservation">
+    <Position X="6" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AssetUse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AssetHub.Models.Loan">
+    <Position X="6" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AssetUse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AssetHub.Models.Position">
+    <Position X="4" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAQAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Position.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AssetHub.Models.Room">
+    <Position X="2.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACACAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Room.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AssetHub.Models.User">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAgABAAAAQAAACACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
