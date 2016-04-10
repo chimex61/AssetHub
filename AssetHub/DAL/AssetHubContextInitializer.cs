@@ -20,12 +20,14 @@ namespace AssetHub.DAL
 
         private void PreformInitialSetup(AssetHubContext context)
         {
-            AddRooms(context);
-            AddPositions(context);
-            AddUsers(context);
+            addRooms(context);
+            addUserPositions(context);
+            addUsers(context);
+            addAssetModelCategories(context);
+            addAssetModels(context);
         }
 
-        private void AddRooms(AssetHubContext context)
+        private void addRooms(AssetHubContext context)
         {
             var rooms = new List<Room>
             {
@@ -41,40 +43,83 @@ namespace AssetHub.DAL
             context.SaveChanges();
         }
 
-        private void AddPositions(AssetHubContext context)
+        private void addUserPositions(AssetHubContext context)
         {
-            var positions = new List<Position>
+            var userPositions = new List<UserPosition>
             {
-                new Position { Name = "Product Manager" },
-                new Position { Name = "Integration Developer" },
-                new Position { Name = "Lead Developer" },
-                new Position { Name = "Data Scientist" },
-                new Position { Name = "Scrum Master" },
-                new Position { Name = "Software Engineer" },
+                new UserPosition { Name = "Product Manager" },
+                new UserPosition { Name = "Integration Developer" },
+                new UserPosition { Name = "Lead Developer" },
+                new UserPosition { Name = "Data Scientist" },
+                new UserPosition { Name = "Scrum Master" },
+                new UserPosition { Name = "Software Engineer" },
             };
 
-            context.Positions.AddRange(positions);
+            context.UserPositions.AddRange(userPositions);
             context.SaveChanges();
         }
 
-        private void AddUsers(AssetHubContext context)
+        private void addUsers(AssetHubContext context)
         {
             var manager = new AssetHubUserManager(new UserStore<User>(context));
 
             var userList = new List<User>()
             {
-                new User { Name = "Jan Kelemen", UserName = "jan.kelemen@asset.hub",  Email = "jan.kelemen@asset.hub", PositionId = 1, RoomId = 6 },
-                new User { Name = "Borna Skukan", UserName = "borna.skukan@asset.hub", Email = "borna.skukan@asset.hub", PositionId = 2, RoomId = 5 },
-                new User { Name = "Ivan Brezovec", UserName = "ivan.brezovec@asset.hub", Email = "ivan.brezovec@asset.hub", PositionId = 3, RoomId = 4 },
-                new User { Name = "Marijana Krivić", UserName = "marijana.krivic@asset.hub", Email = "marijana.krivic@asset.hub", PositionId = 4, RoomId = 3 },
-                new User { Name = "Marina Brebrić", UserName = "marina.brebric@asset.hub", Email = "marina.brebric@asset.hub", PositionId = 5, RoomId = 2 },
-                new User { Name = "Filip Gulan", UserName = "filip.gulan@asset.hub", Email = "filip.gulan@asset.hub", PositionId = 6, RoomId = 1 },
+                new User { FirstName = "Jan", LastName = "Kelemen", UserName = "jan.kelemen@asset.hub",  Email = "jan.kelemen@asset.hub", UserPositionId = 1, RoomId = 6 },
+                new User { FirstName = "Borna", LastName = "Skukan", UserName = "borna.skukan@asset.hub", Email = "borna.skukan@asset.hub", UserPositionId = 2, RoomId = 5 },
+                new User { FirstName = "Ivan", LastName = "Brezovec", UserName = "ivan.brezovec@asset.hub", Email = "ivan.brezovec@asset.hub", UserPositionId = 3, RoomId = 4 },
+                new User { FirstName = "Filip", LastName = "Gulan", UserName = "filip.gulan@asset.hub", Email = "filip.gulan@asset.hub", UserPositionId = 6, RoomId = 1 },
             };
 
             foreach (var user in userList)
             {
-                manager.Create(user, user.Name);
+                var result = manager.CreateAsync(user, "0123456789").Result;
+                Console.WriteLine(result.Errors);
             }
+
+            context.SaveChanges();
+        }
+
+        private void addAssetModelCategories(AssetHubContext context)
+        {
+            var categoriesList = new List<AssetModelCategory>()
+            {
+                new AssetModelCategory { Name = "IT equipment" },
+                new AssetModelCategory { Name = "Office equipment" },
+            };
+
+            context.AssetModelCategories.AddRange(categoriesList);
+            context.SaveChanges();
+        }
+
+        private void addAssetModels(AssetHubContext context)
+        {
+            var propertiesList = new List<AssetModelProperty>()
+            {
+                new AssetModelProperty { Name = "Number of cores" },
+                new AssetModelProperty { Name = "L3 cache size" },
+                new AssetModelProperty { Name = "Socket" },
+                new AssetModelProperty { Name = "Processor" },
+                new AssetModelProperty { Name = "Ink color" },
+            };
+
+            context.AssetModelProperties.AddRange(propertiesList);
+
+            var assetModelsList = new List<AssetModel>()
+            {
+                new AssetModel {
+                    Name = "Computer",
+                    AssetModelCategoryId = 1,
+                    Properties = new List<AssetModelProperty>() { propertiesList[3] },
+                },
+                new AssetModel {
+                    Name = "Processor",
+                    AssetModelCategoryId = 1,
+                    Properties = new List<AssetModelProperty>() { propertiesList[0], propertiesList[1], propertiesList[2] },
+                },
+            };
+
+            context.AssetModels.AddRange(assetModelsList);
 
             context.SaveChanges();
         }

@@ -167,8 +167,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AssetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DAL\AssetHubContext.cs" />
+    <Compile Include="DAL\AssetHubContextExtensions.cs" />
     <Compile Include="DAL\AssetHubContextInitializer.cs" />
     <Compile Include="DAL\SessionExtension.cs" />
     <Compile Include="Global.asax.cs">
@@ -179,14 +181,17 @@
     <Compile Include="Infrastructure\IdentityConfig.cs" />
     <Compile Include="Models\Asset.cs" />
     <Compile Include="Models\AssetModel.cs" />
-    <Compile Include="Models\AssetUse.cs" />
+    <Compile Include="Models\Loan.cs" />
     <Compile Include="Models\AssetLocation.cs" />
-    <Compile Include="Models\Position.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AccountVMs\LoginViewModel.cs" />
     <Compile Include="ViewModels\AdminVMs\CreateUserViewModel.cs" />
+    <Compile Include="ViewModels\AssetModelVMs\AddAssetModelCategoryViewModel.cs" />
+    <Compile Include="ViewModels\AssetModelVMs\AddAssetModelPropertyViewModel.cs" />
+    <Compile Include="ViewModels\AssetModelVMs\AddAssetModelViewModel.cs" />
+    <Compile Include="ViewModels\AssetVMs\AddAssetViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -207,6 +212,8 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Models.cd" />
     <None Include="Scripts\jquery-2.2.1-vsdoc.js" />
+    <Content Include="Scripts\AddAsset.js" />
+    <Content Include="Scripts\AssetModelProperty.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.2.1.js" />
@@ -236,6 +243,10 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Admin\CreateUser.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Asset\AddAssetModelCategory.cshtml" />
+    <Content Include="Views\Asset\AddAssetModelProperty.cshtml" />
+    <Content Include="Views\Asset\AddAssetModel.cshtml" />
+    <Content Include="Views\Asset\AddAsset.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

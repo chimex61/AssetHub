@@ -5,8 +5,10 @@ namespace AssetHub.Models
 {
     public partial class Room
     {
-        public int RoomId { get; set; }
+        [Column("RoomId")]
+        public int Id { get; set; }
 
+        [Column("RoomName")]
         public string Name { get; set; }
 
         public virtual IEnumerable<User> Users { get; set; }

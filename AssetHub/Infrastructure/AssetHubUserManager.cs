@@ -22,7 +22,7 @@ namespace AssetHub.Infrastructure
 
             manager.UserValidator = new AssetHubUserValidator(manager)
             {
-                RequireUniqueEmail = true
+                RequireUniqueEmail = true,
             };
 
             return manager;

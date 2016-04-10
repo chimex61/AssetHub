@@ -34,7 +34,7 @@
                 @if (isUserConnected)
                 {
                     <ul class="nav navbar-nav navbar-right">
-                        <li>@Html.ActionLink(SessionExtension.Account(Session)?.Name, "Index", "Account")</li>
+                        <li>@Html.ActionLink(SessionExtension.Account(Session)?.FirstName, "Index", "Account")</li>
                         <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
                     </ul>
                 }

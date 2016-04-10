@@ -5,34 +5,39 @@ namespace AssetHub.Models
 {
     public partial class AssetModel
     {
-        public int AssetModelId { get; set; }
+        [Column("AssetModelId")]
+        public int Id { get; set; }
 
+        [Column("AssetModelName")]
         public string Name { get; set; }
 
+        [Column("AssetModelCategoryId")]
         public int AssetModelCategoryId { get; set; }
 
-        public virtual AssetModelCategory AssetModelCategory { get; set; }
+        public virtual ICollection<AssetModelProperty> Properties { get; set; }
 
-        public virtual IEnumerable<AssetModelProperty> Properties { get; set; }
+        public virtual AssetModelCategory AssetModelCategory { get; set; }
     }
 
     public partial class AssetModelCategory
     {
-        public int AssetModelCategoryId { get; set; }
+        [Column("AssetModelCategoryId")]
+        public int Id { get; set; }
 
+        [Column("AssetModelCategoryName")]
         public string Name { get; set; }
 
-        public virtual IEnumerable<AssetModel> AssetModels { get; set; }
+        public virtual ICollection<AssetModel> AssetModels { get; set; }
     }
 
     public partial class AssetModelProperty
     {
-        public int AssetModelPropertyId { get; set; }
+        [Column("AssetModelPropertyId")]
+        public int Id { get; set; }
 
+        [Column("AssetModelPropertyName")]
         public string Name { get; set; }
 
-        public int AssetModelId { get; set; }
-
-        public virtual AssetModel AssetModel { get; set; }
+        public virtual ICollection<AssetModel> AssetModels { get; set; }
     }
 }

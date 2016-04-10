@@ -29,7 +29,9 @@ namespace AssetHub.Controllers
         // Get: CreateUser
         public ActionResult CreateUser()
         {
-            return View();
+            var positions = db.UserPositionList();
+            var rooms = db.RoomList();
+            return Json(positions, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
@@ -38,45 +40,33 @@ namespace AssetHub.Controllers
         {
             if (ModelState.IsValid)
             {
-                var room = (from r in db.Rooms
-                            where r.Name.Equals(vm.Room, StringComparison.InvariantCultureIgnoreCase)
-                            select r).FirstOrDefault();
-
-                if (room == null)
-                {
-                    room = new Room { Name = vm.Room };
-                    db.Rooms.Add(room);
-                }
-
-                var position = (from p in db.Positions
-                                where p.Name.Equals(vm.Position, StringComparison.InvariantCultureIgnoreCase)
-                                select p).FirstOrDefault();
-
-                if (position == null)
-                {
-                    position = new Position { Name = vm.Position };
-                    db.Positions.Add(position);
-                }
+                var room = db.FindOrAddRoom(vm.Room);
+                var position = db.FindOrAddUserPosition(vm.Position);
 
                 var user = new User
                 {
-                    Name = vm.Name,
+                    FirstName = vm.FirstName,
+                    LastName = vm.LastName,
                     UserName = vm.Email,
                     Email = vm.Email,
-                    Position = position,
+                    UserPosition = position,
                     Room = room
                 };
 
-                var result = await UserManager.CreateAsync(user, vm.Email);
+                var result = await UserManager.CreateAsync(user, vm.Password);
 
                 if(result.Succeeded)
                 {
+                    ModelState.AddModelError("", "Unable to create user");
                     return RedirectToAction("Index");
                 }
             }
+            else
+            {
+                ModelState.AddModelError("", "not ok");
+                return View(vm);
+            }
             return View(vm);
         }
-
-
     }
 }

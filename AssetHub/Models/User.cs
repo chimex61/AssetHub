@@ -9,16 +9,33 @@ namespace AssetHub.Models
 {
     public class User : IdentityUser
     {
-        public string Name { get; set; }
+        [Column("UserFirstName")]
+        public string FirstName { get; set; }
 
-        public int PositionId { get; set; }
+        [Column("UserLastName")]
+        public string LastName { get; set; }
 
+        [Column("UserUserPositionId")]
+        public int UserPositionId { get; set; }
+
+        [Column("UserRoomId")]
         public int RoomId { get; set; }
 
-        public virtual Position Position { get; set; }
+        public virtual UserPosition UserPosition { get; set; }
 
         public virtual Room Room { get; set; }
 
-        public virtual IEnumerable<AssetUse> AssetUses { get; set; }
+        public virtual IEnumerable<Loan> Loans { get; set; }
+    }
+
+    public partial class UserPosition
+    {
+        [Column("UserPositionId")]
+        public int Id { get; set; }
+
+        [Column("UserPositionName")]
+        public string Name { get; set; }
+
+        public virtual IEnumerable<User> Users { get; set; }
     }
 }

@@ -45,6 +45,7 @@ namespace AssetHub.Controllers
                 if (acc == null)
                 {
                     ModelState.AddModelError("", "Invalid email or password!");
+                    return View();
                 }
                 else
                 {
