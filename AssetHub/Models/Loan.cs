@@ -14,15 +14,6 @@ namespace AssetHub.Models
         [Column("LoanTimeTo")]
         public DateTime TimeTo { get; set; }
 
-        [Column("LoanAssetId")]
-        public int AssetId { get; set; }
-
-        [Column("LoanUserId")]
-        public string UserId { get; set; }
-
-        [Column("LoanAssetLocationId")]
-        public int AssetLocationId { get; set; }
-
         public virtual Asset Asset { get; set; }
 
         public virtual User User { get; set; }

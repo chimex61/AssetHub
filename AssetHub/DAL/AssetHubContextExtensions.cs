@@ -3,34 +3,23 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace AssetHub.DAL
 {
     public static class AssetHubContextExtensions
     {
-        public static Room FindRoom(this AssetHubContext db, string name)
+        public static Room FindOrAddRoom(this AssetHubContext db, string name)
         {
-            return (from r in db.Rooms
+            var room = (from r in db.Rooms
                         where r.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase)
                         select r).FirstOrDefault();
 
-        }
-
-        public static Room AddRoom(this AssetHubContext db, string name)
-        {
-            var room = new Room { Name = name };
-            db.Rooms.Add(room);
-            db.SaveChanges();
-
-            return room;
-        }
-
-        public static Room FindOrAddRoom(this AssetHubContext db, string name)
-        {
-            var room = db.FindRoom(name);
             if (room == null)
             {
-                room = db.AddRoom(name);
+                room = new Room { Name = name };
+                db.Rooms.Add(room);
+                db.SaveChanges();
             }
 
             return room;
@@ -114,6 +103,42 @@ namespace AssetHub.DAL
                         select p.Name).ToList();
 
             return list;
+        }
+
+        public static IEnumerable<SelectListItem> RoomDropdown(this AssetHubContext db)
+        {
+            var rooms = db.Rooms.Select(
+                m => new SelectListItem
+                {
+                    Value = m.Id.ToString(),
+                    Text = m.Name,
+                });
+
+            return new SelectList(rooms, "Value", "Text");
+        }
+
+        public static IEnumerable<SelectListItem> UserPositionDropdown(this AssetHubContext db)
+        {
+            var rooms = db.UserPositions.Select(
+                m => new SelectListItem
+                {
+                    Value = m.Id.ToString(),
+                    Text = m.Name,
+                });
+
+            return new SelectList(rooms, "Value", "Text");
+        }
+
+        public static IEnumerable<SelectListItem> AssetModelDropdown(this AssetHubContext db)
+        {
+            var assetModels = db.AssetModels.Select(
+                m => new SelectListItem
+                {
+                    Value = m.Id.ToString(),
+                    Text = m.Name,
+                });
+
+            return new SelectList(assetModels, "Value", "Text");
         }
     }
 }

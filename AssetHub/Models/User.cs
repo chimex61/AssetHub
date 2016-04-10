@@ -15,12 +15,6 @@ namespace AssetHub.Models
         [Column("UserLastName")]
         public string LastName { get; set; }
 
-        [Column("UserUserPositionId")]
-        public int UserPositionId { get; set; }
-
-        [Column("UserRoomId")]
-        public int RoomId { get; set; }
-
         public virtual UserPosition UserPosition { get; set; }
 
         public virtual Room Room { get; set; }

@@ -11,9 +11,6 @@ namespace AssetHub.Models
         [Column("AssetModelName")]
         public string Name { get; set; }
 
-        [Column("AssetModelCategoryId")]
-        public int AssetModelCategoryId { get; set; }
-
         public virtual ICollection<AssetModelProperty> Properties { get; set; }
 
         public virtual AssetModelCategory AssetModelCategory { get; set; }

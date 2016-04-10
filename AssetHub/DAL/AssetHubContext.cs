@@ -34,18 +34,5 @@ namespace AssetHub.DAL
         public virtual DbSet<Room> Rooms { get; set; }
 
         public static AssetHubContext Create() => new AssetHubContext();
-
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Entity<AssetLocation>().HasRequired(f => f.Asset)
-                .WithRequiredDependent()
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<AssetProperty>().HasRequired(f => f.AssetModelProperty)
-                .WithRequiredDependent()
-                .WillCascadeOnDelete(false);
-        }
     }
 }

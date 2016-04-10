@@ -92,65 +92,66 @@ namespace AssetHub.Controllers
 
         public ActionResult AddAsset()
         {
-            return View(new AddAssetViewModel { AssetModels = GetAssetModels() });
+            return View(new AddAssetViewModel());
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult AddAsset(AddAssetViewModel vm)
         {
+            ModelState.AddModelError("", "ooooo");
             if(ModelState.IsValid)
             {
-                var assetModel = (from m in db.AssetModels where m.Id == vm.SelectedAssetModel select m).FirstOrDefault();
-                var asset = new Asset
+                var asset = new Asset()
                 {
                     Name = vm.Name,
                     SerialNumber = vm.SerialNumber,
-                    AssetModel = assetModel,
                 };
 
-                var modelProperties = (from p in assetModel.Properties orderby p.Name select p).ToArray();
-                var properties = new List<AssetProperty>();
-                for(int i = 0; i < assetModel.Properties.Count; i++)
+                var location = new AssetLocation()
                 {
-                    properties.Add(new AssetProperty
+                    Asset = asset,
+                    TimeFrom = DateTime.Now,
+                    TimeTo = null,
+                    Room = db.Rooms.Find(vm.SelectedRoomId),
+                };
+
+                asset.Locations = new List<AssetLocation>()
+                {
+                    location,
+                };
+
+                var properties = new List<AssetProperty>();
+                foreach(var vmProp in vm.Properties)
+                {
+                    var property = new AssetProperty()
                     {
                         Asset = asset,
-                        AssetModelProperty = modelProperties[i],
-                        Value = vm.PropertyValue[i],
-                    });
+                        AssetModelProperty = db.AssetModelProperties.Find(vmProp.ModelId),
+                        Value = vmProp.Value,
+                    };
+
+                    properties.Add(property);
                 }
 
                 asset.AssetProperties = properties;
 
+                db.AssetLocations.Add(location);
                 db.AssetProperties.AddRange(properties);
                 db.Assets.Add(asset);
                 db.SaveChanges();
             }
             else
             {
-                return View();
+                return View(vm);
             }
 
-            return View();
+            return View(vm);
         }
-
-        private IEnumerable<SelectListItem> GetAssetModels()
-        {
-            var assetModels = db.AssetModels.Select(
-                m => new SelectListItem
-                {
-                    Value = m.Id.ToString(),
-                    Text = m.Name,
-                });
-
-            return new SelectList(assetModels, "Value", "Text");
-        }
-
         public JsonResult GetAssetModelProperties(int id)
         {
             var properties = (from m in db.AssetModels where m.Id == id select m).First().Properties;
-            var propertiesList = (from p in properties orderby p.Name select p.Name).ToArray();
+            var propertiesList = (from p in properties orderby p.Id select new { p.Id, p.Name }).ToArray();
             return Json(propertiesList, JsonRequestBehavior.AllowGet);
         }
     }

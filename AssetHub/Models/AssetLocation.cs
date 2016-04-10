@@ -13,13 +13,7 @@ namespace AssetHub.Models
         public DateTime TimeFrom { get; set; }
 
         [Column("AssetLocationTimeTo")]
-        public DateTime TimeTo { get; set; }
-
-        [Column("AssetLocationAssetId")]
-        public int AssetId { get; set; }
-
-        [Column("AssetLocationRoomId")]
-        public int RoomId { get; set; }
+        public DateTime? TimeTo { get; set; }
 
         public virtual Asset Asset { get; set; }
 

@@ -1,30 +1,25 @@
 ﻿@model AssetHub.ViewModels.AssetVMs.AddAssetViewModel
 
 @{
-    ViewBag.Title = "Add asset";
+    ViewBag.Title = "AddAsset";
 }
 
-@using (Html.BeginForm()) 
+<h2>AddAsset</h2>
+
+
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Add asset</h4>
+        <h4>AddAssetViewModel</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
         <div class="form-group">
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        
-        <div class="form-group">
-           @Html.LabelFor(model => model.SelectedAssetModel, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(m => m.SelectedAssetModel, Model.AssetModels, htmlAttributes : new { @class = "btn btn-default dropdown-toggle", @id="modelSelector", @onchange="loadProperties()"})
             </div>
         </div>
 
@@ -36,10 +31,27 @@
             </div>
         </div>
 
-        <div id="propertiesEditors">
-            
+        <h4>Asset model</h4> <hr/>
+        <div class="form-group">
+            @Html.LabelFor(model => model.SelectedAssetModelId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.SelectedAssetModelId, Model.AssetModels, htmlAttributes: new { @class = "form-control", @id = "modelSelector" })
+            </div>
         </div>
-        
+
+        <div id="propertiesList" style="display: none">
+        </div>
+
+        <h4>Location</h4> <hr />
+        <div class="form-group">
+            @Html.LabelFor(model => model.SelectedRoomId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.SelectedRoomId, Model.Rooms, htmlAttributes: new { @class = "form-control", @id ="roomSelector"})
+            </div>
+        </div>
+
+
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />

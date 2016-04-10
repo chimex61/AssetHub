@@ -65,10 +65,7 @@ namespace AssetHub.DAL
 
             var userList = new List<User>()
             {
-                new User { FirstName = "Jan", LastName = "Kelemen", UserName = "jan.kelemen@asset.hub",  Email = "jan.kelemen@asset.hub", UserPositionId = 1, RoomId = 6 },
-                new User { FirstName = "Borna", LastName = "Skukan", UserName = "borna.skukan@asset.hub", Email = "borna.skukan@asset.hub", UserPositionId = 2, RoomId = 5 },
-                new User { FirstName = "Ivan", LastName = "Brezovec", UserName = "ivan.brezovec@asset.hub", Email = "ivan.brezovec@asset.hub", UserPositionId = 3, RoomId = 4 },
-                new User { FirstName = "Filip", LastName = "Gulan", UserName = "filip.gulan@asset.hub", Email = "filip.gulan@asset.hub", UserPositionId = 6, RoomId = 1 },
+                new User { FirstName = "Jan", LastName = "Kelemen", UserName = "jan.kelemen@asset.hub",  Email = "jan.kelemen@asset.hub", UserPosition = context.FindOrAddUserPosition("Product Manager"), Room = context.FindOrAddRoom("PCLAB2") },
             };
 
             foreach (var user in userList)
@@ -109,12 +106,12 @@ namespace AssetHub.DAL
             {
                 new AssetModel {
                     Name = "Computer",
-                    AssetModelCategoryId = 1,
+                    AssetModelCategory = context.FindOrAddAssetModelCategory("IT equipment"),
                     Properties = new List<AssetModelProperty>() { propertiesList[3] },
                 },
                 new AssetModel {
                     Name = "Processor",
-                    AssetModelCategoryId = 1,
+                    AssetModelCategory = context.FindOrAddAssetModelCategory("IT equipment"),
                     Properties = new List<AssetModelProperty>() { propertiesList[0], propertiesList[1], propertiesList[2] },
                 },
             };
