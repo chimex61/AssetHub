@@ -6,6 +6,10 @@
 
 <h2>AddAsset</h2>
 
+<script>
+    var selectedAssetModelId = Number(@Model.SelectedAssetModelId);
+    var selectedRoomId = Number(@Model.SelectedRoomId);
+</script>
 
 @using (Html.BeginForm())
 {
@@ -39,8 +43,28 @@
             </div>
         </div>
 
-        <div id="propertiesList" style="display: none">
-        </div>
+        @if (Model.Properties.Count > 0)
+        {
+            <div id="propertiesList">
+                <h4>Properties</h4> <hr />
+                @for(int i = 0; i < Model.Properties.Count; i++)
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Properties[i], Model.Properties[i].Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.HiddenFor(model => model.Properties[i].ModelId)
+                            @Html.HiddenFor(model => model.Properties[i].Name)
+                            @Html.EditorFor(model => model.Properties[i].Value, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Properties[i].ModelId, "", new { @class = "text-danger" })
+                        </div> 
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div id="propertiesList" style="display: none"></div>
+        }
 
         <h4>Location</h4> <hr />
         <div class="form-group">
@@ -54,7 +78,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" id="btnAdd" value="Add" class="btn btn-default" />
             </div>
         </div>
     </div>

@@ -99,7 +99,6 @@ namespace AssetHub.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult AddAsset(AddAssetViewModel vm)
         {
-            ModelState.AddModelError("", "ooooo");
             if(ModelState.IsValid)
             {
                 var asset = new Asset()

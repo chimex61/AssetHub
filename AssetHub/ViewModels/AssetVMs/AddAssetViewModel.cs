@@ -24,8 +24,11 @@ namespace AssetHub.ViewModels.AssetVMs
         {
             using (var db = new AssetHubContext())
             {
+                SelectedAssetModelId = -1;
+                SelectedRoomId = -1;
                 AssetModels = db.AssetModelDropdown().ToList();
-                Rooms = db.RoomDropdown().ToList();        
+                Rooms = db.RoomDropdown().ToList();
+                Properties = new List<PropertyEditor>();
             }
         }
 
