@@ -14,6 +14,8 @@ namespace AssetHub.Models
         public virtual ICollection<AssetModelProperty> Properties { get; set; }
 
         public virtual AssetModelCategory AssetModelCategory { get; set; }
+
+        public virtual ICollection<Asset> Assets { get; set; }
     }
 
     public partial class AssetModelCategory

@@ -191,7 +191,10 @@
     <Compile Include="ViewModels\AssetModelVMs\AddAssetModelCategoryViewModel.cs" />
     <Compile Include="ViewModels\AssetModelVMs\AddAssetModelPropertyViewModel.cs" />
     <Compile Include="ViewModels\AssetModelVMs\AddAssetModelViewModel.cs" />
+    <Compile Include="ViewModels\AssetModelVMs\ViewAssetModelViewModel.cs" />
+    <Compile Include="ViewModels\AssetModelVMs\ViewCategoryViewModel.cs" />
     <Compile Include="ViewModels\AssetVMs\AddAssetViewModel.cs" />
+    <Compile Include="ViewModels\AssetVMs\ViewAssetViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -247,6 +250,8 @@
     <Content Include="Views\Asset\AddAssetModelProperty.cshtml" />
     <Content Include="Views\Asset\AddAssetModel.cshtml" />
     <Content Include="Views\Asset\AddAsset.cshtml" />
+    <Content Include="Views\Asset\ViewCategory.cshtml" />
+    <Content Include="Views\Asset\ViewAssetModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

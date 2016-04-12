@@ -90,6 +90,7 @@ namespace AssetHub.Controllers
             return View();
         }
 
+        // GET: AddAsset
         public ActionResult AddAsset()
         {
             return View(new AddAssetViewModel());
@@ -147,11 +148,27 @@ namespace AssetHub.Controllers
 
             return View(vm);
         }
+
         public JsonResult GetAssetModelProperties(int id)
         {
             var properties = (from m in db.AssetModels where m.Id == id select m).First().Properties;
             var propertiesList = (from p in properties orderby p.Id select new { p.Id, p.Name }).ToArray();
             return Json(propertiesList, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult ViewCategory(int? id = 1)
+        {
+            return View(new ViewCategoryViewModel(id.Value));
+        }
+
+        public ActionResult ViewAssetModel(int? id = 1)
+        {
+            return View(new ViewAssetModelViewModel(id.Value));
+        }
+
+        public ActionResult ViewAsset(int? id = 1)
+        {
+            return View();
         }
     }
 }
