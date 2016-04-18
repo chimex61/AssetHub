@@ -6,9 +6,9 @@ using System.Web;
 
 namespace AssetHub.ViewModels.AssetModelVMs
 {
-    public class AddAssetModelPropertyViewModel
+    public class AddCategoryViewModel
     {
         [Required]
-        public string Name { get; set; } 
+        public string Name { get; set; }
     }
 }

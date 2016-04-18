@@ -20,76 +20,6 @@ namespace AssetHub.Controllers
             return View();
         }
 
-        // GET: AddAssetModelProperty
-        public ActionResult AddAssetModelProperty()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult AddAssetModelProperty(AddAssetModelPropertyViewModel vm)
-        {
-            if(ModelState.IsValid)
-            {
-                var property = db.FindOrAddAssetModelProperty(vm.Name);
-            }
-
-            return View();
-        }
-
-        // GET: AddAssetModelCategory
-        public ActionResult AddAssetModelCategory()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult AddAssetModelCategory(AddAssetModelCategoryViewModel vm)
-        {
-            if(ModelState.IsValid)
-            {
-                var category = db.FindOrAddAssetModelCategory(vm.Name);
-            }
-
-            return View();
-        }
-        
-
-        // GET: AddAssetModel
-        public ActionResult AddAssetModel()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult AddAssetModel(AddAssetModelViewModel vm)
-        {
-            if(ModelState.IsValid)
-            {
-                var category = db.FindOrAddAssetModelCategory(vm.Category);
-                var properties = new List<AssetModelProperty>();
-                foreach(var property in vm.Property)
-                {
-                    properties.Add(db.FindOrAddAssetModelProperty(property));
-                }
-
-                var model = new AssetModel()
-                {
-                    Name = vm.Name,
-                    AssetModelCategory = category,
-                    Properties = properties
-                };
-
-                db.AssetModels.Add(model);
-                db.SaveChanges();
-            }
-
-            return View();
-        }
-
         // GET: AddAsset
         public ActionResult AddAsset()
         {
@@ -154,16 +84,6 @@ namespace AssetHub.Controllers
             var properties = (from m in db.AssetModels where m.Id == id select m).First().Properties;
             var propertiesList = (from p in properties orderby p.Id select new { p.Id, p.Name }).ToArray();
             return Json(propertiesList, JsonRequestBehavior.AllowGet);
-        }
-
-        public ActionResult ViewCategory(int? id = 1)
-        {
-            return View(new ViewCategoryViewModel(id.Value));
-        }
-
-        public ActionResult ViewAssetModel(int? id = 1)
-        {
-            return View(new ViewAssetModelViewModel(id.Value));
         }
 
         public ActionResult ViewAsset(int? id = 1)

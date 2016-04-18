@@ -51,4 +51,22 @@ namespace AssetHub.Models
 
         public virtual AssetModelProperty AssetModelProperty { get; set; }
     }
+
+    public partial class AssetLocation
+    {
+        [Column("AssetLocationId")]
+        public int Id { get; set; }
+
+        [Column("AssetLocationTimeFrom")]
+        public DateTime TimeFrom { get; set; }
+
+        [Column("AssetLocationTimeTo")]
+        public DateTime? TimeTo { get; set; }
+
+        public virtual Asset Asset { get; set; }
+
+        public virtual Room Room { get; set; }
+
+        public virtual IEnumerable<Loan> Loans { get; set; }
+    }
 }
