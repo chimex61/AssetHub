@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace AssetHub.ViewModels.AssetVMs
+namespace AssetHub.ViewModels.Asset
 {
     public class ViewAssetViewModel
     {
@@ -49,7 +49,7 @@ namespace AssetHub.ViewModels.AssetVMs
         public string SerialNumber { get; set; }
 
         [Display(Name = "Asset model")]
-        public AssetModel AssetModel { get; set; }
+        public Models.AssetModel AssetModel { get; set; }
 
         public ICollection<AssetProperty> Properties { get; set; }
 

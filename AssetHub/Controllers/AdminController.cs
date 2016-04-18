@@ -1,7 +1,7 @@
 ﻿using AssetHub.DAL;
 using AssetHub.Infrastructure;
 using AssetHub.Models;
-using AssetHub.ViewModels.AdminVMs;
+using AssetHub.ViewModels.Admin;
 using Microsoft.AspNet.Identity.Owin;
 using System.Web;
 using System.Web.Mvc;

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace AssetHub.ViewModels.AssetModelVMs
+namespace AssetHub.ViewModels.AssetModel
 {
     public class ViewCategoryViewModel
     {
@@ -25,6 +25,6 @@ namespace AssetHub.ViewModels.AssetModelVMs
 
         public string Name { get; set; }
 
-        public ICollection<AssetModel> AssetModels { get; set; }
+        public ICollection<Models.AssetModel> AssetModels { get; set; }
     }
 }

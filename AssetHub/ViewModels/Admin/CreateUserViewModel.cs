@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AssetHub.ViewModels.AdminVMs
+namespace AssetHub.ViewModels.Admin
 {
     public class CreateUserViewModel
     {

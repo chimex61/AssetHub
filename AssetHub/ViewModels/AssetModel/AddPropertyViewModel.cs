@@ -4,11 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace AssetHub.ViewModels.AssetModelVMs
+namespace AssetHub.ViewModels.AssetModel
 {
-    public class AddCategoryViewModel
+    public class AddPropertyViewModel
     {
         [Required]
-        public string Name { get; set; }
+        public string Name { get; set; } 
     }
 }

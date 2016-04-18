@@ -7,7 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace AssetHub.ViewModels.AssetVMs
+namespace AssetHub.ViewModels.Asset
 {
     public class AddAssetViewModel
     {

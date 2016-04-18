@@ -1,6 +1,6 @@
 ﻿using AssetHub.DAL;
 using AssetHub.Infrastructure;
-using AssetHub.ViewModels.AccountVMs;
+using AssetHub.ViewModels.Account;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;

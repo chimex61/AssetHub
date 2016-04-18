@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace AssetHub.ViewModels.AssetModelVMs
+namespace AssetHub.ViewModels.AssetModel
 {
     public class AddAssetModelViewModel
     {

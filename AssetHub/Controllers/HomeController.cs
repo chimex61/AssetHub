@@ -1,4 +1,5 @@
 ﻿using AssetHub.DAL;
+using AssetHub.ViewModels.Home;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +13,8 @@ namespace AssetHub.Controllers
     {
         public ActionResult Index()
         {
-            (new AssetHubContext()).SaveChanges();
-            return View();
+            var currentUser = SessionExtension.Account(Session);
+            return View(new IndexViewModel(currentUser.Id));
         }
     }
 }
