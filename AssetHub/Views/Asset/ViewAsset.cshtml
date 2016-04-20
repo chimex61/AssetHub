@@ -1,0 +1,57 @@
+﻿@model AssetHub.ViewModels.Asset.ViewAssetViewModel
+
+@{
+    ViewBag.Title = "ViewAsset";
+}
+
+<h2>@Model.Name</h2>
+
+<div>
+    <h4>Details</h4><hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AssetModel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AssetModel.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SerialNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SerialNumber)
+        </dd>
+    </dl>
+
+    <h4>Properties</h4><hr />
+    <dl class="dl-horizontal">
+        @foreach(var p in Model.Properties)
+        {
+            <dt>
+                @Html.DisplayName(p.AssetModelProperty.Name)
+            </dt>
+
+            <dd>
+                @p.Value
+            </dd>
+        }
+    </dl>
+
+    <h4>Current location</h4> <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentLocation)
+        </dt>
+
+        <dd>
+            @Model.CurrentLocation.Room.Name
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

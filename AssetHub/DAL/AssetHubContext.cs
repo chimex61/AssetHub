@@ -34,5 +34,20 @@ namespace AssetHub.DAL
         public virtual DbSet<Room> Rooms { get; set; }
 
         public static AssetHubContext Create() => new AssetHubContext();
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<AssetModel>()
+                .HasMany(m => m.Properties)
+                .WithMany(m => m.AssetModels)
+                .Map(t =>
+                {
+                    t.ToTable("AssetModelAssetModelProperty");
+                    t.MapLeftKey("AssetModelId");
+                    t.MapRightKey("AssetModelPropertyId");
+                });
+        }
     }
 }

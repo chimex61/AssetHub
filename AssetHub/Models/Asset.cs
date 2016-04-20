@@ -4,70 +4,78 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AssetHub.Models
 {
-    public partial class Asset 
-    {
-        [Column("AssetId")]
+    public partial class Asset
+    { 
         public int Id { get; set; }
 
-        [Column("AssetName")]
         public string Name { get; set; }
 
-        [Column("AssetSerialNumber")]
         public string SerialNumber { get; set; }
 
+        public int AssetModelId { get; set; }
+
+        [ForeignKey("AssetModelId")]
         public virtual AssetModel AssetModel { get; set; }
 
-        public virtual IEnumerable<AssetProperty> AssetProperties { get; set; }
+        public virtual ICollection<AssetProperty> AssetProperties { get; set; }
 
-        public virtual IEnumerable<Loan> Loans { get; set; }
+        public virtual ICollection<Loan> Loans { get; set; }
 
-        public virtual IEnumerable<AssetLocation> Locations { get; set; }
+        public virtual ICollection<AssetLocation> Locations { get; set; }
     }
 
     public partial class AssetNote
     {
-        [Column("AssetNoteId")]
         public int Id { get; set; }
 
-        [Column("AssetNoteTitle")]
         public string Title { get; set; }
 
-        [Column("AssetNoteText")]
         public string Text { get; set; }
 
+        public int AssetId { get; set; }
+
+        public string UserId { get; set; }
+
+        [ForeignKey("AssetId")]
         public virtual Asset Asset { get; set; }
 
+        [ForeignKey("UserId")]
         public virtual User User { get; set; }
     }
 
     public class AssetProperty
     {
-        [Column("AssetPropertyId")]
         public int Id { get; set; }
 
-        [Column("AssetPropertyValue")]
         public string Value { get; set; }
 
+        public int AssetId { get; set; }
+
+        public int AssetModelPropertyId { get; set; }
+
+        [ForeignKey("AssetId")]
         public virtual Asset Asset { get; set; }
 
+        [ForeignKey("AssetModelPropertyId")]
         public virtual AssetModelProperty AssetModelProperty { get; set; }
     }
 
     public partial class AssetLocation
     {
-        [Column("AssetLocationId")]
         public int Id { get; set; }
 
-        [Column("AssetLocationTimeFrom")]
         public DateTime TimeFrom { get; set; }
 
-        [Column("AssetLocationTimeTo")]
         public DateTime? TimeTo { get; set; }
 
+        public int AssetId { get; set; }
+
+        public int RoomId { get; set; }
+
+        [ForeignKey("AssetId")]
         public virtual Asset Asset { get; set; }
 
+        [ForeignKey("RoomId")]
         public virtual Room Room { get; set; }
-
-        public virtual IEnumerable<Loan> Loans { get; set; }
     }
 }

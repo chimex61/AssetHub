@@ -10,35 +10,36 @@ namespace AssetHub.ViewModels.Asset
 {
     public class ViewAssetViewModel
     {
+        AssetHubContext db = new AssetHubContext();
         public ViewAssetViewModel(int id)
         {
-            using (var db = new AssetHubContext())
-            {
-                var asset = db.Assets.Find(id);
 
-                Id = asset.Id;
-                Name = asset.Name;
-                SerialNumber = asset.SerialNumber;
-                AssetModel = asset.AssetModel;
-                Properties = asset.AssetProperties.ToList();
+            var asset = db.Assets.Find(id);
 
-                PastLoans = (from l in db.Loans
-                             where l.TimeTo <= DateTime.Now
-                             orderby l.TimeFrom
-                             select l).ToList();
+            Id = asset.Id;
+            Name = asset.Name;
+            SerialNumber = asset.SerialNumber;
+            AssetModel = asset.AssetModel;
+            Properties = asset.AssetProperties.ToList();
 
-                CurrentLoan = (from l in db.Loans
-                               where l.TimeFrom >= DateTime.Now
-                               orderby l.TimeFrom
+            PastLoans = (from l in db.Loans
+                         where l.TimeTo <= DateTime.Now
+                         orderby l.TimeFrom
+                         select l).ToList();
+
+            CurrentLoan = (from l in db.Loans
+                           where l.TimeFrom >= DateTime.Now
+                           orderby l.TimeFrom
+                           select l).FirstOrDefault();
+
+            FutureLoans = (from l in db.Loans
+                           where l.TimeTo >= DateTime.Now
+                           orderby l.TimeFrom
+                           select l).ToList();
+
+            CurrentLocation = (from l in db.AssetLocations
+                               where l.AssetId == id &&  l.TimeTo == null
                                select l).FirstOrDefault();
-
-                FutureLoans = (from l in db.Loans
-                             where l.TimeTo > DateTime.Now
-                             orderby l.TimeFrom
-                             select l).ToList();
-
-                CurrentLocation = CurrentLoan != null ? CurrentLoan.AssetLocation : null;
-            }
         }
 
         public int Id { get; set; }
@@ -51,14 +52,15 @@ namespace AssetHub.ViewModels.Asset
         [Display(Name = "Asset model")]
         public Models.AssetModel AssetModel { get; set; }
 
-        public ICollection<AssetProperty> Properties { get; set; }
+        public List<AssetProperty> Properties { get; set; }
 
-        public ICollection<Loan> PastLoans { get; set; }
+        public List<Loan> PastLoans { get; set; }
 
         public Loan CurrentLoan { get; set; }
 
-        public ICollection<Loan> FutureLoans { get; set; }
+        public List<Loan> FutureLoans { get; set; }
 
+        [Display(Name = "Current location")]
         public AssetLocation CurrentLocation { get; set; }
     }
 }

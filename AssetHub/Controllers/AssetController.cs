@@ -88,7 +88,7 @@ namespace AssetHub.Controllers
 
         public ActionResult ViewAsset(int? id = 1)
         {
-            return View();
+            return View(new ViewAssetViewModel(id.Value));
         }
     }
 }

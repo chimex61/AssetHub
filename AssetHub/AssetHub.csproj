@@ -253,6 +253,7 @@
     <Content Include="Views\AssetModel\ViewCategory.cshtml" />
     <Content Include="Views\AssetModel\ViewAssetModel.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Asset\ViewAsset.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

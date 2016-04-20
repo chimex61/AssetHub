@@ -37,10 +37,11 @@
                     <ul class="nav navbar-nav">
                       <li>@Html.ActionLink("Home", "Index", "Home")</li>
                       <li>@Html.ActionLink("Assets", "Index", "Asset")</li>
+                      <li>@Html.ActionLink("Asset models", "Index", "AssetModel")</li>
                     </ul>
                 
-
                     <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.ActionLink("Admin", "Index", "Admin")</li>
                         <li>@Html.ActionLink(SessionExtension.Account(Session)?.FirstName, "Index", "Account")</li>
                         <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
                     </ul>
