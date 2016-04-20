@@ -1,0 +1,29 @@
+﻿@model AssetHub.ViewModels.Asset.IndexViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div class="row">
+    <div class="col-sm-2">
+        @Html.ActionLink("Add asset", "AddAsset", "Asset") <br />
+    </div>
+    <div class="col-sm-8">
+        <h4>Asset list</h4> <hr />
+        <div class="form-inline">
+            @using (Html.BeginForm("Index", "Asset", FormMethod.Post, htmlAttributes: new { role = "form" }))
+            {
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SerialKey)
+                    @Html.EditorFor(model => model.SerialKey, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+
+                <div class="form-group">
+                    @Html.Label
+                </div>
+            }
+        </div>
+    </div>
+</div>

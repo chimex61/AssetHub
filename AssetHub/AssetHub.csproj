@@ -194,6 +194,7 @@
     <Compile Include="ViewModels\AssetModel\ViewAssetModelViewModel.cs" />
     <Compile Include="ViewModels\AssetModel\ViewCategoryViewModel.cs" />
     <Compile Include="ViewModels\Asset\AddAssetViewModel.cs" />
+    <Compile Include="ViewModels\Asset\IndexViewModel.cs" />
     <Compile Include="ViewModels\Asset\ViewAssetViewModel.cs" />
     <Compile Include="ViewModels\Home\IndexViewModel.cs" />
   </ItemGroup>
@@ -254,6 +255,7 @@
     <Content Include="Views\AssetModel\ViewAssetModel.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Asset\ViewAsset.cshtml" />
+    <Content Include="Views\Asset\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
