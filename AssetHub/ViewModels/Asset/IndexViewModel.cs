@@ -14,9 +14,11 @@ namespace AssetHub.ViewModels.Asset
 
         public IndexViewModel()
         {
-            SelectedAssetModel = -1;
-            SelectedCategory = -1;
+            SelectedAssetModelId = -1;
+            SelectedCategoryId = -1;
             SearchResults = new List<Models.Asset>();
+            AssetModels = new List<SelectListItem>();
+            Categories = new List<SelectListItem>();
         }
 
         public string Name { get; set; }
@@ -24,11 +26,11 @@ namespace AssetHub.ViewModels.Asset
         [Display(Name ="Serial Key")]
         public string SerialKey { get; set; }
 
-        public int SelectedAssetModel { get; set; }
+        public int SelectedAssetModelId { get; set; }
 
         public IEnumerable<SelectListItem> AssetModels { get; set; }
 
-        public int SelectedCategory { get; set; }
+        public int SelectedCategoryId { get; set; }
 
         public IEnumerable<SelectListItem> Categories { get; set; }
 

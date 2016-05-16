@@ -17,7 +17,7 @@ namespace AssetHub.Controllers
         // GET: Asset
         public ActionResult Index()
         {
-            return View();
+            return View(new IndexViewModel());
         }
 
         // GET: AddAsset

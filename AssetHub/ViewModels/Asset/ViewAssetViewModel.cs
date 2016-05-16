@@ -38,7 +38,7 @@ namespace AssetHub.ViewModels.Asset
                            select l).ToList();
 
             CurrentLocation = (from l in db.AssetLocations
-                               where l.AssetId == id &&  l.TimeTo == null
+                               where l.AssetId == id && DateTime.Now >= l.TimeFrom && (DateTime.Now <= l.TimeTo || l.TimeTo == null) 
                                select l).FirstOrDefault();
         }
 

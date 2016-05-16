@@ -31,30 +31,6 @@ namespace AssetHub.Controllers
             return View();
         }
 
-        // GET: AddCategory
-        public ActionResult AddCategory()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult AddCategory(AddCategoryViewModel vm)
-        {
-            if (ModelState.IsValid)
-            {
-                var category = db.FindOrAddAssetModelCategory(vm.Name);
-            }
-
-            return View();
-        }
-
-        // GET: ViewCategory
-        public ActionResult ViewCategory(int? id = 1)
-        {
-            return View(new ViewCategoryViewModel(id.Value));
-        }
-
         // GET: AddAssetModel
         public ActionResult AddAssetModel()
         {

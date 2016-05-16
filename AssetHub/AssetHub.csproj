@@ -169,6 +169,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AssetController.cs" />
     <Compile Include="Controllers\AssetModelController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DAL\AssetHubContext.cs" />
     <Compile Include="DAL\AssetHubContextExtensions.cs" />
@@ -188,11 +189,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Account\LoginViewModel.cs" />
     <Compile Include="ViewModels\Admin\CreateUserViewModel.cs" />
-    <Compile Include="ViewModels\AssetModel\AddCategoryViewModel.cs" />
+    <Compile Include="ViewModels\Category\AddCategoryViewModel.cs" />
     <Compile Include="ViewModels\AssetModel\AddPropertyViewModel.cs" />
     <Compile Include="ViewModels\AssetModel\AddAssetModelViewModel.cs" />
     <Compile Include="ViewModels\AssetModel\ViewAssetModelViewModel.cs" />
-    <Compile Include="ViewModels\AssetModel\ViewCategoryViewModel.cs" />
+    <Compile Include="ViewModels\Category\ViewCategoryViewModel.cs" />
     <Compile Include="ViewModels\Asset\AddAssetViewModel.cs" />
     <Compile Include="ViewModels\Asset\IndexViewModel.cs" />
     <Compile Include="ViewModels\Asset\ViewAssetViewModel.cs" />
@@ -259,6 +260,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Category\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

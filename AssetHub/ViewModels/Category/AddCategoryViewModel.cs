@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace AssetHub.ViewModels.AssetModel
+namespace AssetHub.ViewModels.Category
 {
     public class AddCategoryViewModel
     {
