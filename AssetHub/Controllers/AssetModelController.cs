@@ -13,6 +13,11 @@ namespace AssetHub.Controllers
     {
         AssetHubContext db = new AssetHubContext();
 
+        public ActionResult Index()
+        {
+            return View(new IndexViewModel());
+        }
+
         // GET: AddProperty
         public ActionResult AddProperty()
         {

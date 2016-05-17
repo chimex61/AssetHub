@@ -1,4 +1,5 @@
-﻿using AssetHub.ViewModels.AssetModel;
+﻿using AssetHub.DAL;
+using AssetHub.ViewModels.Category;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,12 @@ namespace AssetHub.Controllers
 {
     public class CategoryController : Controller
     {
+        AssetHubContext db = new AssetHubContext();
+
         // GET: Category
         public ActionResult Index()
         {
-            return View();
+            return View(new IndexViewModel { Categories = db.AssetModelCategories.ToList() });
         }
 
         // GET: AddCategory

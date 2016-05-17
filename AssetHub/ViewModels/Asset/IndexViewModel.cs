@@ -21,15 +21,15 @@ namespace AssetHub.ViewModels.Asset
             Categories = new List<SelectListItem>();
         }
 
-        public string Name { get; set; }
-
         [Display(Name ="Serial Key")]
         public string SerialKey { get; set; }
 
+        [Display(Name = "Asset model")]
         public int SelectedAssetModelId { get; set; }
 
         public IEnumerable<SelectListItem> AssetModels { get; set; }
 
+        [Display(Name = "Category")]
         public int SelectedCategoryId { get; set; }
 
         public IEnumerable<SelectListItem> Categories { get; set; }

@@ -1,6 +1,5 @@
 ﻿using AssetHub.DAL;
 using AssetHub.Models;
-using AssetHub.ViewModels.AssetModel;
 using AssetHub.ViewModels.Asset;
 using System;
 using System.Collections.Generic;

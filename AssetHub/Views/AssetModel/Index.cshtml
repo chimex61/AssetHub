@@ -1,4 +1,4 @@
-﻿@model AssetHub.ViewModels.Asset.IndexViewModel
+﻿@model AssetHub.ViewModels.AssetModel.IndexViewModel
 
 @{
     ViewBag.Title = "Index";
@@ -7,7 +7,7 @@
 <div class="row">
     <div class="col-sm-2">
         <h4>Actions</h4> <hr />
-        @Html.ActionLink("Add asset", "AddAsset", "Asset", htmlAttributes: new { @class = "btn btn-default" })
+        @Html.ActionLink("Add asset model", "AddAssetModel", "AssetModel", htmlAttributes: new { @class = "btn btn-default" })
     </div>
     <div class="col-sm-10">
         <h4>Search</h4> <hr />
@@ -16,10 +16,11 @@
             @Html.AntiForgeryToken()
 
             <div class="form-horizontal">
+
                 <div class="form-group">
-                    @Html.LabelFor(model => model.SerialKey, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.SerialKey, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
                     </div>
                 </div>
 
@@ -30,12 +31,6 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(Model => Model.SelectedAssetModelId, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.DropDownListFor(model => model.SelectedAssetModelId, Model.AssetModels, htmlAttributes: new { @class = "form-control", @id = "modelSelector" })
-                    </div>
-                </div>
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
                         <input type="submit" value="Search" class="btn btn-default" />
