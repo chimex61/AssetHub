@@ -38,6 +38,7 @@ namespace AssetHub.Controllers
                             select c).FirstOrDefault();
             if (existing != null)
             {
+                message = AssetModelCategory.NAME_EXISTS;
                 ModelState.AddModelError("Name", AssetModelCategory.NAME_EXISTS);
             }
             if (ModelState.IsValid)

@@ -54,6 +54,7 @@
             success: function (result) {
                 if (result.Success) {
                     alert(result.Message);
+                    location.reload();
                 } else if (result.Message != "") {
                     alert(result.Message);
                 }
