@@ -1,6 +1,7 @@
 ﻿using AssetHub.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -13,6 +14,7 @@ namespace AssetHub.ViewModels.Category
             Categories = new List<AssetModelCategory>();
         }
 
+        [Required(ErrorMessage = AssetModelCategory.NAME_REQUIRED)]
         public string Name { get; set; }
 
         public List<AssetModelCategory> Categories { get; set; }
