@@ -1,47 +1,85 @@
 ﻿@model AssetHub.ViewModels.Category.ViewCategoryViewModel
 
 @{
-    ViewBag.Title = "ViewCatergoryViewModel";
+    ViewBag.Title = "Category: " + Model.Name;
 }
 
-<h2>@Model.Name</h2>
+<script>
+    var inEdit = "false";
+    var deleteUrl = "/Category/DeleteCategory/@Model.Id";
+</script>
 
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+<div class="row">
+    <div class="col-sm-2">
+        <h4>Actions</h4> <hr />
+        <button type="button" class="btn btn-default" id="editBtn">Edit</button>
+        <button type="button" class="btn btn-danger" id="deleteBtn">Delete</button>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-    </dl>
+    <div class="col-sm-10">
+        <h4>@Model.Name</h4> <hr />
+        <div class="container" id="viewContainer">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
 
-    @if (Model.AssetModels.Count > 0)
-    {
-        <h4>Asset models</h4> <hr />
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var c in Model.AssetModels)
-                {
-                    <tr onclick="location.href = '@Url.Action("ViewAssetModel", "AssetModel", new { id = c.Id })'">
-                        <td>@c.Name</td>
-                        <td>@Html.ActionLink("View", "ViewAssetModel", "AssetModel", htmlAttributes: new { @class = "btn btn-default" })</td>
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+            </dl>
+        </div>
+
+        <div class="container" id="editContainer" style="display: none">
+            @using (Html.BeginForm("EditCategory", "Category", FormMethod.Post, new { id = "editForm" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <input type="hidden" value="@Model.Id" name="Id" />
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Save" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        @if (Model.AssetModels.Count > 0)
+        {
+            <h4>Asset models</h4> <hr />
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th></th>
                     </tr>
-                }
-            </tbody>
-        </table>
-
-    }
+                </thead>
+                <tbody>
+                    @foreach (var c in Model.AssetModels)
+                {
+                        <tr onclick="location.href = '@Url.Action("ViewAssetModel", "AssetModel", new { id = c.Id })'">
+                            <td>@c.Name</td>
+                            <td>@Html.ActionLink("View", "ViewAssetModel", "AssetModel", htmlAttributes: new { @class = "btn btn-default" })</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/Category/Category.js")
+}
