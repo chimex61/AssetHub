@@ -140,5 +140,17 @@ namespace AssetHub.DAL
 
             return new SelectList(assetModels, "Value", "Text");
         }
+
+        public static IEnumerable<SelectListItem> CategoryDropdown(this AssetHubContext db)
+        {
+            var categories = db.AssetModelCategories.Select(
+                m => new SelectListItem
+                {
+                    Value = m.Id.ToString(),
+                    Text = m.Name,
+                });
+
+            return new SelectList(categories, "Value", "Text");
+        }
     }
 }

@@ -4,10 +4,13 @@
     ViewBag.Title = "Add asset model";
 }
 
-<h2>Add asset model</h2>
+<h4>Add asset model</h4>
 
+<script>
+    selectedCategoryId = @Model.SelectedCategoryId;
+</script>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("AddAssetModel", "AssetModel", FormMethod.Post, htmlAttributes: new { id = "addForm" }))
 {
     @Html.AntiForgeryToken()
     
@@ -23,23 +26,29 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Category, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.SelectedCategoryId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Category, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.SelectedCategoryId, Model.Categories, "", htmlAttributes: new { @class = "form-control", @id = "categorySelector" })
+                @Html.ValidationMessageFor(model => model.SelectedCategoryId, "", new { @class = "text-danger" })
             </div>
         </div>
 
+        <hr />
         <div class="form-group">
-            @Html.LabelFor(Model => Model.Property, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-4" id="propertyList">
-                <input class="form-control text-box single-line" type="text" name="property" /><br />
-            </div>
-            <div class="col-md-offset-2 col-md-10">
-                <input type="button" id="btnAddProperty" value="Add property" class="btn btn-default" />
-            </div>
-        </div>
+            <table class="table table-hover" id="propertyTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th><input type="button" id="addPropertyBtn" value="Add property" class="btn btn-default" /> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div> 
+
         <div class="form-group">
+            <hr />
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
@@ -53,5 +62,5 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/Scripts/AssetModelProperty.js")
+    @Scripts.Render("~/Scripts/AssetModel/AssetModel.js")
 }
