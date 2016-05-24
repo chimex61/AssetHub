@@ -5,6 +5,14 @@ namespace AssetHub.Models
 {
     public partial class AssetModel
     {
+        public const string NAME_REQUIRED = "Model name is required";
+
+        public const string NAME_EXISTS = "Model with that name in this category already exists";
+
+        public const string SAVE_SUCCESS = "Model is saved successfully";
+
+        public const string SAVE_FAIL = "Model save failed";
+
         public int Id { get; set; }
 
         public string Name { get; set; }

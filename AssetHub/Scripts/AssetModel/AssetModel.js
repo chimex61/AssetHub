@@ -36,6 +36,9 @@
                     } else if (result.Message != "") {
                         alert(result.Message);
                     }
+                    else {
+                        alert(result.Errors);
+                    }
                 }
             });
         }
