@@ -9,6 +9,10 @@ namespace AssetHub.Models
 
         public const string NAME_EXISTS = "Model with that name in this category already exists";
 
+        public const string CATEGORY_REQUIRED = "Model category is required";
+
+        public const string PROPERTY_NAME_REQUIRED = "Property name is required";
+
         public const string SAVE_SUCCESS = "Model is saved successfully";
 
         public const string SAVE_FAIL = "Model save failed";
@@ -19,7 +23,6 @@ namespace AssetHub.Models
 
         public int AssetModelCategoryId { get; set; }
 
-        [ForeignKey("AssetModelCategoryId")]
         public virtual AssetModelCategory AssetModelCategory { get; set; }
 
         public virtual ICollection<AssetModelProperty> Properties { get; set; }
@@ -54,6 +57,10 @@ namespace AssetHub.Models
 
         public string Name { get; set; }
 
-        public virtual ICollection<AssetModel> AssetModels { get; set; }
+        public string Expression { get; set; }
+
+        public int AssetModelId { get; set; }
+
+        public virtual AssetModel AssetModel { get; set; }
     }
 }

@@ -222,6 +222,7 @@
     <None Include="Scripts\jquery-2.2.1-vsdoc.js" />
     <Content Include="Scripts\AddAsset.js" />
     <Content Include="Scripts\AssetModelProperty.js" />
+    <Content Include="Scripts\AssetModel\AddAssetModel.js" />
     <Content Include="Scripts\AssetModel\AssetModel.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

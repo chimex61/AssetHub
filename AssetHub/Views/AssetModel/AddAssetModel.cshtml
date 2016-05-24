@@ -1,5 +1,7 @@
 ﻿@model AssetHub.ViewModels.AssetModel.AddAssetModelViewModel
 
+@using AssetHub.Models 
+
 @{
     ViewBag.Title = "Add asset model";
 }
@@ -29,24 +31,25 @@
             @Html.LabelFor(model => model.SelectedCategoryId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.SelectedCategoryId, Model.Categories, "", htmlAttributes: new { @class = "form-control", @id = "categorySelector" })
-                @Html.ValidationMessageFor(model => model.SelectedCategoryId, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(m => m.SelectedCategoryId, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        <hr />
-        <div class="form-group">
-            <span class="field-validation-valid text-danger" data-valmsg-for="Properties" data-valmsg-replace="true"></span>
-            <table class="table table-hover" id="propertyTable">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th><input type="button" id="addPropertyBtn" value="Add property" class="btn btn-default" /> </th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div> 
+        
+        <h4>Properties</h4> <hr />
+        <div id="Properties">
+            <div class="form-group">
+                <div class="col-xs-2"></div>
+                <div class="col-xs-2">
+                    @Html.Label("Name")
+                </div>
+                <div class="col-xs-2">
+                    @Html.Label("Expression")
+                </div>
+                <div class="col-xs-2">
+                    <button type="button" class="btn btn-default" id="addPropertyBtn">Add property</button>
+                </div>
+            </div>
+        </div>
 
         <div class="form-group">
             <hr />
@@ -63,5 +66,5 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/Scripts/AssetModel/AssetModel.js")
+    @Scripts.Render("~/Scripts/AssetModel/AddAssetModel.js")
 }

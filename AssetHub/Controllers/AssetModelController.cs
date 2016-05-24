@@ -69,6 +69,17 @@ namespace AssetHub.Controllers
                 ModelState.AddModelError("Name", AssetModel.NAME_EXISTS);
                 sb.AppendLine("Name: " + AssetModel.NAME_EXISTS);
             }
+            if(vm.Properties != null)
+            {
+                foreach(var p in vm.Properties)
+                {
+                    if(string.IsNullOrEmpty(p.Name))
+                    {
+                        sb.AppendLine("Properties: " + AssetModel.PROPERTY_NAME_REQUIRED);
+                        ModelState.AddModelError("Properties", AssetModel.PROPERTY_NAME_REQUIRED);
+                    }
+                }
+            }
             if (ModelState.IsValid)
             {
                 try
@@ -79,11 +90,16 @@ namespace AssetHub.Controllers
                         Name = vm.Name,
                         Properties = new List<AssetModelProperty>(),
                     };
-                    if (vm.SelectedPropertyId != null)
+                    if(vm.Properties != null)
                     {
-                        foreach (var p in vm.SelectedPropertyId)
+                        foreach(var p in vm.Properties)
                         {
-                            newModel.Properties.Add(db.AssetModelProperties.Find(p));
+                            newModel.Properties.Add(new AssetModelProperty
+                            {
+                                AssetModel = newModel,
+                                Name = p.Name,
+                                Expression = p.Expression,
+                            });
                         }
                     }
                     db.AssetModels.Add(newModel);

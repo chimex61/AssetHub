@@ -36,10 +36,8 @@ namespace AssetHub.Models
 
         public string UserId { get; set; }
 
-        [ForeignKey("AssetId")]
         public virtual Asset Asset { get; set; }
 
-        [ForeignKey("UserId")]
         public virtual User User { get; set; }
     }
 
@@ -53,10 +51,8 @@ namespace AssetHub.Models
 
         public int AssetModelPropertyId { get; set; }
 
-        [ForeignKey("AssetId")]
         public virtual Asset Asset { get; set; }
 
-        [ForeignKey("AssetModelPropertyId")]
         public virtual AssetModelProperty AssetModelProperty { get; set; }
     }
 

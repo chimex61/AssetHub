@@ -10,6 +10,12 @@ namespace AssetHub.ViewModels.AssetModel
 {
     public class AddAssetModelViewModel
     {
+        public class PropertyEditor
+        {
+            public string Name { get; set; }
+            public string Expression { get; set; }
+        }
+
         public AddAssetModelViewModel()
         {
             SelectedCategoryId = -1;
@@ -24,6 +30,6 @@ namespace AssetHub.ViewModels.AssetModel
 
         public IEnumerable<SelectListItem> Categories { get; set; }
 
-        public int[] SelectedPropertyId { get; set; }
+        public ICollection<PropertyEditor> Properties { get; set; }
     }
 }

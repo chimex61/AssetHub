@@ -39,15 +39,10 @@ namespace AssetHub.DAL
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<AssetModel>()
-                .HasMany(m => m.Properties)
-                .WithMany(m => m.AssetModels)
-                .Map(t =>
-                {
-                    t.ToTable("AssetModelAssetModelProperty");
-                    t.MapLeftKey("AssetModelId");
-                    t.MapRightKey("AssetModelPropertyId");
-                });
+            modelBuilder.Entity<AssetModelProperty>()
+                .HasRequired(p => p.AssetModel)
+                .WithMany(m => m.Properties)
+                .WillCascadeOnDelete(false);
         }
     }
 }

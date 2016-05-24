@@ -1,63 +1,114 @@
 ﻿@model AssetHub.ViewModels.AssetModel.ViewAssetModelViewModel
 
 @{
-    ViewBag.Title = "ViewAssetModel";
+    ViewBag.Title = "Asset model: " + Model.Name;
 }
 
-<h2>@Model.Name</h2>
+<script>
+    var inEdit = "false";
+</script>
 
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+<div class="row">
+    <div class="col-sm-2">
+        <h4>Actions</h4> <hr />
+        <button type="button" class="btn btn-default" id="editBtn">Edit</button>
+        <button type="button" class="btn btn-danger" id="deleteBtn">Delete</button>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Category)
-        </dt>
-
-        <dd>
-            @Html.ActionLink(@Model.Category.Name, "ViewAssetModelCategory", new { Model.Category.Id })
-        </dd>
-    </dl>
-
-    <h4>Properties of @Model.Name</h4> <hr />
-    <dl class="dl-horizontal">
-        @foreach(var prop in Model.Properties)
-        {
-            <dt>
-                @Html.DisplayName(prop.Name)
-            </dt>
-
-            <dd>
-                @Html.ActionLink("View property", "ViewAssetModelProperty", prop.Id)
-            </dd>
-        }
-    </dl>
-
-    @if (Model.Assets.Count > 0)
-    {
-        <h4>Assets of @Model.Name</h4><hr />
-        <dl class="dl-horizontal">
-            @foreach (var asset in Model.Assets)
-                {
+    <div class="col-sm-10">
+        <h4>@Model.Name</h4> <hr />
+        <div class="container" id="viewContainer">
+            <dl class="dl-horizontal">
                 <dt>
-                    @Html.DisplayName(asset.Name)
+                    @Html.DisplayNameFor(model => model.Name)
                 </dt>
 
                 <dd>
-                     @Html.ActionLink("View asset", "ViewAsset", new { asset.Id })
+                    @Html.DisplayFor(model => model.Name)
                 </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Category)
+                </dt>
+
+                <dd>
+                    @Html.ActionLink(Model.Category.Name, "ViewCategory", "Category", new { id = Model.Category.Id }, new { })
+                </dd>
+            </dl>
+
+            @if (Model.Properties.Count > 0)
+            {
+                <h4>Properties</h4> <hr />
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Expression</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var p in Model.Properties)
+                        {
+                            <tr>
+                                <td>@p.Name</td>
+                                <td>@p.Expression</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
             }
-        </dl>
-    }
+        </div>
+
+        <div class="container" id="editContainer" style="display: none">
+            @using (Html.BeginForm("EditCategory", "Category", FormMethod.Post, new { id = "editForm" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <input type="hidden" value="@Model.Id" name="Id" />
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Save" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        @if (Model.Assets.Count > 0)
+        {
+            <h4>Asset models</h4> <hr />
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var a in Model.Assets)
+                {
+                        <tr onclick="location.href = '@Url.Action("ViewAsset", "Asset", new { id = a.Id })'">
+                            <td>@a.Name</td>
+                            <td>@Html.ActionLink("View", "ViewAsset", "Asset", new { id = a.Id }, new { @class = "btn btn-default" })</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/AssetModel/AssetModel.js")
+}

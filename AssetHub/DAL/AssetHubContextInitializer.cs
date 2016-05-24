@@ -81,31 +81,44 @@ namespace AssetHub.DAL
             context.AssetModelCategories.AddRange(categoriesList);
             context.SaveChanges();
 
-            var propertiesList = new List<AssetModelProperty>()
-            {
-                new AssetModelProperty { Name = "Number of cores" },
-                new AssetModelProperty { Name = "L3 cache size" },
-                new AssetModelProperty { Name = "Socket" },
-                new AssetModelProperty { Name = "Processor" },
-            };
-
-            context.AssetModelProperties.AddRange(propertiesList);
-            context.SaveChanges();
-
             var assetModelsList = new List<AssetModel>()
             {
                 new AssetModel {
                     Name = "Computer",
                     AssetModelCategoryId = 1,
-                    Properties = new List<AssetModelProperty>() { propertiesList[3] },
                 },
                 new AssetModel {
                     Name = "Processor",
                     AssetModelCategoryId = 1,
-                    Properties = new List<AssetModelProperty>() { propertiesList[0], propertiesList[1], propertiesList[2] },
                 },
             };
 
+            var assetModelPropertiesList = new List<AssetModelProperty>()
+            {
+                new AssetModelProperty
+                {
+                    AssetModel = assetModelsList[0],
+                    Name = "Number of cores",
+                    Expression = "\\d+",
+                },
+                new AssetModelProperty
+                {
+                    AssetModel = assetModelsList[0],
+                    Name = "L3 cache size",
+                },
+                new AssetModelProperty
+                {
+                    AssetModel = assetModelsList[0],
+                    Name = "Socket"
+                },
+                new AssetModelProperty
+                {
+                    AssetModel = assetModelsList[1],
+                    Name = "Processor"
+                },
+            };
+
+            context.AssetModelProperties.AddRange(assetModelPropertiesList);
             context.AssetModels.AddRange(assetModelsList);
             context.SaveChanges();
         }
@@ -131,15 +144,15 @@ namespace AssetHub.DAL
 
             context.Assets.AddRange(assetList);
 
-            var assetPropertiesList = new List<AssetProperty>()
-            {
-                new AssetProperty { Asset = assetList[0], Value = "Intel Core i7-4702MQ", AssetModelPropertyId = 4 },
-                new AssetProperty { Asset = assetList[1], Value = "4", AssetModelPropertyId = 1 },
-                new AssetProperty { Asset = assetList[1], Value = "6", AssetModelPropertyId = 2 },
-                new AssetProperty { Asset = assetList[1], Value = "FCPGA946", AssetModelPropertyId = 3 },
-            };
+            //var assetpropertieslist = new list<assetproperty>()
+            //{
+            //    new assetproperty { asset = assetlist[0], value = "intel core i7-4702mq", assetmodelpropertyid = 4 },
+            //    new assetproperty { asset = assetlist[1], value = "4", assetmodelpropertyid = 1 },
+            //    new assetproperty { asset = assetlist[1], value = "6", assetmodelpropertyid = 2 },
+            //    new assetproperty { asset = assetlist[1], value = "fcpga946", assetmodelpropertyid = 3 },
+            //};
 
-            context.AssetProperties.AddRange(assetPropertiesList);
+            //context.AssetProperties.AddRange(assetPropertiesList);
 
             var assetLocationList = new List<AssetLocation>()
             {
