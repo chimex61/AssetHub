@@ -29,26 +29,4 @@ namespace AssetHub.Models
 
         public virtual ICollection<Asset> Assets { get; set; }
     }
-
-    public partial class AssetModelCategory
-    {
-        public int Id { get; set; }
-
-        public string Name { get; set; }
-
-        public virtual ICollection<AssetModel> AssetModels { get; set; }
-    }
-
-    public partial class AssetModelProperty
-    {
-        public int Id { get; set; }
-
-        public string Name { get; set; }
-
-        public string Expression { get; set; }
-
-        public int AssetModelId { get; set; }
-
-        public virtual AssetModel AssetModel { get; set; }
-    }
 }

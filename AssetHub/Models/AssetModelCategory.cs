@@ -2,20 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace AssetHub.Models
 {
     public partial class AssetModelCategory
     {
-        public const string SAVE_SUCCESS = "Category is saved successfully";
-
-        public const string SAVE_FAIL = "Category save failed";
-
-        public const string DELETE_SUCCESS = "Category deleted successfully";
-
-        public const string DELETE_FAIL = "Category delete failed";
-
         public class Validator
         {
             public const string NAME_REQUIRED = "Category name is required";
@@ -45,5 +36,19 @@ namespace AssetHub.Models
                 return null;
             }
         }
+
+        public const string SAVE_SUCCESS = "Category is saved successfully";
+
+        public const string SAVE_FAIL = "Category save failed";
+
+        public const string DELETE_SUCCESS = "Category deleted successfully";
+
+        public const string DELETE_FAIL = "Category delete failed";
+
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+
+        public virtual ICollection<AssetModel> AssetModels { get; set; }
     }
 }

@@ -17,21 +17,10 @@ namespace AssetHub.Models
 
         public int RoomId { get; set; }
 
-        [ForeignKey("UserPositionId")]
         public virtual UserPosition UserPosition { get; set; }
 
-        [ForeignKey("RoomId")]
         public virtual Room Room { get; set; }
 
         public virtual IEnumerable<Loan> Loans { get; set; }
-    }
-
-    public partial class UserPosition
-    {
-        public int Id { get; set; }
-
-        public string Name { get; set; }
-
-        public virtual IEnumerable<User> Users { get; set; }
     }
 }

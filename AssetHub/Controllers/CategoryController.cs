@@ -18,7 +18,10 @@ namespace AssetHub.Controllers
         // GET: Category
         public ActionResult Index()
         {
-            return View(new IndexViewModel());
+            return View(new IndexViewModel
+            {
+                Categories = db.AssetModelCategories.ToList()
+            });
         }
 
         // GET: AddCategory

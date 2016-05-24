@@ -24,24 +24,6 @@ namespace AssetHub.Controllers
             });
         }
 
-        // GET: AddProperty
-        public ActionResult AddProperty()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult AddProperty(AddPropertyViewModel vm)
-        {
-            if (ModelState.IsValid)
-            {
-                var property = db.FindOrAddAssetModelProperty(vm.Name);
-            }
-
-            return View();
-        }
-
         // GET: AddAssetModel
         public ActionResult AddAssetModel()
         {
