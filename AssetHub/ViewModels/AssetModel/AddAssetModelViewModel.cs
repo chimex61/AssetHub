@@ -13,7 +13,7 @@ namespace AssetHub.ViewModels.AssetModel
         public class PropertyEditor
         {
             public string Name { get; set; }
-            public string Expression { get; set; }
+            public bool IsNumeric { get; set; }
         }
 
         public AddAssetModelViewModel()
@@ -30,6 +30,6 @@ namespace AssetHub.ViewModels.AssetModel
 
         public IEnumerable<SelectListItem> Categories { get; set; }
 
-        public ICollection<PropertyEditor> Properties { get; set; }
+        public List<PropertyEditor> Properties { get; set; }
     }
 }

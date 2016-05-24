@@ -30,6 +30,10 @@ namespace AssetHub.Controllers
             return View(new AddAssetModelViewModel
             {
                 Categories = db.CategoryDropdown(),
+                Properties = new List<AddAssetModelViewModel.PropertyEditor>()
+                {
+                    new AddAssetModelViewModel.PropertyEditor(),
+                }
             });
         }
 
@@ -80,7 +84,7 @@ namespace AssetHub.Controllers
                             {
                                 AssetModel = newModel,
                                 Name = p.Name,
-                                Expression = p.Expression,
+                                IsNumeric = p.IsNumeric,
                             });
                         }
                     }
