@@ -1,6 +1,7 @@
 ﻿using AssetHub.DAL;
 using AssetHub.Models;
 using AssetHub.ViewModels.Category;
+using AssetHub.ViewModels.Category.Partial;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -17,7 +18,7 @@ namespace AssetHub.Controllers
         // GET: Category
         public ActionResult Index()
         {
-            return View(new IndexViewModel { Categories = db.AssetModelCategories.ToList() });
+            return View(new IndexViewModel());
         }
 
         // GET: AddCategory
@@ -30,17 +31,12 @@ namespace AssetHub.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult AddCategory(AddCategoryViewModel vm)
         {
-            var success = false;
-            var message = "";
+            var Success = false;
+            var Message = "";
 
-            var existing = (from c in db.AssetModelCategories
-                            where c.Name.Equals(vm.Name, StringComparison.InvariantCultureIgnoreCase)
-                            select c).FirstOrDefault();
-            if (existing != null)
-            {
-                message = AssetModelCategory.NAME_EXISTS;
-                ModelState.AddModelError("Name", AssetModelCategory.NAME_EXISTS);
-            }
+            var nameValidation = AssetModelCategory.Validator.ValidateName(null, vm.Name);
+            if (nameValidation != null) { ModelState.AddModelError("Name", nameValidation); }
+
             if (ModelState.IsValid)
             {
                 try
@@ -48,16 +44,17 @@ namespace AssetHub.Controllers
                     var category = new AssetModelCategory { Name = vm.Name };
                     db.AssetModelCategories.Add(category);
                     db.SaveChanges();
-                    success = true;
-                    message = AssetModelCategory.SAVE_SUCCESS;
+                    Success = true;
+                    Message = AssetModelCategory.SAVE_SUCCESS;
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
-                    message = AssetModelCategory.SAVE_FAIL;
+                    Message = AssetModelCategory.SAVE_FAIL;
                 }
+                return Json(new { Success, Message });
             }
+            return PartialView("_AddCategory", vm);
 
-            return Json(new { Success = success, Message = message });
         }
 
         // GET: ViewCategory
@@ -68,15 +65,13 @@ namespace AssetHub.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public JsonResult EditCategory(ViewCategoryViewModel vm)
+        public ActionResult EditCategory(EditCategoryViewModel vm)
         {
-            var success = false;
-            var message = "";
+            var Success = false;
+            var Message = "";
 
-            if (string.IsNullOrWhiteSpace(vm.Name))
-            {
-                ModelState.AddModelError("Name", AssetModelCategory.NAME_REQUIRED);
-            }
+            var nameValidation = AssetModelCategory.Validator.ValidateName(vm.Id, vm.Name);
+            if(nameValidation != null) { ModelState.AddModelError("Name", nameValidation); }
 
             if (ModelState.IsValid)
             {
@@ -85,38 +80,40 @@ namespace AssetHub.Controllers
                 try
                 {
                     db.SaveChanges();
-                    success = true;
-                    message = AssetModelCategory.SAVE_SUCCESS;
+                    Success = true;
+                    Message = AssetModelCategory.SAVE_SUCCESS;
 
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
-                    message = AssetModelCategory.SAVE_FAIL;
+                    Message = AssetModelCategory.SAVE_FAIL;
                 }
-            }
 
-            return Json(new { Success = success, Message = message });
+                return Json(new { Success, Message });
+            }
+            
+            return PartialView("_EditCategory", vm);
         }
 
         [HttpPost]
         public JsonResult DeleteCategory(int id)
         {
-            var success = false;
-            var message = "";
+            var Success = false;
+            var Message = "";
 
             try
             {
                 db.Entry(new AssetModelCategory { Id = id }).State = EntityState.Deleted;
                 db.SaveChanges();
-                success = true;
-                message = AssetModelCategory.DELETE_SUCCESS;
+                Success = true;
+                Message = AssetModelCategory.DELETE_SUCCESS;
             }
             catch (Exception e)
             {
-                message = AssetModelCategory.DELETE_FAIL;
+                Message = AssetModelCategory.DELETE_FAIL;
             }
 
-            return Json(new { Success = success, Message = message });
+            return Json(new { Success, Message });
         }
 
         public JsonResult GetSearchResults(string name)

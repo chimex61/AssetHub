@@ -1,7 +1,6 @@
-﻿using AssetHub.Models;
+﻿using AssetHub.DAL;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -9,14 +8,13 @@ namespace AssetHub.ViewModels.Category
 {
     public class IndexViewModel
     {
+        AssetHubContext db = new AssetHubContext();
+
         public IndexViewModel()
         {
-            Categories = new List<AssetModelCategory>();
+            Categories = db.AssetModelCategories.ToList();
         }
 
-        [Required(ErrorMessage = AssetModelCategory.NAME_REQUIRED)]
-        public string Name { get; set; }
-
-        public List<AssetModelCategory> Categories { get; set; }
+        public List<Models.AssetModelCategory> Categories { get; set; }
     }
 }
