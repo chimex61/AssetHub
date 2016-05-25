@@ -31,16 +31,59 @@
         <div class="form-group">
             @Html.LabelFor(model => model.SelectedAssetModelId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.SelectedAssetModelId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SelectedAssetModelId, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(m => m.SelectedAssetModelId, Model.AssetModels, htmlAttributes: new { @class = "form-control", @id = "modelSelector" })
+                @Html.ValidationMessageFor(m => m.SelectedAssetModelId, "", new { @class = "text-danger" })
             </div>
+        </div>
+
+        <div class="container" id="propertyContainer">
+            @if (Model.Properties.Count > 0)
+            {
+                <h4>Properties</h4> <hr />
+                @Html.ValidationMessageFor(m => m.Properties, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <table class="table table-striped" id="propertyTable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Is numeric</th>
+                                <th>Value</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (var i = 0; i < Model.Properties.Count; i++)
+                            {
+                                <tr>
+                                    <td hidden>
+                                        <input type="hidden" value="@Model.Properties[i].PropertyId" />
+                                    </td>
+                                    <td class="col-md-4">
+                                        @Model.Properties[i].Name
+                                    </td>
+                                    <td class="col-md-1">
+                                        @Model.Properties[i].IsNumeric
+                                    </td>
+                                    <td class="col-md-4">
+                                        @Html.EditorFor(model => model.Properties[i].Value, new { htmlAttributes = new { @class = "form-control" } })
+                                    </td>
+                                    <td>
+                                        @Html.ValidationMessageFor(m => m.Properties[i], "", new { @class = "text-danger" })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <hr />
+                </div>
+            }
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.SelectedRoomId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.SelectedRoomId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SelectedRoomId, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.SelectedRoomId, Model.Rooms, "", htmlAttributes: new { @class = "form-control", @id = "roomSelector" })
+                @Html.ValidationMessageFor(m => m.SelectedRoomId, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -52,10 +95,7 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+<script type="text/javascript">
+    document.getElementById("modelSelector").value = @Model.SelectedAssetModelId;
+    document.getElementById("roomSelector").value = @Model.SelectedRoomId;
+</script>

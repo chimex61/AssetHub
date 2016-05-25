@@ -41,38 +41,6 @@ namespace AssetHub.DAL
             return position;
         }
 
-        public static AssetModelProperty FindOrAddAssetModelProperty(this AssetHubContext db, string name)
-        {
-            var property = (from p in db.AssetModelProperties
-                            where p.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase)
-                            select p).FirstOrDefault();
-
-            if (property == null)
-            {
-                property = new AssetModelProperty { Name = name };
-                db.AssetModelProperties.Add(property);
-                db.SaveChanges();
-            }
-
-            return property;
-        }
-
-        public static AssetModelCategory FindOrAddAssetModelCategory(this AssetHubContext db, string name)
-        {
-            var category = (from c in db.AssetModelCategories
-                            where c.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase)
-                            select c).FirstOrDefault();
-
-            if (category == null)
-            {
-                category = new AssetModelCategory { Name = name };
-                db.AssetModelCategories.Add(category);
-                db.SaveChanges();
-            }
-
-            return category;
-        }
-
         public static ICollection<string> UserPositionList(this AssetHubContext db)
         {
             var list = (from p in db.UserPositions
@@ -93,14 +61,6 @@ namespace AssetHub.DAL
         {
             var list = (from c in db.AssetModelCategories
                         select c.Name).ToList();
-
-            return list;
-        }
-
-        public static ICollection<string> PropertyList(this AssetHubContext db)
-        {
-            var list = (from p in db.AssetModelProperties
-                        select p.Name).ToList();
 
             return list;
         }

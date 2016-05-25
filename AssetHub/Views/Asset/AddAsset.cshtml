@@ -1,13 +1,15 @@
-﻿@{
+﻿@model AssetHub.ViewModels.Asset.Partial.AddAssetViewModel
+
+@{
     ViewBag.Title = "Add asset";
 }
 
 @using AssetHub.ViewModels.Asset.Partial
 
-<h4>Add asset/h4>
+<h4>Add asset</h4>
 
 <div class="container" id="addContainer">
-    @Html.Partial("_AddAsset", new AddAssetViewModel())
+    @Html.Partial("_AddAsset")
 </div>
 
 @section Scripts {

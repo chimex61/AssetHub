@@ -23,7 +23,11 @@ namespace AssetHub.Controllers
         // GET: AddAsset
         public ActionResult AddAsset()
         {
-            return View(new AddAssetViewModel());
+            return View(new AddAssetViewModel
+            {
+                AssetModels = db.AssetModelDropdown(),
+                Rooms = db.RoomDropdown(),
+            });
         }
 
         [HttpPost]

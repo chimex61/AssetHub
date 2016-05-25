@@ -19,6 +19,7 @@ namespace AssetHub.ViewModels.Asset.Partial
 
             public bool IsNumeric { get; set; }
 
+            [Required(ErrorMessage = Models.Asset.Validator.PROPERTY_VALUE_REQUIRED)]
             public string Value { get; set; }
         }
 
@@ -29,14 +30,15 @@ namespace AssetHub.ViewModels.Asset.Partial
             Properties = new List<PropertyEditor>();
         }
 
-        [Required]
+        [Required(ErrorMessage = Models.Asset.Validator.NAME_REQUIRED)]
         public string Name { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = Models.Asset.Validator.SERIAL_REQUIRED)]
         [Display(Name = "Serial number")]
         public string SerialNumber { get; set; }
 
         [Display(Name = "Asset model")]
+        [Required(ErrorMessage = Models.Asset.Validator.MODEL_REQUIRED)]
         public int SelectedAssetModelId { get; set; }
 
         public IEnumerable<SelectListItem> AssetModels { get; set; }
