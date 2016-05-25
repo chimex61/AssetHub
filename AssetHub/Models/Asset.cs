@@ -6,6 +6,11 @@ namespace AssetHub.Models
 {
     public partial class Asset
     {
+        public class Validator
+        {
+
+        }
+
         public int Id { get; set; }
 
         public string Name { get; set; }
@@ -23,8 +28,4 @@ namespace AssetHub.Models
 
         public virtual ICollection<AssetLocation> Locations { get; set; }
     }
-
-
-
-
 }

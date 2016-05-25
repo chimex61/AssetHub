@@ -7,29 +7,26 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace AssetHub.ViewModels.Asset
+namespace AssetHub.ViewModels.Asset.Partial
 {
     public class AddAssetViewModel
     {
         public class PropertyEditor
         {
-            public int ModelId { get; set; }
+            public int PropertyId { get; set; }
 
             public string Name { get; set; }
+
+            public bool IsNumeric { get; set; }
 
             public string Value { get; set; }
         }
 
         public AddAssetViewModel()
         {
-            using (var db = new AssetHubContext())
-            {
-                SelectedAssetModelId = -1;
-                SelectedRoomId = -1;
-                AssetModels = db.AssetModelDropdown().ToList();
-                Rooms = db.RoomDropdown().ToList();
-                Properties = new List<PropertyEditor>();
-            }
+            SelectedAssetModelId = -1;
+            SelectedRoomId = -1;
+            Properties = new List<PropertyEditor>();
         }
 
         [Required]
@@ -42,12 +39,12 @@ namespace AssetHub.ViewModels.Asset
         [Display(Name = "Asset model")]
         public int SelectedAssetModelId { get; set; }
 
-        [Display(Name = "Room")]
-        public int SelectedRoomId { get; set; }
+        public IEnumerable<SelectListItem> AssetModels { get; set; }
 
         public List<PropertyEditor> Properties { get; set; }
 
-        public IEnumerable<SelectListItem> AssetModels { get; set; }
+        [Display(Name = "Room")]
+        public int SelectedRoomId { get; set; }
 
         public IEnumerable<SelectListItem> Rooms { get; set; }
 

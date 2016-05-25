@@ -3,6 +3,10 @@
         $("#modelSelector").val(selectedAssetModelId);
     });
 
+    $("#roomSelector").ready(function () {
+        $("#roomSelector").val(selectedRoomId);
+    });
+
     $("#modelSelector").change(function () {
             var id = $('option:selected', this).val();
             $.getJSON('GetAssetModelProperties/' + id, function (data) {
@@ -23,10 +27,6 @@
                 $("#propertiesList").html(editors);
                 $("#propertiesList").show();
             });
-    });
-
-    $("#roomSelector").ready(function () {
-        $("#roomSelector").val(selectedRoomId);
     });
 
     $("#roomSelector").change(function () {

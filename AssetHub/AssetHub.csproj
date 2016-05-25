@@ -203,7 +203,7 @@
     <Compile Include="ViewModels\AssetModel\ViewAssetModelViewModel.cs" />
     <Compile Include="ViewModels\Category\Partial\SearchViewModel.cs" />
     <Compile Include="ViewModels\Category\Partial\EditCategoryViewModel.cs" />
-    <Compile Include="ViewModels\Asset\AddAssetViewModel.cs" />
+    <Compile Include="ViewModels\Asset\Partial\AddAssetViewModel.cs" />
     <Compile Include="ViewModels\Asset\IndexViewModel.cs" />
     <Compile Include="ViewModels\Asset\ViewAssetViewModel.cs" />
     <Compile Include="ViewModels\Category\ViewCategoryViewModel.cs" />
@@ -228,10 +228,10 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Models.cd" />
     <Content Include="Controllers.cd" />
+    <Content Include="Scripts\AssetModel\ViewAssetModel.js" />
     <Content Include="ViewModels.cd" />
     <None Include="Scripts\jquery-2.2.1-vsdoc.js" />
-    <Content Include="Scripts\AddAsset.js" />
-    <Content Include="Scripts\AssetModelProperty.js" />
+    <Content Include="Scripts\Asset\AddAsset.js" />
     <Content Include="Scripts\AssetModel\AddAssetModel.js" />
     <Content Include="Scripts\AssetModel\SearchAssetModel.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -281,6 +281,7 @@
     <Content Include="Views\Category\_Search.cshtml" />
     <Content Include="Views\AssetModel\_AddAssetModel.cshtml" />
     <Content Include="Views\AssetModel\_Search.cshtml" />
+    <Content Include="Views\Asset\_AddAsset.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

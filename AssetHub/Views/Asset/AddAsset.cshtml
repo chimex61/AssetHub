@@ -1,94 +1,16 @@
-﻿@model AssetHub.ViewModels.Asset.AddAssetViewModel
-
-@{
-    ViewBag.Title = "AddAsset";
+﻿@{
+    ViewBag.Title = "Add asset";
 }
 
-<h2>AddAsset</h2>
+@using AssetHub.ViewModels.Asset.Partial
 
-<script>
-    var selectedAssetModelId = Number(@Model.SelectedAssetModelId);
-    var selectedRoomId = Number(@Model.SelectedRoomId);
-</script>
+<h4>Add asset/h4>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>AddAssetViewModel</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.SerialNumber, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.SerialNumber, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SerialNumber, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <h4>Asset model</h4> <hr/>
-        <div class="form-group">
-            @Html.LabelFor(model => model.SelectedAssetModelId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.SelectedAssetModelId, Model.AssetModels, htmlAttributes: new { @class = "form-control", @id = "modelSelector" })
-            </div>
-        </div>
-
-        @if (Model.Properties.Count > 0)
-        {
-            <div id="propertiesList">
-                <h4>Properties</h4> <hr />
-                @for(int i = 0; i < Model.Properties.Count; i++)
-                {
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Properties[i], Model.Properties[i].Name, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.HiddenFor(model => model.Properties[i].ModelId)
-                            @Html.HiddenFor(model => model.Properties[i].Name)
-                            @Html.EditorFor(model => model.Properties[i].Value, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Properties[i].ModelId, "", new { @class = "text-danger" })
-                        </div> 
-                    </div>
-                }
-            </div>
-        }
-        else
-        {
-            <div id="propertiesList" style="display: none"></div>
-        }
-
-        <h4>Location</h4> <hr />
-        <div class="form-group">
-            @Html.LabelFor(model => model.SelectedRoomId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.SelectedRoomId, Model.Rooms, htmlAttributes: new { @class = "form-control", @id ="roomSelector"})
-            </div>
-        </div>
-
-
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" id="btnAdd" value="Add" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
+<div class="container" id="addContainer">
+    @Html.Partial("_AddAsset", new AddAssetViewModel())
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/Scripts/AddAsset.js")
+    @Scripts.Render("~/Scripts/Asset/AddAsset.js")
 }

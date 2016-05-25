@@ -6,6 +6,7 @@
 
 <script>
     var inEdit = "false";
+    var deleteUrl = "/AssetModel/DeleteAssetModel/@Model.Id";
 </script>
 
 <div class="row">
@@ -111,4 +112,5 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/Scripts/AssetModel/AssetModel.js")
+    @Scripts.Render("~/Scripts/AssetModel/ViewAssetModel.js")
 }

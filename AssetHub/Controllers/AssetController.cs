@@ -1,6 +1,7 @@
 ﻿using AssetHub.DAL;
 using AssetHub.Models;
 using AssetHub.ViewModels.Asset;
+using AssetHub.ViewModels.Asset.Partial;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,52 +30,6 @@ namespace AssetHub.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult AddAsset(AddAssetViewModel vm)
         {
-            if(ModelState.IsValid)
-            {
-                var asset = new Asset()
-                {
-                    Name = vm.Name,
-                    SerialNumber = vm.SerialNumber,
-                };
-
-                var location = new AssetLocation()
-                {
-                    Asset = asset,
-                    TimeFrom = DateTime.Now,
-                    TimeTo = null,
-                    Room = db.Rooms.Find(vm.SelectedRoomId),
-                };
-
-                asset.Locations = new List<AssetLocation>()
-                {
-                    location,
-                };
-
-                var properties = new List<AssetProperty>();
-                foreach(var vmProp in vm.Properties)
-                {
-                    var property = new AssetProperty()
-                    {
-                        Asset = asset,
-                        AssetModelProperty = db.AssetModelProperties.Find(vmProp.ModelId),
-                        Value = vmProp.Value,
-                    };
-
-                    properties.Add(property);
-                }
-
-                asset.AssetProperties = properties;
-
-                db.AssetLocations.Add(location);
-                db.AssetProperties.AddRange(properties);
-                db.Assets.Add(asset);
-                db.SaveChanges();
-            }
-            else
-            {
-                return View(vm);
-            }
-
             return View(vm);
         }
 

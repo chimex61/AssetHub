@@ -63,12 +63,13 @@ namespace AssetHub.Models
             }
         }
 
-
-
-
         public const string SAVE_SUCCESS = "Model is saved successfully";
 
         public const string SAVE_FAIL = "Model save failed";
+
+        public const string DELETE_SUCCESS = "Model is deleted successfully";
+
+        public const string DELETE_FAIL = "Model delete failed";
 
         public int Id { get; set; }
 

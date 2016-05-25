@@ -7,14 +7,14 @@
     });
 
     $("#deleteBtn").click(function () {
-        if (confirm("Are you sure you want to delete this category?")) {
+        if (confirm("Are you sure you want to delete this asset model?")) {
             $.ajax({
                 url: deleteUrl,
                 type: 'POST',
                 success: function (result) {
                     if (result.Success) {
                         alert(result.Message);
-                        window.location.href = '/Category/Index'
+                        window.location.href = '/AssetModel/Index'
                     } else if (result.Message != "") {
                         alert(result.Message);
                     }
