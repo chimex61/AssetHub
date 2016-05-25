@@ -227,6 +227,8 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Models.cd" />
+    <Content Include="Controllers.cd" />
+    <Content Include="ViewModels.cd" />
     <None Include="Scripts\jquery-2.2.1-vsdoc.js" />
     <Content Include="Scripts\AddAsset.js" />
     <Content Include="Scripts\AssetModelProperty.js" />

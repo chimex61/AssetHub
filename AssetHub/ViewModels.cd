@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AssetHub.ViewModels.Account.LoginViewModel">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Account\LoginViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AssetHub.ViewModels.Asset.AddAssetViewModel">
+    <Position X="7.5" Y="0.5" Width="2" />
+    <NestedTypes>
+      <Class Name="AssetHub.ViewModels.Asset.AddAssetViewModel.PropertyEditor" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ViewModels\Asset\AddAssetViewModel.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAgAAQCAAEAAAAAAAAQAAACAAA=</HashCode>
+      <FileName>ViewModels\Asset\AddAssetViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AssetHub.ViewModels.Asset.IndexViewModel">
+    <Position X="0.5" Y="4.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAABAAAAgAAAAAAAAEQAAAEAQAAAAAAA=</HashCode>
+      <FileName>ViewModels\Asset\IndexViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AssetHub.ViewModels.Asset.ViewAssetViewModel">
+    <Position X="7.5" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AQACAAAAAAAQAEAAAAAAAAwAEEEAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>ViewModels\Asset\ViewAssetViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AssetHub.ViewModels.Admin.CreateUserViewModel">
+    <Position X="0.5" Y="2" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAACAAAAAgABAAAAAAAAAAAAACAAAAAAAAAAg=</HashCode>
+      <FileName>ViewModels\Admin\CreateUserViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AssetHub.ViewModels.AssetModel.IndexViewModel">
+    <Position X="5.25" Y="5.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAQAAAAAEAAAAEAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\AssetModel\IndexViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AssetHub.ViewModels.AssetModel.ViewAssetModelViewModel">
+    <Position X="5" Y="3.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAgAAACCAA=</HashCode>
+      <FileName>ViewModels\AssetModel\ViewAssetModelViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AssetHub.ViewModels.AssetModel.Partial.AddAssetModelViewModel">
+    <Position X="5" Y="0.5" Width="2.25" />
+    <NestedTypes>
+      <Class Name="AssetHub.ViewModels.AssetModel.Partial.AddAssetModelViewModel.PropertyEditor" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ViewModels\AssetModel\Partial\AddAssetModelViewModel.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAEAAAAEAAAAACAAA=</HashCode>
+      <FileName>ViewModels\AssetModel\Partial\AddAssetModelViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AssetHub.ViewModels.AssetModel.Partial.SearchViewModel">
+    <Position X="5.25" Y="8" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAQAAAAAEAAAAEAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\AssetModel\Partial\SearchViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AssetHub.ViewModels.Category.IndexViewModel">
+    <Position X="3" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Category\IndexViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AssetHub.ViewModels.Category.ViewCategoryViewModel">
+    <Position X="2.75" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAQAAAAAAAgAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Category\ViewCategoryViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AssetHub.ViewModels.Category.Partial.AddCategoryViewModel">
+    <Position X="2.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Category\Partial\AddCategoryViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AssetHub.ViewModels.Category.Partial.EditCategoryViewModel">
+    <Position X="2.75" Y="4.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Category\Partial\EditCategoryViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AssetHub.ViewModels.Category.Partial.SearchViewModel">
+    <Position X="3" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Category\Partial\SearchViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AssetHub.ViewModels.Home.IndexViewModel">
+    <Position X="7.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Home\IndexViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
