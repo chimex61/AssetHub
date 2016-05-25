@@ -1,0 +1,34 @@
+﻿@model AssetHub.ViewModels.AssetModel.Partial.SearchViewModel
+
+
+@using (Html.BeginForm("GetSearchResults", "AssetModel", FormMethod.Post, new { id = "searchForm" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-9">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SelectedCategoryId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="row">
+                <div class="col-md-3">
+                    @Html.DropDownListFor(model => model.SelectedCategoryId, Model.Categories, htmlAttributes: new { @class = "form-control", @id = "categorySelector" })
+                </div>
+                <div class="col-md-2">
+                    <input type="button" value="Reset" id ="resetCategoryBtn" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="button" value="Search" id="searchBtn" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

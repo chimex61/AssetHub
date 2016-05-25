@@ -196,6 +196,7 @@
     <Compile Include="ViewModels\Account\LoginViewModel.cs" />
     <Compile Include="ViewModels\Admin\CreateUserViewModel.cs" />
     <Compile Include="ViewModels\AssetModel\IndexViewModel.cs" />
+    <Compile Include="ViewModels\AssetModel\Partial\SearchViewModel.cs" />
     <Compile Include="ViewModels\Category\IndexViewModel.cs" />
     <Compile Include="ViewModels\Category\Partial\AddCategoryViewModel.cs" />
     <Compile Include="ViewModels\AssetModel\Partial\AddAssetModelViewModel.cs" />
@@ -230,6 +231,7 @@
     <Content Include="Scripts\AddAsset.js" />
     <Content Include="Scripts\AssetModelProperty.js" />
     <Content Include="Scripts\AssetModel\AddAssetModel.js" />
+    <Content Include="Scripts\AssetModel\SearchAssetModel.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Category\AddCategory.js" />
@@ -276,6 +278,7 @@
     <Content Include="Views\Category\_AddCategory.cshtml" />
     <Content Include="Views\Category\_Search.cshtml" />
     <Content Include="Views\AssetModel\_AddAssetModel.cshtml" />
+    <Content Include="Views\AssetModel\_Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

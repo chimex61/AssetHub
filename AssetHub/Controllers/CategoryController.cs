@@ -118,18 +118,27 @@ namespace AssetHub.Controllers
             return Json(new { Success, Message });
         }
 
-        public JsonResult GetSearchResults(string name)
+        public JsonResult GetSearchResults(SearchViewModel vm)
         {
             var categories = (from c in db.AssetModelCategories
-                              where c.Name.ToLower().Contains(name.ToLower())
-                              select new
-                              {
-                                  Id = c.Id,
-                                  Name = c.Name,
-                                  ModelCount = c.AssetModels.Count
-                              }).ToArray();
+                              select c);
 
-            return Json(new { Success = categories.Length != 0, Categories = categories }, JsonRequestBehavior.AllowGet);
+            if(!string.IsNullOrWhiteSpace(vm.Name))
+            {
+                categories = (from c in categories
+                              where c.Name.ToLower().Contains(vm.Name.ToLower())
+                              select c);
+            }
+
+            var result = (from c in categories
+                          select new
+                          {
+                              Id = c.Id,
+                              Name = c.Name,
+                              ModelCount = c.AssetModels.Count
+                          }).ToArray();
+
+            return Json(new { Success = result.Length != 0, Categories = result }, JsonRequestBehavior.AllowGet);
         }
     }
 }

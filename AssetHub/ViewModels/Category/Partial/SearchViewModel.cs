@@ -9,7 +9,6 @@ namespace AssetHub.ViewModels.Category.Partial
 {
     public class SearchViewModel
     {
-        [Required(ErrorMessage = AssetModelCategory.Validator.NAME_REQUIRED)]
         public string Name { get; set; }
     }
 }

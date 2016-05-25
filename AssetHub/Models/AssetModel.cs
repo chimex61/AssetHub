@@ -36,7 +36,7 @@ namespace AssetHub.Models
 
                     var existing = (from c in db.AssetModelCategories
                                     join m in db.AssetModels on c.Id equals m.AssetModelCategoryId
-                                    where m.Name.Equals(name, System.StringComparison.InvariantCultureIgnoreCase) && m.Id != id
+                                    where m.Name.Equals(name, System.StringComparison.InvariantCultureIgnoreCase) && m.AssetModelCategoryId == categoryId
                                     select m).Count();
 
                     if(existing != 0)

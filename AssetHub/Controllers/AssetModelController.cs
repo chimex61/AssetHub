@@ -117,22 +117,40 @@ namespace AssetHub.Controllers
         }
 
         // GET: ViewAssetModel
-        public ActionResult ViewAssetModel(int? id = 1)
+        public ActionResult ViewAssetModel(int id)
         {
-            return View(new ViewAssetModelViewModel(id.Value));
+            return View(new ViewAssetModelViewModel(id));
         }
 
-        public JsonResult GetProperties()
+        public JsonResult GetSearchResults(SearchViewModel vm)
         {
-            var properties = (from p in db.AssetModelProperties
-                              select new
-                              {
-                                  Id = p.Id,
-                                  Name = p.Name,
-                                  Expression = "\n",
-                              });
+            var models = (from m in db.AssetModels
+                          select m);
 
-            return Json(new { Properties = properties }, JsonRequestBehavior.AllowGet);
+            if(vm.SelectedCategoryId != -1)
+            {
+                models = (from m in models
+                          where m.AssetModelCategoryId == vm.SelectedCategoryId
+                          select m);
+            }
+
+            if(!string.IsNullOrWhiteSpace(vm.Name))
+            {
+                models = (from m in models
+                          where m.Name.ToLower().Contains(vm.Name.ToLower())
+                          select m);
+            }
+
+            var result = (from m in models
+                          select new
+                          {
+                              Id = m.Id,
+                              Name = m.Name,
+                              Category = m.AssetModelCategory.Name,
+                              AssetCount = m.Assets.Count,
+                          }).ToArray();
+
+            return Json(new { Success = result.Length != 0, Models = result }, JsonRequestBehavior.AllowGet);
         }
     }
 }
