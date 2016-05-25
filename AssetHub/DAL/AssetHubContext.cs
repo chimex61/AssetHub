@@ -38,11 +38,6 @@ namespace AssetHub.DAL
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Entity<AssetModelProperty>()
-                .HasRequired(p => p.AssetModel)
-                .WithMany(m => m.Properties)
-                .WillCascadeOnDelete(false);
         }
     }
 }

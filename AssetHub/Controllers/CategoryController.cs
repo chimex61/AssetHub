@@ -57,7 +57,6 @@ namespace AssetHub.Controllers
                 return Json(new { Success, Message });
             }
             return PartialView("_AddCategory", vm);
-
         }
 
         // GET: ViewCategory

@@ -1,6 +1,7 @@
 ﻿using AssetHub.DAL;
 using AssetHub.Models;
 using AssetHub.ViewModels.AssetModel;
+using AssetHub.ViewModels.AssetModel.Partial;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,10 +31,6 @@ namespace AssetHub.Controllers
             return View(new AddAssetModelViewModel
             {
                 Categories = db.CategoryDropdown(),
-                Properties = new List<AddAssetModelViewModel.PropertyEditor>()
-                {
-                    new AddAssetModelViewModel.PropertyEditor(),
-                }
             });
         }
 
@@ -41,38 +38,53 @@ namespace AssetHub.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult AddAssetModel(AddAssetModelViewModel vm)
         {
-            var success = false;
-            var message = "";
+            var Success = false;
+            var Message = "";
 
-            var category = db.AssetModelCategories.Find(vm.SelectedCategoryId);
-            var model = (from m in category.AssetModels
-                         where m.Name.Equals(vm.Name, StringComparison.CurrentCultureIgnoreCase)
-                         select m).FirstOrDefault();
-
-            var sb = new StringBuilder();
-            if (model != null)
+            var categoryValidation = AssetModel.Validator.ValidateCategory(vm.SelectedCategoryId);
+            if(categoryValidation != null)
             {
-                ModelState.AddModelError("Name", AssetModel.NAME_EXISTS);
-                sb.AppendLine("Name: " + AssetModel.NAME_EXISTS);
+                ModelState.AddModelError("Category", categoryValidation);
             }
+
+            var nameValidation = AssetModel.Validator.ValidateName(null, vm.Name, vm.SelectedCategoryId);
+            if(nameValidation != null)
+            {
+                ModelState.AddModelError("Name", nameValidation);
+            }
+
             if(vm.Properties != null)
             {
-                foreach(var p in vm.Properties)
+                var hasPropertyErrors = false;
+                for (var i = 0; i < vm.Properties.Count; i++)
                 {
-                    if(string.IsNullOrEmpty(p.Name))
+                    var propertyValidation = AssetModel.Validator.ValidateProperty(vm.Properties[i].Name);
+                    if(propertyValidation != null)
                     {
-                        sb.AppendLine("Properties: " + AssetModel.PROPERTY_NAME_REQUIRED);
-                        ModelState.AddModelError("Properties", AssetModel.PROPERTY_NAME_REQUIRED);
+                        ModelState.AddModelError($"Properties[{i}].Name", propertyValidation);
+                        hasPropertyErrors = true;
+                    }
+                }
+
+                if(!hasPropertyErrors)
+                {
+                    var properties = (from p in vm.Properties
+                                      select new Tuple<string, bool>(p.Name, p.IsNumeric)).ToList();
+                    var propertiesValidation = AssetModel.Validator.ValidateProperties(properties);
+                    if(propertiesValidation != null)
+                    {
+                        ModelState.AddModelError("Properties", propertiesValidation);
                     }
                 }
             }
+
             if (ModelState.IsValid)
             {
                 try
                 {
                     var newModel = new AssetModel
                     {
-                        AssetModelCategory = category,
+                        AssetModelCategoryId = vm.SelectedCategoryId,
                         Name = vm.Name,
                         Properties = new List<AssetModelProperty>(),
                     };
@@ -82,7 +94,7 @@ namespace AssetHub.Controllers
                         {
                             newModel.Properties.Add(new AssetModelProperty
                             {
-                                AssetModel = newModel,
+                                AssetModels = new List<AssetModel>() { newModel },
                                 Name = p.Name,
                                 IsNumeric = p.IsNumeric,
                             });
@@ -91,15 +103,17 @@ namespace AssetHub.Controllers
                     db.AssetModels.Add(newModel);
                     db.SaveChanges();
 
-                    success = true;
-                    message = AssetModel.SAVE_SUCCESS;
+                    Success = true;
+                    Message = AssetModel.SAVE_SUCCESS;
                 }
                 catch (Exception e)
                 {
-                    message = AssetModel.SAVE_FAIL;
+                    Message = AssetModel.SAVE_FAIL;
                 }
+                return Json(new { Success, Message });
             }
-            return Json(new { Success = success, Message = message, Errors = sb.ToString() });
+            vm.Categories = db.CategoryDropdown();
+            return PartialView("_AddAssetModel", vm);
         }
 
         // GET: ViewAssetModel

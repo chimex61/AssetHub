@@ -97,25 +97,25 @@ namespace AssetHub.DAL
             {
                 new AssetModelProperty
                 {
-                    AssetModel = assetModelsList[0],
+                    AssetModels = new List<AssetModel>() { assetModelsList[0] },
                     Name = "Number of cores",
                     IsNumeric = true,
                 },
                 new AssetModelProperty
                 {
-                    AssetModel = assetModelsList[0],
+                    AssetModels = new List<AssetModel>() { assetModelsList[0] },
                     Name = "L3 cache size",
                     IsNumeric = false,
                 },
                 new AssetModelProperty
                 {
-                    AssetModel = assetModelsList[0],
+                    AssetModels = new List<AssetModel>() { assetModelsList[0] },
                     Name = "Socket",
                     IsNumeric = false,
                 },
                 new AssetModelProperty
                 {
-                    AssetModel = assetModelsList[1],
+                    AssetModels = new List<AssetModel>() { assetModelsList[0] },
                     Name = "Processor",
                     IsNumeric = false,
                 },

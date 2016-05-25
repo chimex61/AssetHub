@@ -1,0 +1,76 @@
+﻿@model AssetHub.ViewModels.AssetModel.Partial.AddAssetModelViewModel
+
+<script>
+    selectedCategoryId = @Model.SelectedCategoryId;
+    propertyCounter = @Model.Properties.Count;
+</script>
+
+@using (Html.BeginForm("AddAssetModel", "AssetModel", FormMethod.Post, htmlAttributes: new { id = "addForm" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SelectedCategoryId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.SelectedCategoryId, Model.Categories, "", htmlAttributes: new { @class = "form-control", @id = "categorySelector" })
+                @Html.ValidationMessageFor(m => m.SelectedCategoryId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <h4>Properties</h4> <hr />
+        @Html.ValidationMessageFor(m => m.Properties, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <table class="table table-striped" id="propertyTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Is numeric</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (var i = 0; i < Model.Properties.Count; i++)
+                    {
+                        <tr>
+                            <td hidden>
+                                <input type="hidden" name="Properties.Index" value="@i" />
+                            </td>
+                            <td class="col-md-4">
+                                @Html.EditorFor(m => m.Properties[i].Name, new { htmlAttributes = new { @class = "form-control" } })
+                            </td>
+                            <td class="col-md-1">
+                                @Html.CheckBoxFor(m => m.Properties[i].IsNumeric)
+                            </td>
+                            <td class="col-md-1">
+                                <button type="button" class="btn btn-default" onclick="remove_property(this)">Remove</button>
+                            </td>
+                            <td>
+                                @Html.ValidationMessageFor(m => m.Properties[i].Name, "", new { @class = "text-danger" })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <hr />
+            <button type="button" class="btn btn-default" id="addPropertyBtn">Add property</button>
+        </div>
+
+        <div class="form-group">
+            <hr />
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

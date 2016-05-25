@@ -198,7 +198,7 @@
     <Compile Include="ViewModels\AssetModel\IndexViewModel.cs" />
     <Compile Include="ViewModels\Category\IndexViewModel.cs" />
     <Compile Include="ViewModels\Category\Partial\AddCategoryViewModel.cs" />
-    <Compile Include="ViewModels\AssetModel\AddAssetModelViewModel.cs" />
+    <Compile Include="ViewModels\AssetModel\Partial\AddAssetModelViewModel.cs" />
     <Compile Include="ViewModels\AssetModel\ViewAssetModelViewModel.cs" />
     <Compile Include="ViewModels\Category\Partial\SearchViewModel.cs" />
     <Compile Include="ViewModels\Category\Partial\EditCategoryViewModel.cs" />
@@ -275,6 +275,7 @@
     <Content Include="Views\Category\_EditCategory.cshtml" />
     <Content Include="Views\Category\_AddCategory.cshtml" />
     <Content Include="Views\Category\_Search.cshtml" />
+    <Content Include="Views\AssetModel\_AddAssetModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

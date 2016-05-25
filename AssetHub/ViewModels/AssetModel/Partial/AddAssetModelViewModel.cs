@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace AssetHub.ViewModels.AssetModel
+namespace AssetHub.ViewModels.AssetModel.Partial
 {
     public class AddAssetModelViewModel
     {
@@ -19,6 +19,7 @@ namespace AssetHub.ViewModels.AssetModel
         public AddAssetModelViewModel()
         {
             SelectedCategoryId = -1;
+            Properties = new List<PropertyEditor>();
         }
 
         [Required]
