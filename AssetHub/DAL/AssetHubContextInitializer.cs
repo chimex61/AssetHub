@@ -22,7 +22,6 @@ namespace AssetHub.DAL
         {
             addRooms(context);
             addUsers(context);
-            addAssetModels(context);
             addAssets(context);
         }
 
@@ -71,7 +70,7 @@ namespace AssetHub.DAL
             context.SaveChanges();
         }
 
-        private void addAssetModels(AssetHubContext context)
+        private void addAssets(AssetHubContext context)
         {
             var categoriesList = new List<AssetModelCategory>()
             {
@@ -85,11 +84,11 @@ namespace AssetHub.DAL
             {
                 new AssetModel {
                     Name = "Computer",
-                    AssetModelCategoryId = 1,
+                    AssetModelCategory = categoriesList[0],
                 },
                 new AssetModel {
                     Name = "Processor",
-                    AssetModelCategoryId = 1,
+                    AssetModelCategory = categoriesList[0],
                 },
             };
 
@@ -123,39 +122,56 @@ namespace AssetHub.DAL
 
             context.AssetModelProperties.AddRange(assetModelPropertiesList);
             context.AssetModels.AddRange(assetModelsList);
-            context.SaveChanges();
-        }
 
-        private void addAssets(AssetHubContext context)
-        {
             var assetList = new List<Asset>()
             {
                 new Asset
                 {
                     Name = "Acer Aspire V3-772G",
                     SerialNumber = "324017",
-                    AssetModelId = 1,
+                    AssetModel = assetModelsList[0],
+                    AssetProperties = new List<AssetProperty>(),
                 },
 
                 new Asset
                 {
                     Name = "Intel Core i7-4702MQ",
                     SerialNumber = "0123456",
-                    AssetModelId = 2,
+                    AssetModel = assetModelsList[1],
+                    AssetProperties = new List<AssetProperty>(),
                 },
             };
 
-            context.Assets.AddRange(assetList);
+            var assetPropertiesList = new List<AssetProperty>()
+            {
+                new AssetProperty
+                {
+                    Asset = assetList[0],
+                    AssetModelProperty = assetModelPropertiesList[3],
+                    Value = "Intel core i7-4702mq"
+                },
 
-            //var assetpropertieslist = new list<assetproperty>()
-            //{
-            //    new assetproperty { asset = assetlist[0], value = "intel core i7-4702mq", assetmodelpropertyid = 4 },
-            //    new assetproperty { asset = assetlist[1], value = "4", assetmodelpropertyid = 1 },
-            //    new assetproperty { asset = assetlist[1], value = "6", assetmodelpropertyid = 2 },
-            //    new assetproperty { asset = assetlist[1], value = "fcpga946", assetmodelpropertyid = 3 },
-            //};
+                new AssetProperty
+                {
+                    Asset = assetList[1],
+                    AssetModelProperty = assetModelPropertiesList[0],
+                    Value = "84 kB",
+                },
 
-            //context.AssetProperties.AddRange(assetPropertiesList);
+                new AssetProperty
+                {
+                    Asset = assetList[1],
+                    AssetModelProperty = assetModelPropertiesList[1],
+                    Value = "6",
+                },
+
+                new AssetProperty
+                {
+                    Asset = assetList[1],
+                    AssetModelProperty = assetModelPropertiesList[2],
+                    Value = "fcpga946",
+                }
+            };
 
             var assetLocationList = new List<AssetLocation>()
             {
@@ -163,8 +179,9 @@ namespace AssetHub.DAL
                 new AssetLocation { Asset = assetList[1], RoomId = 2, TimeFrom = DateTime.Now },
             };
 
+            context.Assets.AddRange(assetList);
+            context.AssetProperties.AddRange(assetPropertiesList);
             context.AssetLocations.AddRange(assetLocationList);
-
             context.SaveChanges();
         }
     }

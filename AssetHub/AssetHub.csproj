@@ -197,6 +197,7 @@
     <Compile Include="ViewModels\Admin\CreateUserViewModel.cs" />
     <Compile Include="ViewModels\AssetModel\IndexViewModel.cs" />
     <Compile Include="ViewModels\AssetModel\Partial\SearchViewModel.cs" />
+    <Compile Include="ViewModels\Asset\Partial\EditAssetViewModel.cs" />
     <Compile Include="ViewModels\Asset\Partial\SearchViewModel.cs" />
     <Compile Include="ViewModels\Category\IndexViewModel.cs" />
     <Compile Include="ViewModels\Category\Partial\AddCategoryViewModel.cs" />
@@ -231,6 +232,7 @@
     <Content Include="Controllers.cd" />
     <Content Include="Scripts\AssetModel\ViewAssetModel.js" />
     <Content Include="Scripts\Asset\SearchAsset.js" />
+    <Content Include="Scripts\Asset\ViewAsset.js" />
     <Content Include="ViewModels.cd" />
     <None Include="Scripts\jquery-2.2.1-vsdoc.js" />
     <Content Include="Scripts\Asset\AddAsset.js" />
@@ -285,6 +287,7 @@
     <Content Include="Views\AssetModel\_Search.cshtml" />
     <Content Include="Views\Asset\_AddAsset.cshtml" />
     <Content Include="Views\Asset\_Search.cshtml" />
+    <Content Include="Views\Asset\_EditAsset.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

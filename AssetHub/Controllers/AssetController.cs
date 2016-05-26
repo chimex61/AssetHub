@@ -4,6 +4,7 @@ using AssetHub.ViewModels.Asset;
 using AssetHub.ViewModels.Asset.Partial;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -135,6 +136,27 @@ namespace AssetHub.Controllers
         public ActionResult ViewAsset(int? id = 1)
         {
             return View(new ViewAssetViewModel(id.Value));
+        }
+
+        [HttpPost]
+        public JsonResult DeleteAsset(int id)
+        {
+            var Success = false;
+            var Message = "";
+
+            try
+            {
+                db.Entry(new Asset { Id = id }).State = EntityState.Deleted;
+                db.SaveChanges();
+                Success = true;
+                Message = Asset.DELETE_SUCCESS;
+            }
+            catch (Exception e)
+            {
+                Message = Asset.DELETE_FAIL;
+            }
+
+            return Json(new { Success, Message });
         }
 
         public JsonResult GetAssetModelProperties(int id)
