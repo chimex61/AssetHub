@@ -1,11 +1,6 @@
 ﻿@model AssetHub.ViewModels.Asset.Partial.AddAssetViewModel
 
-<script>
-    var selectedAssetModelId = Number(@Model.SelectedAssetModelId);
-    var selectedRoomId = Number(@Model.SelectedRoomId);
-</script>
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("AddAsset", "Asset", FormMethod.Post, htmlAttributes: new { id = "addForm" }))
 {
     @Html.AntiForgeryToken()
     
@@ -56,13 +51,15 @@
                             {
                                 <tr>
                                     <td hidden>
-                                        <input type="hidden" value="@Model.Properties[i].PropertyId" />
+                                        @Html.HiddenFor(model => model.Properties[i].PropertyId)
                                     </td>
                                     <td class="col-md-4">
-                                        @Model.Properties[i].Name
+                                        @Html.HiddenFor(model => model.Properties[i].Name)
+                                        @Html.DisplayFor(model => model.Properties[i].Name)
                                     </td>
                                     <td class="col-md-1">
-                                        @Model.Properties[i].IsNumeric
+                                        @Html.HiddenFor(model => model.Properties[i].IsNumeric)
+                                        @Html.DisplayFor(model => model.Properties[i].IsNumeric)
                                     </td>
                                     <td class="col-md-4">
                                         @Html.EditorFor(model => model.Properties[i].Value, new { htmlAttributes = new { @class = "form-control" } })
