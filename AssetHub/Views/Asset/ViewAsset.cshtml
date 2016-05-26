@@ -128,10 +128,10 @@
                     }
                 </div>
             </div>
+        </div>
 
-            <div class="container" id="editContainer" style="display: none">
-                @Html.Partial("_EditAsset", new EditAssetViewModel())
-            </div>
+        <div class="container" id="editContainer" style="display: none">
+            @Html.Partial("_EditAsset", new EditAssetViewModel(Model.Id))
         </div>
     </div>
 </div>
@@ -139,4 +139,5 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/Scripts/Asset/ViewAsset.js")
+    @Scripts.Render("~/Scripts/Asset/EditAsset.js")
 }

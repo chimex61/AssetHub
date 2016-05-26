@@ -133,9 +133,17 @@ namespace AssetHub.Controllers
         }
 
         // GET: ViewAsset
-        public ActionResult ViewAsset(int? id = 1)
+        public ActionResult ViewAsset(int id)
         {
-            return View(new ViewAssetViewModel(id.Value));
+            return View(new ViewAssetViewModel(id));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditAsset(EditAssetViewModel vm)
+        {
+            vm.AssetModels = db.AssetModelDropdown();
+            return PartialView("_EditAsset", vm);
         }
 
         [HttpPost]

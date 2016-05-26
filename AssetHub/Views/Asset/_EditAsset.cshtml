@@ -1,26 +1,99 @@
 ﻿@model AssetHub.ViewModels.Asset.Partial.EditAssetViewModel
 
+<div class="row">
+    <div class="col-sm-10">
+        @using (Html.BeginForm("EditAsset", "Asset", FormMethod.Post, new { id = "editForm" }))
+        {
+            @Html.AntiForgeryToken()
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>EditAssetViewModel</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SerialNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SerialNumber, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.SerialNumber, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SelectedAssetModelId, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(m => m.SelectedAssetModelId, Model.AssetModels, htmlAttributes: new { @class = "form-control", @id = "modelSelector" })
+                        @Html.ValidationMessageFor(m => m.SelectedAssetModelId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div id="propertyContainer">
+                                @if (Model.Properties.Count > 0)
+                                {
+                                    <h4>Properties</h4> <hr />
+                                    @Html.ValidationMessageFor(m => m.Properties, "", new { @class = "text-danger" })
+                                    <div class="form-group">
+                                        <table class="table table-striped" id="propertyTable">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Is numeric</th>
+                                                    <th>Value</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @for (var i = 0; i < Model.Properties.Count; i++)
+                                                {
+                                                    <tr>
+                                                        <td hidden>
+                                                            @Html.HiddenFor(model => model.Properties[i].ModelPropertyId)
+                                                            @Html.HiddenFor(model => model.Properties[i].AssetPropertyId)
+                                                        </td>
+                                                        <td class="col-md-2">
+                                                            @Html.HiddenFor(model => model.Properties[i].Name)
+                                                            @Html.DisplayFor(model => model.Properties[i].Name)
+                                                        </td>
+                                                        <td class="col-md-2">
+                                                            @Html.HiddenFor(model => model.Properties[i].IsNumeric)
+                                                            @Html.DisplayFor(model => model.Properties[i].IsNumeric)
+                                                        </td>
+                                                        <td class="col-md-4">
+                                                            @Html.EditorFor(model => model.Properties[i].Value, new { htmlAttributes = new { @class = "form-control" } })
+                                                        </td>
+                                                        <td>
+                                                            @Html.ValidationMessageFor(m => m.Properties[i], "", new { @class = "text-danger" })
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                        <hr />
+                                    </div>
+                                }
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-default" />
+                    </div>
+                </div>
             </div>
-        </div>
+        }
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+<script type="text/javascript">
+    document.getElementById("modelSelector").value = @Model.SelectedAssetModelId;
+</script>
