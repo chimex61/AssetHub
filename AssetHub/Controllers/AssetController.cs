@@ -17,7 +17,10 @@ namespace AssetHub.Controllers
         // GET: Asset
         public ActionResult Index()
         {
-            return View(new IndexViewModel());
+            return View(new IndexViewModel
+            {
+                Assets = db.Assets.ToList(),
+            });
         }
 
         // GET: AddAsset
@@ -128,6 +131,12 @@ namespace AssetHub.Controllers
             return PartialView("_AddAsset", vm);
         }
 
+        // GET: ViewAsset
+        public ActionResult ViewAsset(int? id = 1)
+        {
+            return View(new ViewAssetViewModel(id.Value));
+        }
+
         public JsonResult GetAssetModelProperties(int id)
         {
             var properties = (from m in db.AssetModels where m.Id == id
@@ -145,9 +154,42 @@ namespace AssetHub.Controllers
             return Json(propertiesList, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult ViewAsset(int? id = 1)
+        public JsonResult GetSearchResults(SearchViewModel vm)
         {
-            return View(new ViewAssetViewModel(id.Value));
+            var assets = (from a in db.Assets
+                          select a);
+
+            if(vm.SelectedAssetModelId != -1)
+            {
+                assets = (from a in assets
+                          where a.AssetModelId == vm.SelectedAssetModelId
+                          select a);
+            }
+
+            if(!string.IsNullOrWhiteSpace(vm.Name))
+            {
+                assets = (from a in assets
+                          where a.Name.ToLower().Contains(vm.Name.ToLower())
+                          select a);
+            }
+
+            if (!string.IsNullOrWhiteSpace(vm.SerialNumber))
+            {
+                assets = (from a in assets
+                          where a.SerialNumber.ToLower().Contains(vm.SerialNumber.ToLower())
+                          select a);
+            }
+
+            var result = (from a in assets
+                          select new
+                          {
+                              Id = a.Id,
+                              Name = a.Name,
+                              SerialNumber = a.SerialNumber,
+                              AssetModel = a.AssetModel.Name,
+                          }).ToArray();
+
+            return Json(new { Success = result.Length != 0, Models = result }, JsonRequestBehavior.AllowGet);
         }
     }
 }

@@ -51,7 +51,7 @@ namespace AssetHub.Controllers
                 {
                     var ident = UserManager.CreateIdentityAsync(acc, DefaultAuthenticationTypes.ApplicationCookie).Result;
                     AuthManager.SignOut();
-                    AuthManager.SignIn(new AuthenticationProperties { IsPersistent = false }, ident);
+                    AuthManager.SignIn(new AuthenticationProperties { IsPersistent = true }, ident);
                     SessionExtension.Login(Session, acc);
                 }
             }

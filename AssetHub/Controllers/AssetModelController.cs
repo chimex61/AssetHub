@@ -21,7 +21,6 @@ namespace AssetHub.Controllers
         {
             return View(new IndexViewModel
             {
-                Categories = db.CategoryDropdown(),
                 AssetModels = db.AssetModels.ToList(),
             });
         }
