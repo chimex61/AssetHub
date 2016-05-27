@@ -1,7 +1,8 @@
 ﻿@model AssetHub.ViewModels.AssetModel.Partial.EditAssetModelViewModel
 
 <script>
-    var propertyCounter = @Model.DeletedProperties.Count + @Model.Properties.Count + @Model.NewProperties.Count;
+    var propertyCounter = @((Model.DeletedProperties == null ? 0 : Model.DeletedProperties.Count)
+        + (Model.Properties == null ? 0 : Model.Properties.Count) + (Model.NewProperties == null ? 0 : Model.NewProperties.Count));
 </script>
 
 <div class="row">
@@ -48,6 +49,7 @@
                                 <tr class="danger">
                                     <td>
                                         <input type="hidden" name="DeletedProperties.Index" value="@i" />
+                                        @Html.HiddenFor(model => model.DeletedProperties[i].Id)
                                     </td>
                                     <td class="col-md-4">
                                         @Html.EditorFor(m => m.DeletedProperties[i].Name, new { htmlAttributes = new { @class = "form-control" } })
@@ -68,6 +70,7 @@
                                 <tr>
                                     <td hidden>
                                         <input type="hidden" name="Properties.Index" value="@i" />
+                                        @Html.HiddenFor(model => model.Properties[i].Id);
                                     </td>
                                     <td class="col-md-4">
                                         @Html.EditorFor(m => m.Properties[i].Name, new { htmlAttributes = new { @class = "form-control" } })

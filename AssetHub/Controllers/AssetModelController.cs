@@ -123,6 +123,122 @@ namespace AssetHub.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditAssetModel(EditAssetModelViewModel vm)
+        {
+            var Success = false;
+            var Message = "";
+
+            var categoryValidation = AssetModel.Validator.ValidateCategory(vm.SelectedCategoryId);
+            if (categoryValidation != null)
+            {
+                ModelState.AddModelError("Category", categoryValidation);
+            }
+
+            var nameValidation = AssetModel.Validator.ValidateName(null, vm.Name, vm.SelectedCategoryId);
+            if (nameValidation != null)
+            {
+                ModelState.AddModelError("Name", nameValidation);
+            }
+
+            var propertiesForValidation = new List<Tuple<string, bool>>();
+            var hasPropertyErrors = false;
+            if (vm.Properties != null)
+            {
+                for (var i = 0; i < vm.Properties.Count; i++)
+                {
+                    var propertyValidation = AssetModel.Validator.ValidateProperty(vm.Properties[i].Name);
+                    if (propertyValidation != null)
+                    {
+                        ModelState.AddModelError($"Properties[{i}].Name", propertyValidation);
+                        hasPropertyErrors = true;
+                    }
+                }
+
+                propertiesForValidation.AddRange((from p in vm.Properties
+                                                  select new Tuple<string, bool>(p.Name, p.IsNumeric)).ToList());
+            }
+
+            if(vm.NewProperties != null)
+            {
+                for (var i = 0; i < vm.NewProperties.Count; i++)
+                {
+                    var propertyValidation = AssetModel.Validator.ValidateProperty(vm.NewProperties[i].Name);
+                    if (propertyValidation != null)
+                    {
+                        ModelState.AddModelError($"NewProperties[{i}].Name", propertyValidation);
+                        hasPropertyErrors = true;
+                    }
+                }
+
+                propertiesForValidation.AddRange((from p in vm.NewProperties
+                                                  select new Tuple<string, bool>(p.Name, p.IsNumeric)).ToList());
+            }
+
+            if(!hasPropertyErrors)
+            {
+                var propertiesValidation = AssetModel.Validator.ValidateProperties(propertiesForValidation);
+                if (propertiesValidation != null)
+                {
+                    ModelState.AddModelError("Properties", propertiesValidation);
+                }
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var model = db.AssetModels.Find(vm.Id);
+                    model.Name = vm.Name;
+                    model.AssetModelCategoryId = vm.SelectedCategoryId;
+                    
+                    if(vm.DeletedProperties != null)
+                    {
+                        foreach(var p in vm.DeletedProperties)
+                        {
+                            db.Entry(new AssetModelProperty { Id = p.Id }).State = EntityState.Deleted;
+                        }
+                    }
+
+                    if(vm.Properties != null)
+                    {
+                        foreach(var p in vm.Properties)
+                        {
+                            var property = db.AssetModelProperties.Find(p.Id);
+                            property.Name = p.Name;
+                            property.IsNumeric = p.IsNumeric;
+                        }
+                    }
+
+                    if(vm.NewProperties != null)
+                    {
+                        foreach(var p in vm.NewProperties)
+                        {
+                            model.Properties.Add(new AssetModelProperty
+                            {
+                                AssetModels = new List<AssetModel>() { model },
+                                Name = p.Name,
+                                IsNumeric = p.IsNumeric,
+                            });
+                        }
+                    }
+
+                    db.SaveChanges();
+
+                    Success = true;
+                    Message = AssetModel.SAVE_SUCCESS;
+                }
+                catch (Exception e)
+                {
+                    Message = AssetModel.SAVE_FAIL;
+                }
+                return Json(new { Success, Message });
+            }
+            vm.Categories = db.CategoryDropdown();
+            return PartialView("_EditAssetModel", vm);
+        }
+
+        [HttpPost]
         public JsonResult DeleteAssetModel(int id)
         {
             var Success = false;
