@@ -1,0 +1,15 @@
+﻿@model AssetHub.ViewModels.Admin.Partial.RoomManagementViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h4>Rooms</h4> <hr />
+<div class="container" id="container">
+    @Html.Partial("_RoomManagement")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/Admin/RoomManagement.js")
+}

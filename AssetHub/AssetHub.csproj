@@ -196,6 +196,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Account\LoginViewModel.cs" />
     <Compile Include="ViewModels\Admin\CreateUserViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Partial\RoomManagementViewModel.cs" />
     <Compile Include="ViewModels\AssetModel\IndexViewModel.cs" />
     <Compile Include="ViewModels\AssetModel\Partial\EditAssetModelViewModel.cs" />
     <Compile Include="ViewModels\AssetModel\Partial\SearchViewModel.cs" />
@@ -234,6 +235,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Models.cd" />
     <Content Include="Controllers.cd" />
+    <Content Include="Scripts\Admin\RoomManagement.js" />
     <Content Include="Scripts\AssetModel\EditAssetModel.js" />
     <Content Include="Scripts\AssetModel\ViewAssetModel.js" />
     <Content Include="Scripts\Asset\EditAsset.js" />
@@ -298,6 +300,8 @@
     <Content Include="Views\Loan\_CreateLoan.cshtml" />
     <Content Include="Views\Loan\CreateLoan.cshtml" />
     <Content Include="Views\AssetModel\_EditAssetModel.cshtml" />
+    <Content Include="Views\Admin\RoomManagement.cshtml" />
+    <Content Include="Views\Admin\_RoomManagement.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
