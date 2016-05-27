@@ -22,6 +22,6 @@ namespace AssetHub.ViewModels.Home
             }
         }
 
-        public ICollection<Loan> CurrentLoans { get; set; }
+        public ICollection<Models.Loan> CurrentLoans { get; set; }
     }
 }

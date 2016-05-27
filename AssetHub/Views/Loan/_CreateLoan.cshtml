@@ -1,0 +1,59 @@
+﻿@model AssetHub.ViewModels.Loan.Partial.CreateLoanViewModel
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        @Html.HiddenFor(model => model.AssetId)
+        @Html.HiddenFor(model => model.AssetName)
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.Label("Time from", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.EditorFor(model => model.DateFrom, new { htmlAttributes = new { @class = "form-control", @type = "date" }})
+                </div>
+                <div class="col-md-1">
+                    @Html.DropDownListFor(model => model.SelectedHourFromId, Model.Hours, "", htmlAttributes: new { @class = "form-control", @id = "hourFromSelector" })
+                </div>
+                @Html.ValidationMessage("TimeFrom", "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Time to", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.EditorFor(model => model.DateTo, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                </div>
+                <div class="col-md-1">
+                    @Html.DropDownListFor(model => model.SelectedHourToId, Model.Hours, "", htmlAttributes: new { @class = "form-control", @id = "hourToSelector" })
+                </div>
+                @Html.ValidationMessage("TimeFrom", "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SelectedRoomId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.SelectedRoomId, Model.Rooms, "", htmlAttributes: new { @class = "form-control", @id = "roomSelector" })
+                @Html.ValidationMessageFor(model => model.SelectedRoomId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Loan" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+    document.getElementById("hourFromSelector").value = @Model.SelectedHourFromId;
+    document.getElementById("hourToSelector").value = @Model.SelectedHourToId;
+    document.getElementById("roomSelector").value =@Model.SelectedRoomId;
+</script>

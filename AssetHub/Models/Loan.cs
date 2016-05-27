@@ -7,6 +7,8 @@ namespace AssetHub.Models
     {
         public int Id { get; set; }
 
+        public bool IsReturned { get; set; }
+
         public DateTime TimeFrom { get; set; }
 
         public DateTime TimeTo { get; set; }

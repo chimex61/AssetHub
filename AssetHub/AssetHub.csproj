@@ -171,6 +171,7 @@
     <Compile Include="Controllers\AssetModelController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoanController.cs" />
     <Compile Include="DAL\AssetHubContext.cs" />
     <Compile Include="DAL\AssetHubContextExtensions.cs" />
     <Compile Include="DAL\AssetHubContextInitializer.cs" />
@@ -211,6 +212,7 @@
     <Compile Include="ViewModels\Asset\ViewAssetViewModel.cs" />
     <Compile Include="ViewModels\Category\ViewCategoryViewModel.cs" />
     <Compile Include="ViewModels\Home\IndexViewModel.cs" />
+    <Compile Include="ViewModels\Loan\Partial\CreateLoanViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -235,6 +237,10 @@
     <Content Include="Scripts\Asset\EditAsset.js" />
     <Content Include="Scripts\Asset\SearchAsset.js" />
     <Content Include="Scripts\Asset\ViewAsset.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
     <Content Include="ViewModels.cd" />
     <None Include="Scripts\jquery-2.2.1-vsdoc.js" />
     <Content Include="Scripts\Asset\AddAsset.js" />
@@ -291,6 +297,8 @@
     <Content Include="Views\Asset\_Search.cshtml" />
     <Content Include="Views\Asset\_EditAsset.cshtml" />
     <Content Include="Views\Asset\_ChangeLocation.cshtml" />
+    <Content Include="Views\Loan\_CreateLoan.cshtml" />
+    <Content Include="Views\Loan\CreateLoan.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

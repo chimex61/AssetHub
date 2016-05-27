@@ -44,7 +44,7 @@ namespace AssetHub.ViewModels.Asset
 
         public List<AssetProperty> Properties { get; set; }
 
-        public Loan CurrentLoan { get; set; }
+        public Models.Loan CurrentLoan { get; set; }
 
         [Display(Name = "Current location")]
         public AssetLocation CurrentLocation { get; set; }
