@@ -21,7 +21,7 @@
                     '<tr> \
                         <td hidden> \
                             <input type="hidden" name="Properties[' + i + '].ModelPropertyId" value="' + property.PropertyId + '" /> \
-                            <input type="hidden" name="Properties[' + i + '".AssetPropertyId" value="-1"/> \
+                            <input type="hidden" name="Properties[' + i + '].AssetPropertyId" value="-1"/> \
                         </td> \
                         <td> \
                             <input class="form-control" name="Properties[' + i + '].Name" type="hidden" value="' + property.Name + '">' + property.Name + ' \
@@ -33,7 +33,7 @@
                             <input class="form-control text-box single-line" data-val-required="Property value is required" name="Properties[' + i + '].Value" type="text" value="" /> \
                         </td> \
                         <td> \
-                            <span class="field-validation-valid text-danger" data-valmsg-for="Properties[' + i + ']" data-valmsg-replace="true"></span> \
+                            <span class="field-validation-valid text-danger" data-valmsg-for="Properties[' + i + '].Value" data-valmsg-replace="true"></span> \
                         </td> \
                     </tr>';
 
@@ -52,6 +52,11 @@
     $("#editContainer").on('submit', '#editForm', function (event) {
         event.preventDefault();
         var form = $(this);
+
+        var type = form.attr('method');
+        var url = form.attr('action');
+        var data = form.serialize();
+
         $.ajax({
             type: form.attr('method'),
             url: form.attr('action'),

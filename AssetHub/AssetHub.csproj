@@ -231,6 +231,7 @@
     <Content Include="Models.cd" />
     <Content Include="Controllers.cd" />
     <Content Include="Scripts\AssetModel\ViewAssetModel.js" />
+    <Content Include="Scripts\Asset\EditAsset.js" />
     <Content Include="Scripts\Asset\SearchAsset.js" />
     <Content Include="Scripts\Asset\ViewAsset.js" />
     <Content Include="ViewModels.cd" />

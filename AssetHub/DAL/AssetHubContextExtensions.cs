@@ -57,14 +57,6 @@ namespace AssetHub.DAL
             return list;
         }
 
-        public static ICollection<string> CategoryList(this AssetHubContext db)
-        {
-            var list = (from c in db.AssetModelCategories
-                        select c.Name).ToList();
-
-            return list;
-        }
-
         public static IEnumerable<SelectListItem> RoomDropdown(this AssetHubContext db)
         {
             var rooms = db.Rooms.Select(

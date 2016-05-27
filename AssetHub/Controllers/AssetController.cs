@@ -142,6 +142,93 @@ namespace AssetHub.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult EditAsset(EditAssetViewModel vm)
         {
+            var Success = false;
+            var Message = "";
+
+            var nameValidation = Asset.Validator.ValidateName(vm.Name);
+            if (nameValidation != null)
+            {
+                ModelState.AddModelError("Name", nameValidation);
+            }
+
+            var modelValidation = Asset.Validator.ValidateAssetModel(vm.SelectedAssetModelId);
+            if (modelValidation != null)
+            {
+                ModelState.AddModelError("AssetModel", modelValidation);
+            }
+
+            var serialValidation = Asset.Validator.ValidateSerialKey(vm.SerialNumber);
+            if (serialValidation != null)
+            {
+                ModelState.AddModelError("SerialNumber", serialValidation);
+            }
+
+            var modelChanged = false;
+            if (vm.Properties != null)
+            {
+                for (var i = 0; i < vm.Properties.Count; i++)
+                {
+                    var p = vm.Properties[i];
+                    var property = db.AssetModelProperties.Find(p.ModelPropertyId);
+                    var propertyValidation = Asset.Validator.ValidatePropertyValue(property, p.Value);
+                    if (propertyValidation != null)
+                    {
+                        ModelState.AddModelError($"Properties[{i}].Value", propertyValidation);
+                    }
+
+                    if(p.AssetPropertyId == -1) { modelChanged = true; }
+                }
+            }
+
+            if (ModelState.IsValid)
+            {
+                var asset = db.Assets.Find(vm.Id);
+                asset.Name = vm.Name;
+                asset.SerialNumber = vm.SerialNumber;
+
+                if(modelChanged)
+                {
+                    asset.AssetModelId = vm.SelectedAssetModelId;
+                    var properties = new List<AssetProperty>();
+                    foreach(var p in vm.Properties)
+                    {
+                        properties.Add(new AssetProperty
+                        {
+                            Asset = asset,
+                            AssetModelPropertyId = p.ModelPropertyId,
+                            Value = p.Value,
+                        });
+                    }
+
+                    var oldProperties = asset.AssetProperties;
+                    asset.AssetProperties = properties;
+
+                    db.AssetProperties.RemoveRange(oldProperties);
+                }
+                else if (vm.Properties != null)
+                {
+                    foreach(var p in vm.Properties)
+                    {
+                        var property = db.AssetProperties.Find(p.AssetPropertyId);
+                        property.Value = p.Value;
+                    }
+                }
+
+                try
+                {
+                    db.SaveChanges();
+                    Success = true;
+                    Message = Asset.SAVE_SUCCESS;
+
+                }
+                catch (Exception)
+                {
+                    Message = Asset.SAVE_FAIL;
+                }
+
+                return Json(new { Success, Message });
+            }
+
             vm.AssetModels = db.AssetModelDropdown();
             return PartialView("_EditAsset", vm);
         }

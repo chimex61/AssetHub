@@ -27,6 +27,8 @@ namespace AssetHub.ViewModels.Asset.Partial
 
         AssetHubContext db = new AssetHubContext();
 
+        public EditAssetViewModel() { }
+
         public EditAssetViewModel(int id)
         {
             var asset = db.Assets.Find(id);

@@ -2,6 +2,11 @@
     $("#editContainer").on('submit', '#editForm', function (event) {
         event.preventDefault();
         var form = $(this);
+
+        var type = form.attr('method');
+        var url = form.attr('action');
+        var data = form.serialize();
+
         $.ajax({
             type: form.attr('method'),
             url: form.attr('action'),
