@@ -234,6 +234,46 @@ namespace AssetHub.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangeLocation(ChangeLocationViewModel vm)
+        {
+            if(vm.SelectedRoomId < 0)
+            {
+                ModelState.AddModelError("SelectedRoomId", "Room is required");
+            }
+            if(ModelState.IsValid)
+            {
+                var currentLocation = (from l in db.AssetLocations
+                                       where l.AssetId == vm.AssetId && DateTime.Now >= l.TimeFrom && (DateTime.Now <= l.TimeTo || l.TimeTo == null)
+                                       select l).FirstOrDefault();
+
+                if(currentLocation.RoomId != vm.SelectedRoomId)
+                {
+                    currentLocation.TimeTo = DateTime.Now;
+                    db.AssetLocations.Add(new AssetLocation
+                    {
+                        AssetId = vm.AssetId,
+                        RoomId = vm.SelectedRoomId,
+                        TimeFrom = DateTime.Now,
+                        TimeTo = null,
+                    });
+                }
+
+                try
+                {
+                    db.SaveChanges();
+                    return Json(new { Success = true, Message = "Location changed successfully" });
+                }
+                catch (Exception e)
+                {
+                    return Json(new { Success = false, Message = "Unknown errorr" });
+                }
+            }
+            vm.Rooms = db.RoomDropdown();
+            return PartialView("_ChangeLocation", vm);
+        }
+
+        [HttpPost]
         public JsonResult DeleteAsset(int id)
         {
             var Success = false;

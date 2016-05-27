@@ -46,6 +46,7 @@ namespace AssetHub.ViewModels.Asset.Partial
         public List<PropertyEditor> Properties { get; set; }
 
         [Display(Name = "Room")]
+        [Required(ErrorMessage = "Room is required")]
         public int SelectedRoomId { get; set; }
 
         public IEnumerable<SelectListItem> Rooms { get; set; }

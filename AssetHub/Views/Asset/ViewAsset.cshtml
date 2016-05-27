@@ -82,15 +82,26 @@
                     @if (Model.CurrentLocation != null)
                     {
                         <h4>Current location</h4> <hr />
-                        <dl class="dl-horizontal">
-                            <dt>
-                                @Html.DisplayName("Room")
-                            </dt>
+                        <div class="col-sm-10">
+                            <div id="viewLocationContainer">
+                                <dl class="dl-horizontal">
+                                    <dt>
+                                        @Html.DisplayName("Room")
+                                    </dt>
 
-                            <dd>
-                                @Html.DisplayFor(model => model.CurrentLocation.Room.Name)
-                            </dd>
-                        </dl>
+                                    <dd>
+                                        @Html.DisplayFor(model => model.CurrentLocation.Room.Name)
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div id="changeLocationContainer" style="display: none">
+                                @Html.Partial("_ChangeLocation", new ChangeLocationViewModel(Model.Id, Model.CurrentLocation.RoomId))
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <button type="button" class="btn btn-default" id="changeLocationBtn">Change</button>
+                        </div>
+
                     }
                 </div>
             </div>
