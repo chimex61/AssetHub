@@ -31,3 +31,8 @@
         });
     });
 });
+
+function remove_property(btn) {
+    var parent = btn.parentNode.parentNode;
+    parent.remove();
+}

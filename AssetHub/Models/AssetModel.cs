@@ -56,7 +56,7 @@ namespace AssetHub.Models
             public static string ValidateProperties(ICollection<Tuple<string, bool>> properties)
             {
                 var count = (from p in properties
-                             select new { p.Item1 }).Distinct().Count();
+                             select new { Name = p.Item1.ToLower() }).Distinct().Count();
 
                 if(count != properties.Count) { return PROPERTY_NAME_DUPLICATE; }
                 return null;
