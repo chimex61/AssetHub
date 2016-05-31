@@ -24,6 +24,11 @@ namespace AssetHub.Controllers
             });
         }
 
+        public ActionResult ViewRoom(int id)
+        {
+            return View(new ViewRoomViewModel(id));
+        }
+
         // GET: RoomManagement
         public ActionResult RoomManagement()
         {

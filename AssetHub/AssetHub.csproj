@@ -309,6 +309,7 @@
     <Content Include="Views\Room\_RoomManagement.cshtml" />
     <Content Include="Views\Room\Index.cshtml" />
     <Content Include="Views\Room\_Search.cshtml" />
+    <Content Include="Views\Room\ViewRoom.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
