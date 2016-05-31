@@ -59,6 +59,8 @@ namespace AssetHub.Models
 
         public string Name { get; set; }
 
+        public decimal Value { get; set; }
+
         public string SerialNumber { get; set; }
 
         public int AssetModelId { get; set; }

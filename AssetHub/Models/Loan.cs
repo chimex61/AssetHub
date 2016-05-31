@@ -16,13 +16,15 @@ namespace AssetHub.Models
 
         public int AssetId { get; set; }
 
+        public int RoomId { get; set; }
+
         [Required]
         public string UserId { get; set; }
 
-        [ForeignKey("AssetId")]
         public virtual Asset Asset { get; set; }
 
-        [ForeignKey("UserId")]
         public virtual User User { get; set; }
+
+        public virtual Room Room { get; set; }
     }
 }
