@@ -30,6 +30,10 @@ namespace AssetHub.Controllers
         [AllowAnonymous]
         public ActionResult Login()
         {
+            var id = User.Identity.GetUserId();
+            var user = new AssetHubContext().Users.Find(id);
+            if(user != null) { return RedirectToAction("Index", "Home"); }
+
             return View();
         }
 
