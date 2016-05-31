@@ -17,6 +17,8 @@ namespace AssetHub.ViewModels.AssetModel.Partial
             public string Name { get; set; }
 
             public bool IsNumeric { get; set; }
+
+            public bool IsEditable { get; set; }
         }
 
         AssetHubContext db = new AssetHubContext();
@@ -38,7 +40,6 @@ namespace AssetHub.ViewModels.AssetModel.Partial
             Id = model.Id;
             Name = model.Name;
             SelectedCategoryId = model.AssetModelCategoryId;
-            AssetCount = model.Assets.Count;
 
             foreach(var p in model.Properties)
             {
@@ -47,6 +48,7 @@ namespace AssetHub.ViewModels.AssetModel.Partial
                     Id = p.Id,
                     Name = p.Name,
                     IsNumeric = p.IsNumeric,
+                    IsEditable = p.AssetProperties.Count == 0,
                 });
             }
         }
@@ -54,8 +56,6 @@ namespace AssetHub.ViewModels.AssetModel.Partial
         public int Id { get; set; }
 
         public string Name { get; set; }
-
-        public int AssetCount { get; set; }
 
         [Display(Name = "Category")]
         [Required(ErrorMessage = Models.AssetModel.Validator.CATEGORY_REQUIRED)]

@@ -20,17 +20,21 @@
                 var editor =
                     '<tr> \
                         <td hidden> \
+                            <input type="hidden" name="Properties.Index" value="' + i + '" /> \
                             <input type="hidden" name="Properties[' + i + '].ModelPropertyId" value="' + property.PropertyId + '" /> \
                             <input type="hidden" name="Properties[' + i + '].AssetPropertyId" value="-1"/> \
                         </td> \
-                        <td> \
+                        <td class="col-md-2"> \
                             <input class="form-control" name="Properties[' + i + '].Name" type="hidden" value="' + property.Name + '">' + property.Name + ' \
                         </td> \
-                        <td> \
+                        <td class="col-md-2"> \
                             <input class="form-control" name="Properties[' + i + '].IsNumeric" type="hidden" value="' + property.IsNumeric + '">' + (JSON.parse(property.IsNumeric) ? '<input checked="checked" class="check-box" disabled="disabled" type="checkbox">' : '<input class="check-box" disabled="disabled" type="checkbox">') + '\
                         </td> \
-                        <td> \
+                        <td class="col-md-4"> \
                             <input class="form-control text-box single-line" data-val-required="Property value is required" name="Properties[' + i + '].Value" type="text" value="" /> \
+                        </td> \
+                        <td class="col-md-1"> \
+                            <button type="button" class="btn btn-default" onclick="remove_property(this)">Remove</button> \
                         </td> \
                         <td> \
                             <span class="field-validation-valid text-danger" data-valmsg-for="Properties[' + i + '].Value" data-valmsg-replace="true"></span> \
@@ -81,3 +85,8 @@
         });
     });
 });
+
+function remove_property(btn) {
+    var parent = btn.parentNode.parentNode;
+    parent.remove();
+}

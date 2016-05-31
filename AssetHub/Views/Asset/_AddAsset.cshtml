@@ -51,6 +51,7 @@
                             {
                                 <tr>
                                     <td hidden>
+                                        <input type="hidden" name="Properties.Index" value="@i" />
                                         @Html.HiddenFor(model => model.Properties[i].PropertyId)
                                     </td>
                                     <td class="col-md-4">
@@ -63,6 +64,9 @@
                                     </td>
                                     <td class="col-md-4">
                                         @Html.EditorFor(model => model.Properties[i].Value, new { htmlAttributes = new { @class = "form-control" } })
+                                    </td>
+                                    <td class="col-md-1">
+                                        <button type="button" class="btn btn-default" onclick="remove_property(this)">Remove</button>
                                     </td>
                                     <td>
                                         @Html.ValidationMessageFor(m => m.Properties[i], "", new { @class = "text-danger" })

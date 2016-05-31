@@ -13,5 +13,7 @@ namespace AssetHub.Models
         public bool IsNumeric { get; set; }
 
         public virtual ICollection<AssetModel> AssetModels { get; set; }
+
+        public virtual ICollection<AssetProperty> AssetProperties { get; set; }
     }
 }
