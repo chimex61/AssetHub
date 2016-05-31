@@ -241,6 +241,7 @@
     <Content Include="Scripts\Asset\EditAsset.js" />
     <Content Include="Scripts\Asset\SearchAsset.js" />
     <Content Include="Scripts\Asset\ViewAsset.js" />
+    <Content Include="DataAccessLayer.cd" />
     <None Include="Scripts\jquery-2.2.3-vsdoc.js" />
     <Content Include="Scripts\jquery-2.2.3.js" />
     <Content Include="Scripts\jquery-2.2.3.min.js" />

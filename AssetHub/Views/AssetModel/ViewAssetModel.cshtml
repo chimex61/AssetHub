@@ -56,11 +56,11 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (var p in Model.Properties)
+                                @for (var i = 0; i < Model.Properties.Count; i++)
                                 {
                                     <tr>
-                                        <td>@p.Name</td>
-                                        <td>@p.IsNumeric</td>
+                                        <td>@Html.DisplayFor(m => m.Properties[i].Name)</td>
+                                        <td>@Html.DisplayFor(m => m.Properties[i].IsNumeric)</td>
                                     </tr>
                                 }
                             </tbody>

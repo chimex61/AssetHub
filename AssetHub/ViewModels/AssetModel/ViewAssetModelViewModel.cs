@@ -29,7 +29,7 @@ namespace AssetHub.ViewModels.AssetModel
 
         public AssetModelCategory Category { get; set; }
 
-        public ICollection<AssetModelProperty> Properties { get; set; }
+        public List<AssetModelProperty> Properties { get; set; }
 
         public ICollection<Models.Asset> Assets { get; set; }
     }

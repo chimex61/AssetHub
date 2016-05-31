@@ -76,10 +76,21 @@
                                         @Html.EditorFor(m => m.Properties[i].Name, new { htmlAttributes = new { @class = "form-control" } })
                                     </td>
                                     <td class="col-md-2">
-                                        @Html.CheckBoxFor(m => m.Properties[i].IsNumeric)
+                                        @if (Model.AssetCount == 0)
+                                        {
+                                            @Html.CheckBoxFor(m => m.Properties[i].IsNumeric)
+                                        }
+                                        else
+                                        {
+                                            @Html.HiddenFor(m => m.Properties[i].IsNumeric)
+                                            @Html.DisplayFor(m => m.Properties[i].IsNumeric)
+                                        }
                                     </td>
                                     <td class="col-md-1">
-                                        <button type="button" class="btn btn-default" id="deleteBtn">Remove</button>
+                                        @if (Model.AssetCount == 0)
+                                        {
+                                            <button type="button" class="btn btn-default" id="deleteBtn">Remove</button>
+                                        }
                                     </td>
                                     <td>
                                         @Html.ValidationMessageFor(m => m.Properties[i].Name, "", new { @class = "text-danger" })
