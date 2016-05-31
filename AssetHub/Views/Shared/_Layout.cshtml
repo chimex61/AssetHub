@@ -43,15 +43,20 @@
                       <li>@Html.ActionLink("Assets", "Index", "Asset")</li>
                       <li>@Html.ActionLink("Asset models", "Index", "AssetModel")</li>
                       <li>@Html.ActionLink("Categories", "index", "Category")</li>
+                      <li>@Html.ActionLink("Rooms", "Index", "Room")</li>
                     </ul>
                 
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("Room management", "RoomManagement", "Admin")</li>
-                                <li>@Html.ActionLink("Users", "Users", "Admin")</li>
-                            </ul>
+                        @if (user.IsAdmin)
+                        {
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Room management", "RoomManagement", "Room")</li>
+                                    <li>@Html.ActionLink("Users", "Users", "Admin")</li>
+                                </ul>
+                            </li>
+                        }
                         <li>@Html.ActionLink(user.FirstName, "Index", "Account")</li>
                         <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
                     </ul>

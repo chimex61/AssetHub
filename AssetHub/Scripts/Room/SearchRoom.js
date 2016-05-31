@@ -5,12 +5,11 @@
         $.getJSON(form.attr('action'), form.serialize(), function (result) {
             if (result.Success) {
                 $("#resultsTable tbody").empty();
-                $.each(result.Categories, function (i, category) {
+                $.each(result.Rooms, function (i, room) {
                     var result =
-                        '<tr onclick="location.href = \'/Category/ViewCategory/' + category.Id + '\'">\n \
-                                <td>' + category.Name + '</td>\n \
-                                <td>' + category.ModelCount + '</td>\n \
-                                <td><a class="btn btn-default" href="/Category/ViewCategory/' + category.Id + '">View</a></td>\n \
+                        '<tr onclick="location.href = \'/Rooms/ViewRoom/' + room.Id + '\'">\n \
+                                <td>' + room.Name + '</td>\n \
+                                <td><a class="btn btn-default" href="/Rooms/ViewRoom/' + room.Id + '">View</a></td>\n \
                             </tr>\n';
                     $("#resultsTable tbody").append(result);
                 });

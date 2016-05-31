@@ -1,4 +1,4 @@
-﻿@model AssetHub.ViewModels.Admin.Partial.RoomManagementViewModel
+﻿@model AssetHub.ViewModels.Room.Partial.RoomManagementViewModel
 
 <script>
     var roomCounter = @((Model.DeletedRooms == null ? 0 : Model.DeletedRooms.Count)
@@ -6,7 +6,7 @@
 </script>
 
 
-@using (Html.BeginForm("RoomManagement", "Admin", FormMethod.Post, htmlAttributes: new { id = "form" }))
+@using (Html.BeginForm("RoomManagement", "Room", FormMethod.Post, htmlAttributes: new { id = "form" }))
 {
     @Html.AntiForgeryToken()
 

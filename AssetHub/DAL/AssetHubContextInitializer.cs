@@ -59,7 +59,27 @@ namespace AssetHub.DAL
 
             var userList = new List<User>()
             {
-                new User { FirstName = "Jan", LastName = "Kelemen", UserName = "jan.kelemen@asset.hub",  Email = "jan.kelemen@asset.hub", UserPosition = context.FindOrAddUserPosition("Product Manager"), Room = context.FindOrAddRoom("PCLAB2") },
+                new User
+                {
+                    FirstName = "Jan",
+                    LastName = "Kelemen",
+                    UserName = "jan@asset.hub",
+                    IsAdmin = true,
+                    Email = "jan.kelemen@asset.hub",
+                    UserPosition = context.FindOrAddUserPosition("Product Manager"),
+                    Room = context.FindOrAddRoom("PCLAB2")
+                },
+
+                new User
+                {
+                    FirstName = "Filip",
+                    LastName = "Gulan",
+                    UserName = "filp@asset.hub",
+                    IsAdmin = false,
+                    Email = "filip@asset.hub",
+                    UserPosition = context.FindOrAddUserPosition("Software Engineer"),
+                    Room = context.FindOrAddRoom("B5")
+                }
             };
 
             foreach (var user in userList)

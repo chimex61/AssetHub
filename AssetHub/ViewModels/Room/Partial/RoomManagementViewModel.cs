@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace AssetHub.ViewModels.Admin.Partial
+namespace AssetHub.ViewModels.Room.Partial
 {
     public class RoomManagementViewModel
     {
