@@ -68,5 +68,14 @@ namespace AssetHub.Controllers
             AuthManager.SignOut();
             return RedirectToAction("Login", "Account");
         }
+
+        // GET: ViewUser
+        public ActionResult ViewUser(string id)
+        {
+            var currentId = User.Identity.GetUserId();
+            var user = new AssetHubContext().Users.Find(id);
+
+            return View(new ViewUserViewModel(id, user.IsAdmin, id == currentId));
+        }
     }
 }
