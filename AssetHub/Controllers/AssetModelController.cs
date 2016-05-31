@@ -94,7 +94,7 @@ namespace AssetHub.Controllers
                         {
                             newModel.Properties.Add(new AssetModelProperty
                             {
-                                AssetModels = new List<AssetModel>() { newModel },
+                                AssetModel = newModel,
                                 Name = p.Name,
                                 IsNumeric = p.IsNumeric,
                             });
@@ -216,7 +216,7 @@ namespace AssetHub.Controllers
                         {
                             model.Properties.Add(new AssetModelProperty
                             {
-                                AssetModels = new List<AssetModel>() { model },
+                                AssetModel = model,
                                 Name = p.Name,
                                 IsNumeric = p.IsNumeric,
                             });

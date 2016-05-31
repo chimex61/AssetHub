@@ -12,7 +12,7 @@ namespace AssetHub.Models
 
         public int AssetId { get; set; }
 
-        public int RoomId { get; set; }
+        public int? RoomId { get; set; }
 
         public virtual Asset Asset { get; set; }
 

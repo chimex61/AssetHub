@@ -14,8 +14,16 @@ namespace AssetHub.DAL
     {
         protected override void Seed(AssetHubContext context)
         {
+            //FK_dbo.AssetModelProperties_dbo.AssetModels_AssetModelId
+            context.Database.ExecuteSqlCommand("ALTER TABLE dbo.AspNetUsers DROP CONSTRAINT [FK_dbo.AspNetUsers_dbo.UserPositions_UserPositionId]");
+            context.Database.ExecuteSqlCommand("ALTER TABLE dbo.AspNetUsers ADD CONSTRAINT [FK_dbo.AspNetUsers_dbo.UserPositions_UserPositionId] FOREIGN KEY (UserPositionId) REFERENCES dbo.UserPositions(Id) ON UPDATE NO ACTION ON DELETE SET NULL");
+            context.Database.ExecuteSqlCommand("ALTER TABLE dbo.AspNetUsers DROP CONSTRAINT [FK_dbo.AspNetUsers_dbo.Rooms_RoomId]");
+            context.Database.ExecuteSqlCommand("ALTER TABLE dbo.AspNetUsers ADD CONSTRAINT [FK_dbo.AspNetUsers_dbo.Rooms_RoomId] FOREIGN KEY (RoomId) REFERENCES dbo.Rooms(Id) ON UPDATE NO ACTION ON DELETE SET NULL");
+            context.Database.ExecuteSqlCommand("ALTER TABLE dbo.AssetLocations DROP CONSTRAINT [FK_dbo.AssetLocations_dbo.Rooms_RoomId]");
+            context.Database.ExecuteSqlCommand("ALTER TABLE dbo.AssetLocations ADD CONSTRAINT [FK_dbo.AssetLocations_dbo.Rooms_RoomId] FOREIGN KEY (RoomId) REFERENCES dbo.Rooms(Id) ON UPDATE NO ACTION ON DELETE SET NULL");
+            context.Database.ExecuteSqlCommand("ALTER TABLE dbo.AssetModelProperties DROP CONSTRAINT [FK_dbo.AssetModelProperties_dbo.AssetModels_AssetModelId]");
+            context.Database.ExecuteSqlCommand("ALTER TABLE dbo.AssetModelProperties ADD CONSTRAINT [FK_dbo.AssetModelProperties_dbo.AssetModels_AssetModelId] FOREIGN KEY (AssetModelId) REFERENCES dbo.AssetModels(Id) ON UPDATE NO ACTION ON DELETE SET NULL");
             PreformInitialSetup(context);
-            base.Seed(context);
         }
 
         private void PreformInitialSetup(AssetHubContext context)
@@ -116,25 +124,25 @@ namespace AssetHub.DAL
             {
                 new AssetModelProperty
                 {
-                    AssetModels = new List<AssetModel>() { assetModelsList[1] },
+                    AssetModel = assetModelsList[1],
                     Name = "Number of cores",
                     IsNumeric = true,
                 },
                 new AssetModelProperty
                 {
-                    AssetModels = new List<AssetModel>() { assetModelsList[1] },
+                    AssetModel = assetModelsList[1],
                     Name = "L3 cache size",
                     IsNumeric = false,
                 },
                 new AssetModelProperty
                 {
-                    AssetModels = new List<AssetModel>() { assetModelsList[1] },
+                    AssetModel = assetModelsList[1],
                     Name = "Socket",
                     IsNumeric = false,
                 },
                 new AssetModelProperty
                 {
-                    AssetModels = new List<AssetModel>() { assetModelsList[0] },
+                    AssetModel = assetModelsList[0],
                     Name = "Processor",
                     IsNumeric = false,
                 },

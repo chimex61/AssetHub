@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AssetHub.Models
@@ -15,6 +16,7 @@ namespace AssetHub.Models
 
         public int AssetId { get; set; }
 
+        [Required]
         public string UserId { get; set; }
 
         [ForeignKey("AssetId")]

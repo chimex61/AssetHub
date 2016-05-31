@@ -96,12 +96,26 @@
                                     </dt>
 
                                     <dd>
-                                        @Html.DisplayFor(model => model.CurrentLocation.Room.Name)
+                                        @if (Model.CurrentLocation.RoomId.HasValue)
+                                        {
+                                            @Html.DisplayFor(model => model.CurrentLocation.Room.Name)
+                                        }
+                                        else
+                                        {
+                                            @Html.Display("Unknown")
+                                        }
                                     </dd>
                                 </dl>
                             </div>
                             <div id="changeLocationContainer" style="display: none">
-                                @Html.Partial("_ChangeLocation", new ChangeLocationViewModel(Model.Id, Model.CurrentLocation.RoomId))
+                                @if(Model.CurrentLocation.RoomId.HasValue)
+                                {
+                                    @Html.Partial("_ChangeLocation", new ChangeLocationViewModel(Model.Id, Model.CurrentLocation.RoomId.Value))
+                                }
+                                else
+                                {
+                                    @Html.Partial("_ChangeLocation", new ChangeLocationViewModel(Model.Id, -1))
+                                }
                             </div>
                         </div>
                         <div class="col-sm-2">

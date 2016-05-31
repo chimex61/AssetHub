@@ -163,7 +163,6 @@ namespace AssetHub.Controllers
                 ModelState.AddModelError("SerialNumber", serialValidation);
             }
 
-            var modelChanged = false;
             if (vm.Properties != null)
             {
                 for (var i = 0; i < vm.Properties.Count; i++)
@@ -175,8 +174,6 @@ namespace AssetHub.Controllers
                     {
                         ModelState.AddModelError($"Properties[{i}].Value", propertyValidation);
                     }
-
-                    if(p.AssetPropertyId == -1) { modelChanged = true; }
                 }
             }
 
@@ -186,11 +183,13 @@ namespace AssetHub.Controllers
                 asset.Name = vm.Name;
                 asset.SerialNumber = vm.SerialNumber;
 
-                if(modelChanged)
+                var oldProperties = asset.AssetProperties;
+                var properties = new List<AssetProperty>();
+                asset.AssetModelId = vm.SelectedAssetModelId;
+
+                if(vm.Properties != null)
                 {
-                    asset.AssetModelId = vm.SelectedAssetModelId;
-                    var properties = new List<AssetProperty>();
-                    foreach(var p in vm.Properties)
+                    foreach (var p in vm.Properties)
                     {
                         properties.Add(new AssetProperty
                         {
@@ -199,20 +198,10 @@ namespace AssetHub.Controllers
                             Value = p.Value,
                         });
                     }
-
-                    var oldProperties = asset.AssetProperties;
-                    asset.AssetProperties = properties;
-
-                    db.AssetProperties.RemoveRange(oldProperties);
                 }
-                else if (vm.Properties != null)
-                {
-                    foreach(var p in vm.Properties)
-                    {
-                        var property = db.AssetProperties.Find(p.AssetPropertyId);
-                        property.Value = p.Value;
-                    }
-                }
+
+                asset.AssetProperties = properties;
+                db.AssetProperties.RemoveRange(oldProperties);
 
                 try
                 {

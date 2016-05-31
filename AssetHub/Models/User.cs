@@ -15,12 +15,15 @@ namespace AssetHub.Models
 
         public bool IsAdmin { get; set; }
 
-        public int UserPositionId { get; set; }
 
-        public int RoomId { get; set; }
+        public int? UserPositionId { get; set; }
 
+        public int? RoomId { get; set; }
+
+        [ForeignKey("UserPositionId")]
         public virtual UserPosition UserPosition { get; set; }
 
+        [ForeignKey("RoomId")]
         public virtual Room Room { get; set; }
 
         public virtual IEnumerable<Loan> Loans { get; set; }
