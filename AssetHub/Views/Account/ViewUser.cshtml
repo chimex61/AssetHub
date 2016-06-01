@@ -19,10 +19,15 @@
             @if (Model.SameAsCurrent)
             {
                 <button type="button" class="btn btn-default" id="changePasswordBtn">Change password</button>
+                if (Model.AdministratorRights)
+                {
+                    <br /><br /> 
+                }
             }
             @if (Model.AdministratorRights)
             {
                 <button type="button" class="btn btn-default" id="editBtn">Edit</button>
+                <br /><br />
                 <button type="button" class="btn btn-danger" id="deleteBtn">Delete</button>
             }
         </div>
