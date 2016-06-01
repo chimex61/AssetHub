@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6c7ee67c-3b73-45de-b802-1d3c71b2cae0}</ProjectGuid>
+    <ArchitectureToolsVersion>2.0.0.0</ArchitectureToolsVersion>
+    <Name>AssetHub.Diagrams</Name>
+    <RootNamespace>AssetHub.Diagrams</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
+  <ItemGroup>
+    <Folder Include="ModelDefinition\" />
+    <Content Include="ModelDefinition\AssetHub.Diagrams.uml">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Validate Include="ArhitectureDiagram.layerdiagram">
+      <SubType>Content</SubType>
+    </Validate>
+    <Validate Include="ArhitectureDiagram.layerdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>ArhitectureDiagram.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="ArhitectureDiagram.layerdiagram.suppressions">
+      <SubType>Content</SubType>
+      <DependentUpon>ArhitectureDiagram.layerdiagram</DependentUpon>
+    </Validate>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AssetHub\AssetHub.csproj">
+      <Name>AssetHub</Name>
+      <Project>{8a9db08e-f4d4-4674-9dec-21306a503540}</Project>
+    </ProjectReference>
+  </ItemGroup>
+</Project>
