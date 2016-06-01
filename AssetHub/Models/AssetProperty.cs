@@ -1,9 +1,12 @@
-﻿namespace AssetHub.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace AssetHub.Models
 {
     public class AssetProperty
     {
         public int Id { get; set; }
 
+        [Required]
         public string Value { get; set; }
 
         public int AssetId { get; set; }

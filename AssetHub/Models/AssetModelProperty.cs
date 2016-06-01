@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace AssetHub.Models
 {
@@ -6,6 +7,7 @@ namespace AssetHub.Models
     {
         public int Id { get; set; }
 
+        [Required]
         public string Name { get; set; }
 
         public bool IsNumeric { get; set; }

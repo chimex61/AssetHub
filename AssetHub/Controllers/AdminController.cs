@@ -10,6 +10,7 @@ using System;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Data.Entity;
+using AssetHub.ViewModels.Admin.Partial;
 
 namespace AssetHub.Controllers
 {
@@ -20,6 +21,15 @@ namespace AssetHub.Controllers
         private AssetHubUserManager UserManager
         {
             get { return HttpContext.GetOwinContext().GetUserManager<AssetHubUserManager>(); }
+        }
+
+
+        public ActionResult UserIndex()
+        {
+            return View(new UserIndexViewModel
+            {
+                Users = db.Users.ToList(),
+            });
         }
 
         // Get: CreateUser
@@ -63,6 +73,44 @@ namespace AssetHub.Controllers
                 return View(vm);
             }
             return View(vm);
+        }
+
+        public JsonResult GetSearchResults(SearchViewModel vm)
+        {
+            var users = (from u in db.Users
+                          select u);
+
+            //if (vm.SelectedPositionId != -1)
+            //{
+            //    users = (from u in users
+            //             where u.UserPositionId.HasValue && u.UserPositionId.Value == vm.SelectedPositionId
+            //             select u);
+            //}
+
+            if(vm.SelectedRoomId != -1)
+            {
+                users = (from u in users
+                         where u.RoomId.HasValue && u.RoomId.Value == vm.SelectedRoomId
+                         select u);
+            }
+
+            if(!string.IsNullOrWhiteSpace(vm.Name))
+            {
+                users = (from u in users
+                         where (u.FirstName + " " + u.LastName).ToLower().Contains(vm.Name.ToLower())
+                         select u);
+            }
+
+            var result = (from u in users
+                          select new
+                          {
+                              Id = u.Id,
+                              Name = u.FirstName + " " + u.LastName,
+                              Position = u.UserPositionId.HasValue ? u.UserPosition.Name : "Unknown",
+                              Room = u.RoomId.HasValue ? u.Room.Name : "Unknown",
+                          }).ToArray();
+
+            return Json(new { Success = result.Length != 0, Users = result }, JsonRequestBehavior.AllowGet);
         }
     }
 }
