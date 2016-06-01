@@ -27,6 +27,7 @@ namespace AssetHub.ViewModels.Account
             var user = db.Users.Find(id);
             FirstName = user.FirstName;
             LastName = user.LastName;
+            Email = user.Email;
             IsAdmin = user.IsAdmin;
             Room = user.RoomId.HasValue ? user.Room.Name : "Unknown";
             UserPosition = user.UserPositionId.HasValue ? user.UserPosition.Name : "Unknown";
@@ -48,6 +49,8 @@ namespace AssetHub.ViewModels.Account
 
         [Display(Name = "Last name")]
         public string LastName { get; set; }
+
+        public string Email { get; set; }
 
         [Display(Name = "Administrator")]
         public bool IsAdmin { get; set; }

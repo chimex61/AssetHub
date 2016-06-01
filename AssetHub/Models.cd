@@ -1,43 +1,65 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="AssetHub.Models.Asset">
-    <Position X="8.25" Y="3" Width="1.5" />
+    <Position X="6.75" Y="0.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="AssetHub.Models.Asset.Validator">
+        <Compartments>
+          <Compartment Name="Fields" Collapsed="true" />
+        </Compartments>
+        <TypeIdentifier>
+          <NewMemberFileName>Models\Asset.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AQACAAAAAAACAAAAAAIIAAQAAAEAAAAAAAAAEAAAAAA=</HashCode>
+      <HashCode>AQACAAAAAAAGAAAEAAIIAAQAAAEAAAAAAAAgEAARAAA=</HashCode>
       <FileName>Models\Asset.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AssetHub.Models.AssetLocation">
-    <Position X="6.5" Y="0.5" Width="1.5" />
+    <Position X="9" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>BAASAAACAAAAAAAAABAAAAAAAgAAAAAAAAAgAAAAAAA=</HashCode>
       <FileName>Models\AssetLocation.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AssetHub.Models.AssetModel">
-    <Position X="2.25" Y="0.5" Width="2" />
+    <Position X="2.5" Y="0.5" Width="2" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <NestedTypes>
-      <Class Name="AssetHub.Models.AssetModel.Validator" Collapsed="true">
+      <Class Name="AssetHub.Models.AssetModel.Validator">
+        <Compartments>
+          <Compartment Name="Fields" Collapsed="true" />
+        </Compartments>
         <TypeIdentifier>
           <NewMemberFileName>Models\AssetModel.cs</NewMemberFileName>
         </TypeIdentifier>
       </Class>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAEAAAAAAQgAAAAAAAABAAgAAASAAA=</HashCode>
+      <HashCode>AAACAAAAAAAEAAAEAAAAAAQgAAAAAAAABAAgAAATAAA=</HashCode>
       <FileName>Models\AssetModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AssetHub.Models.AssetModelCategory">
-    <Position X="4.5" Y="0.5" Width="1.75" />
+    <Position X="4.75" Y="0.5" Width="1.75" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <NestedTypes>
-      <Class Name="AssetHub.Models.AssetModelCategory.Validator" Collapsed="true">
+      <Class Name="AssetHub.Models.AssetModelCategory.Validator">
+        <Compartments>
+          <Compartment Name="Fields" Collapsed="true" />
+        </Compartments>
         <TypeIdentifier>
           <NewMemberFileName>Models\AssetModelCategory.cs</NewMemberFileName>
         </TypeIdentifier>
@@ -49,51 +71,86 @@
     </TypeIdentifier>
   </Class>
   <Class Name="AssetHub.Models.AssetModelProperty">
-    <Position X="4.5" Y="2.75" Width="1.75" />
+    <Position X="2.75" Y="5.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAgAAQAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <HashCode>AQACAAAAAAACAAAAAAAIAAQAAAAAAAAAAAAAAAAAAAg=</HashCode>
       <FileName>Models\AssetModelProperty.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AssetHub.Models.AssetNote">
-    <Position X="8.25" Y="0.5" Width="1.5" />
+    <Position X="9" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAADAAAAAAAAAEAAAAAAAAgAAgAAAAAAAAAgCAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAEAAAAAAAAAAAgAAAAAAAAAgCAAAAAA=</HashCode>
       <FileName>Models\AssetNote.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AssetHub.Models.AssetProperty">
-    <Position X="2.25" Y="3.25" Width="2" />
+    <Position X="6.75" Y="6.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAACAAAAABAAAAAAAAAAAIAAAgAAAAAAAAAgAAAAAAA=</HashCode>
       <FileName>Models\AssetProperty.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AssetHub.Models.Loan">
-    <Position X="6.5" Y="3" Width="1.5" />
+    <Position X="9" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BAATAAAAAAAAAAAAAAAAAAgAAgAAAAAAAAAgAAAAAAA=</HashCode>
+      <HashCode>BAATACACAAAAAAAAABAAAAgAAgAAAAAAAAAgAAAAAAA=</HashCode>
       <FileName>Models\Loan.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AssetHub.Models.Room">
-    <Position X="0.5" Y="4.75" Width="1.5" />
+    <Position X="4.75" Y="4.25" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="AssetHub.Models.Room.Validator">
+        <Compartments>
+          <Compartment Name="Fields" Collapsed="true" />
+        </Compartments>
+        <TypeIdentifier>
+          <NewMemberFileName>Models\Room.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAACACAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACACAAAAAAAAAEAAAAAAQAAAAAAAAAAAAAAAAQAAA=</HashCode>
       <FileName>Models\Room.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AssetHub.Models.User">
     <Position X="0.5" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Class Name="AssetHub.Models.User.Validator" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Models\User.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAEADAAAgAAAAABAAAAAAAAAAAAAAAAAAEAAAAAg=</HashCode>
+      <HashCode>AAAAAEADAAAkAAAEABAAAAAACAAAAAAAAAAAEAARAAg=</HashCode>
       <FileName>Models\User.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AssetHub.Models.UserPosition">
-    <Position X="0.5" Y="3" Width="1.5" />
+    <Position X="0.5" Y="3.25" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="AssetHub.Models.UserPosition.Validator">
+        <Compartments>
+          <Compartment Name="Fields" Collapsed="true" />
+        </Compartments>
+        <TypeIdentifier>
+          <NewMemberFileName>Models\UserPosition.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAACACAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACACAAAAAAAAAEAAAAAAQAAAAAAAAAAAAAAAAQAAA=</HashCode>
       <FileName>Models\UserPosition.cs</FileName>
     </TypeIdentifier>
   </Class>

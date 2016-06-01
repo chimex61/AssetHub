@@ -1,7 +1,10 @@
 ﻿@model AssetHub.ViewModels.Account.ViewUserViewModel
+
 @{
     ViewBag.Title = $"User: " + Model.FirstName + " " + Model.LastName;
 }
+
+@using AssetHub.ViewModels.Admin.Partial
 
 @if (Model.AdministratorRights)
 {
@@ -9,7 +12,6 @@
         var inEdit = "false";
         var deleteUrl = "/Admin/DeleteUser/@Model.Id";
     </script>
-
 }
 
 <div class="row">
@@ -21,7 +23,7 @@
                 <button type="button" class="btn btn-default" id="changePasswordBtn">Change password</button>
                 if (Model.AdministratorRights)
                 {
-                    <br /><br /> 
+                    <br /><br />
                 }
             }
             @if (Model.AdministratorRights)
@@ -70,6 +72,14 @@
                         <dd>
                             @Html.DisplayFor(model => model.UserPosition)
                         </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Room)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Room)
+                        </dd>
                     </dl>
                 </div>
             </div>
@@ -103,24 +113,24 @@
                     }
                 </div>
             </div>
-
-            @if(Model.SameAsCurrent)
-            {
-                <div class="container" id="changePasswordContainer" style="display:none">
-                </div>
-            }
-
-            @if(Model.AdministratorRights)
-            {
-                <div class="container" id="editContainer" style="display:none">
-                </div>
-            }
         </div>
+        @if (Model.SameAsCurrent)
+        {
+            <div class="container" id="changePasswordContainer" style="display:none">
+            </div>
+        }
+
+        @if (Model.AdministratorRights)
+            {
+            <div class="container" id="editContainer" style="display:none">
+                @Html.Partial("~/Views/Admin/_EditUser.cshtml", new EditUserViewModel(Model.Id))
+            </div>
+        }
     </div>
 </div>
 
-    @section Scripts {
-        @Scripts.Render("~/bundles/jqueryval")
-        @Scripts.Render("~/Scripts/Asset/ViewAsset.js")
-        @Scripts.Render("~/Scripts/Asset/EditAsset.js")
-    }
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/Admin/ViewUser.js")
+    @Scripts.Render("~/Scripts/Admin/EditUser.js")
+}

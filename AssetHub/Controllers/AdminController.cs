@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Data.Entity;
 using AssetHub.ViewModels.Admin.Partial;
+using Microsoft.AspNet.Identity;
 
 namespace AssetHub.Controllers
 {
@@ -73,6 +74,95 @@ namespace AssetHub.Controllers
                 return View(vm);
             }
             return View(vm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditUser(EditUserViewModel vm)
+        {
+            var Success = false;
+            var Message = "";
+
+            var firstNameValidation = Models.User.Validator.ValidateFirstName(vm.FirstName);
+            if(firstNameValidation != null)
+            {
+                ModelState.AddModelError("FirstName", firstNameValidation);
+            }
+
+            var lastNameValidation = Models.User.Validator.ValidateLastName(vm.LastName);
+            if(lastNameValidation != null)
+            {
+                ModelState.AddModelError("LastName", lastNameValidation);
+            }
+
+            var emailValidation = Models.User.Validator.ValidateEmail(vm.Id, vm.Email);
+            if(emailValidation != null)
+            {
+                ModelState.AddModelError("Email", emailValidation);
+            }
+
+            var positionValidation = Models.User.Validator.ValidatePosition(vm.SelectedPositionId);
+            if(positionValidation != null)
+            {
+                ModelState.AddModelError("SelectedPositionId", positionValidation);
+            }
+
+            var roomValidation = Models.User.Validator.ValidateRoom(vm.SelectedRoomId);
+            if(roomValidation != null)
+            {
+                ModelState.AddModelError("SelectedRoomId", roomValidation);
+            }
+
+            if (ModelState.IsValid)
+            {
+                var user = db.Users.Find(vm.Id);
+
+                user.FirstName = vm.FirstName;
+                user.LastName = vm.LastName;
+                user.Email = user.UserName = vm.Email;
+                user.IsAdmin = vm.IsAdmin;
+                user.RoomId = vm.SelectedRoomId;
+                user.UserPositionId = vm.SelectedPositionId;
+
+                try
+                {
+                    db.SaveChanges();
+                    Success = true;
+                    Message = Models.User.SAVE_SUCCESS;
+
+                }
+                catch (Exception)
+                {
+                    Message = Models.User.SAVE_FAIL;
+                }
+
+                return Json(new { Success, Message });
+            }
+
+            vm.Rooms = db.RoomDropdown();
+            vm.Positions = db.UserPositionDropdown();
+            return PartialView("_EditUser", vm);
+        }
+
+        public ActionResult DeleteUser(string id)
+        {
+            var Success = false;
+            var Message = "";
+
+            try
+            {
+                var user = db.Users.Find(id);
+                db.Users.Remove(user);
+                db.SaveChanges();
+                Success = true;
+                Message = Models.User.DELETE_SUCCESS;
+            }
+            catch (Exception e)
+            {
+                Message = Models.User.DELETE_FAIL;
+            }
+
+            return Json(new { Success, Message });
         }
 
         // GET: UserPositionManagement

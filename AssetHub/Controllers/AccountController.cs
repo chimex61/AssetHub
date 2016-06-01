@@ -73,7 +73,7 @@ namespace AssetHub.Controllers
         public ActionResult ViewUser(string id)
         {
             var currentId = User.Identity.GetUserId();
-            var user = new AssetHubContext().Users.Find(id);
+            var user = new AssetHubContext().Users.Find(currentId);
 
             return View(new ViewUserViewModel(id, user.IsAdmin, id == currentId));
         }
