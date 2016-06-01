@@ -16,7 +16,8 @@
                             <td>' + user.Position + '</td> \
                             <td>' + user.Room + '</td> \
                             <td><a class="btn btn-default" href="/Account/ViewUser/' + user.Id + '">View</a></td> \
-                        </tr>';
+                        </tr>';
+
                     $("#resultsTable tbody").append(row);
                 });
             } else {

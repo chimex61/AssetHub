@@ -75,6 +75,89 @@ namespace AssetHub.Controllers
             return View(vm);
         }
 
+        // GET: UserPositionManagement
+        public ActionResult UserPositionManagement()
+        {
+            return View(new UserPositionManagementViewModel());
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UserPositionManagement(UserPositionManagementViewModel vm)
+        {
+            var Success = false;
+            var Message = "";
+
+            if (vm.Positions != null)
+            {
+                for (var i = 0; i < vm.Positions.Count; i++)
+                {
+                    var positionValidation = UserPosition.Validator.ValidateName(vm.Positions[i].Name);
+                    if (positionValidation != null)
+                    {
+                        ModelState.AddModelError($"Positions[{i}].Name", positionValidation);
+                    }
+                }
+            }
+
+            if (vm.NewPositions != null)
+            {
+                for (var i = 0; i < vm.NewPositions.Count; i++)
+                {
+                    var positionValidation = UserPosition.Validator.ValidateName(vm.NewPositions[i].Name);
+                    if (positionValidation != null)
+                    {
+                        ModelState.AddModelError($"NewPositions[{i}].Name", positionValidation);
+                    }
+                }
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    if (vm.DeletedPositions != null)
+                    {
+                        foreach (var r in vm.DeletedPositions)
+                        {
+                            db.Entry(new UserPosition { Id = r.Id }).State = EntityState.Deleted;
+                        }
+                    }
+
+                    if (vm.Positions != null)
+                    {
+                        foreach (var r in vm.Positions)
+                        {
+                            var position = db.UserPositions.Find(r.Id);
+                            position.Name = r.Name;
+                        }
+                    }
+
+                    if (vm.NewPositions != null)
+                    {
+                        foreach (var r in vm.NewPositions)
+                        {
+                            db.UserPositions.Add(new UserPosition
+                            {
+                                Name = r.Name,
+                            });
+                        }
+                    }
+
+                    db.SaveChanges();
+
+                    Success = true;
+                    Message = UserPosition.SAVE_SUCCESS;
+                }
+                catch (Exception e)
+                {
+                    Message = UserPosition.SAVE_FAIL;
+                }
+                return Json(new { Success, Message });
+            }
+            return PartialView("_UserPositionManagement", vm);
+        }
+
         public JsonResult GetSearchResults(SearchViewModel vm)
         {
             var users = (from u in db.Users

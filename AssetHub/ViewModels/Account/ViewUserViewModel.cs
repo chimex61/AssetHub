@@ -28,8 +28,8 @@ namespace AssetHub.ViewModels.Account
             FirstName = user.FirstName;
             LastName = user.LastName;
             IsAdmin = user.IsAdmin;
-            Room = user.Room.Name;
-            UserPosition = user.UserPosition.Name;
+            Room = user.RoomId.HasValue ? user.Room.Name : "Unknown";
+            UserPosition = user.UserPositionId.HasValue ? user.UserPosition.Name : "Unknown";
 
             CurrentLoans = (from l in db.Loans
                            where DateTime.Now >= l.TimeFrom && DateTime.Now <= l.TimeTo && l.UserId == Id

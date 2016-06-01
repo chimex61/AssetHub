@@ -27,6 +27,10 @@ namespace AssetHub.Models
             }
         }
 
+        public const string SAVE_SUCCESS = "Rooms saved successfully";
+
+        public const string SAVE_FAIL = "Rooms save failed";
+
         public int Id { get; set; }
 
         [Required]

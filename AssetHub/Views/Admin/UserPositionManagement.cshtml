@@ -1,0 +1,15 @@
+﻿@model AssetHub.ViewModels.Admin.Partial.UserPositionManagementViewModel
+
+@{
+    ViewBag.Title = "User positions";
+}
+
+<h4>User positions</h4> <hr />
+<div class="container" id="container">
+    @Html.Partial("_UserPositionManagement")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/Admin/UserPositionManagement.js")
+}

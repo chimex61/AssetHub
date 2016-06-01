@@ -198,6 +198,7 @@
     <Compile Include="ViewModels\Account\ViewUserViewModel.cs" />
     <Compile Include="ViewModels\Admin\CreateUserViewModel.cs" />
     <Compile Include="ViewModels\Admin\Partial\SearchViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Partial\UserPositionManagementViewModel.cs" />
     <Compile Include="ViewModels\Admin\UserIndexViewModel.cs" />
     <Compile Include="ViewModels\Room\IndexViewModel.cs" />
     <Compile Include="ViewModels\Room\Partial\RoomManagementViewModel.cs" />
@@ -241,6 +242,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Models.cd" />
     <Content Include="Controllers.cd" />
+    <Content Include="Scripts\Admin\UserPositionManagement.js" />
     <Content Include="Scripts\Admin\SearchUser.js" />
     <Content Include="Scripts\Room\RoomManagement.js" />
     <Content Include="Scripts\AssetModel\EditAssetModel.js" />
@@ -317,6 +319,8 @@
     <Content Include="Views\Account\ViewUser.cshtml" />
     <Content Include="Views\Admin\UserIndex.cshtml" />
     <Content Include="Views\Admin\_Search.cshtml" />
+    <Content Include="Views\Admin\UserPositionManagement.cshtml" />
+    <Content Include="Views\Admin\_UserPositionManagement.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

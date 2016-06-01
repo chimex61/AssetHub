@@ -101,11 +101,11 @@ namespace AssetHub.Controllers
                     db.SaveChanges();
 
                     Success = true;
-                    Message = AssetModel.SAVE_SUCCESS;
+                    Message = Room.SAVE_SUCCESS;
                 }
                 catch (Exception e)
                 {
-                    Message = AssetModel.SAVE_FAIL;
+                    Message = Room.SAVE_FAIL;
                 }
                 return Json(new { Success, Message });
             }

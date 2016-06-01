@@ -74,7 +74,7 @@ namespace AssetHub.DAL
                     UserName = "jan@asset.hub",
                     IsAdmin = true,
                     Email = "jan.kelemen@asset.hub",
-                    UserPosition = context.FindOrAddUserPosition("Product Manager"),
+                    UserPosition = userPositions[0],
                     Room = context.FindOrAddRoom("PCLAB2")
                 },
 
@@ -85,7 +85,7 @@ namespace AssetHub.DAL
                     UserName = "filp@asset.hub",
                     IsAdmin = false,
                     Email = "filip@asset.hub",
-                    UserPosition = context.FindOrAddUserPosition("Software Engineer"),
+                    UserPosition = userPositions[3],
                     Room = context.FindOrAddRoom("B5")
                 }
             };
