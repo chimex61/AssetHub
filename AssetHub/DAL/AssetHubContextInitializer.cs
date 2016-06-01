@@ -157,6 +157,7 @@ namespace AssetHub.DAL
                 {
                     Name = "Acer Aspire V3-772G",
                     SerialNumber = "324017",
+                    Value = 659.53m,
                     AssetModel = assetModelsList[0],
                     AssetProperties = new List<AssetProperty>(),
                 },
@@ -165,6 +166,7 @@ namespace AssetHub.DAL
                 {
                     Name = "Intel Core i7-4702MQ",
                     SerialNumber = "0123456",
+                    Value = 329.56m,
                     AssetModel = assetModelsList[1],
                     AssetProperties = new List<AssetProperty>(),
                 },
@@ -182,14 +184,14 @@ namespace AssetHub.DAL
                 new AssetProperty
                 {
                     Asset = assetList[1],
-                    AssetModelProperty = assetModelPropertiesList[0],
+                    AssetModelProperty = assetModelPropertiesList[1],
                     Value = "84 kB",
                 },
 
                 new AssetProperty
                 {
                     Asset = assetList[1],
-                    AssetModelProperty = assetModelPropertiesList[1],
+                    AssetModelProperty = assetModelPropertiesList[0],
                     Value = "6",
                 },
 

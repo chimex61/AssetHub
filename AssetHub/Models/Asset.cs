@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AssetHub.Models
@@ -13,6 +14,10 @@ namespace AssetHub.Models
             public const string SERIAL_REQUIRED = "Serial number is required";
 
             public const string MODEL_REQUIRED = "Model for asset is required";
+
+            public const string VALUE_REQUIRED = "Value of asset is required";
+
+            public const string VALUE_INVALID = "Value of asset is invalid";
 
             public const string PROPERTY_VALUE_REQUIRED = "Property value is required";
 
@@ -31,6 +36,11 @@ namespace AssetHub.Models
             public static string ValidateSerialKey(string key)
             {
                 return string.IsNullOrWhiteSpace(key) ? SERIAL_REQUIRED : null;
+            }
+
+            public static string ValidateValue(decimal value)
+            {
+                return value <= 0 ? VALUE_INVALID : null;
             }
 
             public static string ValidatePropertyValue(AssetModelProperty property, string value)
@@ -57,10 +67,12 @@ namespace AssetHub.Models
 
         public int Id { get; set; }
 
+        [Required]
         public string Name { get; set; }
 
         public decimal Value { get; set; }
 
+        [Required]
         public string SerialNumber { get; set; }
 
         public int AssetModelId { get; set; }

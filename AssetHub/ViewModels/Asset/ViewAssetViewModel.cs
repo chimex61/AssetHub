@@ -21,6 +21,7 @@ namespace AssetHub.ViewModels.Asset
             SerialNumber = asset.SerialNumber;
             AssetModel = asset.AssetModel;
             Properties = asset.AssetProperties.ToList();
+            Value = asset.Value;
 
             CurrentLoan = (from l in db.Loans
                            where DateTime.Now >= l.TimeFrom && DateTime.Now <= l.TimeTo
@@ -38,6 +39,9 @@ namespace AssetHub.ViewModels.Asset
 
         [Display(Name = "Serial number")]
         public string SerialNumber { get; set; }
+
+        [Display(Name = "Value [$]")]
+        public decimal Value { get; set; }
 
         [Display(Name = "Asset model")]
         public Models.AssetModel AssetModel { get; set; }

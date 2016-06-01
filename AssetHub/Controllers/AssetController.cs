@@ -47,6 +47,12 @@ namespace AssetHub.Controllers
                 ModelState.AddModelError("Name", nameValidation);
             }
 
+            var valueValidation = Asset.Validator.ValidateValue(vm.Value);
+            if(valueValidation != null)
+            {
+                ModelState.AddModelError("Value", valueValidation);
+            }
+
             var modelValidation = Asset.Validator.ValidateAssetModel(vm.SelectedAssetModelId);
             if(modelValidation != null)
             {
@@ -86,6 +92,7 @@ namespace AssetHub.Controllers
                     {
                         AssetModelId = vm.SelectedAssetModelId,
                         Name = vm.Name,
+                        Value = vm.Value,
                         SerialNumber = vm.SerialNumber,
                         AssetProperties = new List<AssetProperty>(),
                         Locations = new List<AssetLocation>(),
@@ -151,6 +158,12 @@ namespace AssetHub.Controllers
                 ModelState.AddModelError("Name", nameValidation);
             }
 
+            var valueValidation = Asset.Validator.ValidateValue(vm.Value);
+            if (valueValidation != null)
+            {
+                ModelState.AddModelError("Value", valueValidation);
+            }
+
             var modelValidation = Asset.Validator.ValidateAssetModel(vm.SelectedAssetModelId);
             if (modelValidation != null)
             {
@@ -182,6 +195,7 @@ namespace AssetHub.Controllers
                 var asset = db.Assets.Find(vm.Id);
                 asset.Name = vm.Name;
                 asset.SerialNumber = vm.SerialNumber;
+                asset.Value = vm.Value;
 
                 var oldProperties = asset.AssetProperties;
                 var properties = new List<AssetProperty>();

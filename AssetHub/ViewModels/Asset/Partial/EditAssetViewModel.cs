@@ -36,6 +36,7 @@ namespace AssetHub.ViewModels.Asset.Partial
             Id = asset.Id;
             Name = asset.Name;
             SerialNumber = asset.SerialNumber;
+            Value = asset.Value;
             SelectedAssetModelId = asset.AssetModelId;
             AssetModels = db.AssetModelDropdown();
 
@@ -61,6 +62,10 @@ namespace AssetHub.ViewModels.Asset.Partial
         [Display(Name = "Serial number")]
         [Required(ErrorMessage = Models.Asset.Validator.SERIAL_REQUIRED)]
         public string SerialNumber { get; set; }
+
+        [Display(Name = "Value [$]")]
+        [Required(ErrorMessage = Models.Asset.Validator.VALUE_REQUIRED)]
+        public decimal Value { get; set; }
 
         [Display(Name = "Asset model")]
         [Required(ErrorMessage = Models.Asset.Validator.MODEL_REQUIRED)]

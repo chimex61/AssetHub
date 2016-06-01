@@ -25,6 +25,7 @@
                     <tr>
                         <th>Name</th>
                         <th>Serial number</th>
+                        <th>Value [$]</th>
                         <th>Asset model</th>
                         <th></th>
                     </tr>
@@ -35,6 +36,7 @@
                         <tr onclick="location.href = '@Url.Action("ViewAsset", "Asset", new { id = c.Id })'">
                             <td>@c.Name</td>
                             <td>@c.SerialNumber</td>
+                            <td>@c.Value</td>
                             <td>@c.AssetModel.Name</td>
                             <td>@Html.ActionLink("View", "ViewAsset", "Asset", new { id = c.Id }, htmlAttributes: new { @class = "btn btn-default" })</td>
                         </tr>
