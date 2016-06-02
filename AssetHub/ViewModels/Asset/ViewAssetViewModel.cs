@@ -24,7 +24,7 @@ namespace AssetHub.ViewModels.Asset
             Value = asset.Value;
 
             CurrentLoan = (from l in db.Loans
-                           where DateTime.Now >= l.TimeFrom && DateTime.Now <= l.TimeTo
+                           where DateTime.Now >= l.TimeFrom && DateTime.Now <= l.TimeTo && l.IsReturned == false
                            orderby l.TimeFrom
                            select l).FirstOrDefault();
 

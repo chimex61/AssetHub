@@ -249,6 +249,7 @@
     <Content Include="Scripts\Admin\UserPositionManagement.js" />
     <Content Include="Scripts\Admin\SearchUser.js" />
     <Content Include="Scripts\Account\ViewUser.js" />
+    <Content Include="Scripts\Loan\CreateLoan.js" />
     <Content Include="Scripts\Room\RoomManagement.js" />
     <Content Include="Scripts\AssetModel\EditAssetModel.js" />
     <Content Include="Scripts\AssetModel\ViewAssetModel.js" />

@@ -209,6 +209,20 @@ namespace AssetHub.DAL
                 new AssetLocation { Asset = assetList[1], RoomId = 2, TimeFrom = DateTime.Now },
             };
 
+            var loanList = new List<Loan>()
+            {
+                new Loan
+                {
+                    Asset = assetList[0],
+                    IsReturned = false,
+                    RoomId = 1,
+                    TimeFrom = DateTime.Now,
+                    TimeTo = DateTime.Now.AddHours(1),
+                    User = context.Users.ToList()[0],
+                }
+            };
+
+            context.Loans.AddRange(loanList);
             context.Assets.AddRange(assetList);
             context.AssetProperties.AddRange(assetPropertiesList);
             context.AssetLocations.AddRange(assetLocationList);

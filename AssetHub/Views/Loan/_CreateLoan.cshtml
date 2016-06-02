@@ -1,7 +1,7 @@
 ﻿@model AssetHub.ViewModels.Loan.Partial.CreateLoanViewModel
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("CreateLoan", "Loan", FormMethod.Post, new { id = "createForm" }))
 {
     @Html.AntiForgeryToken()
     

@@ -44,9 +44,6 @@ namespace AssetHub.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CreateUser(CreateUserViewModel vm)
         {
-            var Success = false;
-            var Message = "";
-
             var firstNameValidation = Models.User.Validator.ValidateFirstName(vm.FirstName);
             if(firstNameValidation != null)
             {
