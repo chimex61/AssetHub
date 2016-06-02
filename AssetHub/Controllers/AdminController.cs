@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using AssetHub.ViewModels.Admin.Partial;
 using Microsoft.AspNet.Identity;
+using System.Text.RegularExpressions;
 
 namespace AssetHub.Controllers
 {
@@ -36,44 +37,79 @@ namespace AssetHub.Controllers
         // Get: CreateUser
         public ActionResult CreateUser()
         {
-            var positions = db.UserPositionList();
-            var rooms = db.RoomList();
-            return Json(positions, JsonRequestBehavior.AllowGet);
+            return View(new CreateUserViewModel());
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> CreateUser(CreateUserViewModel vm)
+        public ActionResult CreateUser(CreateUserViewModel vm)
         {
+            var Success = false;
+            var Message = "";
+
+            var firstNameValidation = Models.User.Validator.ValidateFirstName(vm.FirstName);
+            if(firstNameValidation != null)
+            {
+                ModelState.AddModelError("FirstName", firstNameValidation);
+            }
+
+            var lastNameValidation = Models.User.Validator.ValidateLastName(vm.LastName);
+            if(lastNameValidation != null)
+            {
+                ModelState.AddModelError("LastName", lastNameValidation);
+            }
+
+            var emailValidation = Models.User.Validator.ValidateEmail(null, vm.Email);
+            if(emailValidation != null)
+            {
+                ModelState.AddModelError("Email", emailValidation);
+            }
+
+            if(string.IsNullOrWhiteSpace(vm.Password))
+            {
+                ModelState.AddModelError("Password", Models.User.Validator.PASSWORD_REQUIRED);
+            }
+            else if(!(new Regex(Models.User.Validator.PASSWORD_REGEX).IsMatch(vm.Password)))
+            {
+                ModelState.AddModelError("Password", Models.User.Validator.INVALID_PASSWORD);
+            }
+
+            var positionValidation = Models.User.Validator.ValidatePosition(vm.SelectedPositionId);
+            if(positionValidation != null)
+            {
+                ModelState.AddModelError("SelectedPositionId", positionValidation);
+            }
+
+            var roomValidation = Models.User.Validator.ValidateRoom(vm.SelectedRoomId);
+            if(roomValidation != null)
+            {
+                ModelState.AddModelError("SelectedRoomId", roomValidation);
+            }
+
             if (ModelState.IsValid)
             {
-                var room = db.FindOrAddRoom(vm.Room);
-                var position = db.FindOrAddUserPosition(vm.Position);
-
                 var user = new User
                 {
                     FirstName = vm.FirstName,
                     LastName = vm.LastName,
                     UserName = vm.Email,
+                    IsAdmin = vm.IsAdministrator,
                     Email = vm.Email,
-                    UserPosition = position,
-                    Room = room
+                    UserPositionId = vm.SelectedPositionId,
+                    RoomId = vm.SelectedRoomId,
                 };
 
-                var result = await UserManager.CreateAsync(user, vm.Password);
+                var result = UserManager.Create(user, vm.Password);
 
-                if(result.Succeeded)
+                if(result.Succeeded) { return Json(new { Success = true, Message = Models.User.SAVE_SUCCESS }); }
+
+                foreach(var s in result.Errors)
                 {
-                    ModelState.AddModelError("", "Unable to create user");
-                    return RedirectToAction("Index");
+                    ModelState.AddModelError("", s);
                 }
+
             }
-            else
-            {
-                ModelState.AddModelError("", "not ok");
-                return View(vm);
-            }
-            return View(vm);
+            return PartialView("_CreateUser", vm);
         }
 
         [HttpPost]

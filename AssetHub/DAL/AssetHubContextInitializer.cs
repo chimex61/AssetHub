@@ -82,7 +82,7 @@ namespace AssetHub.DAL
                 {
                     FirstName = "Filip",
                     LastName = "Gulan",
-                    UserName = "filp@asset.hub",
+                    UserName = "filip@asset.hub",
                     IsAdmin = false,
                     Email = "filip@asset.hub",
                     UserPosition = userPositions[3],
