@@ -46,7 +46,7 @@ namespace AssetHub.ViewModels.Admin.Partial
         [EmailAddress]
         public string Email { get; set; }
 
-        [Display(Name = "Is administrator")]
+        [Display(Name = "Administrator")]
         public bool IsAdmin { get; set; }
 
         [Display(Name = "Position")]

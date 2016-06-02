@@ -1,4 +1,5 @@
 ﻿using AssetHub.DAL;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,16 @@ namespace AssetHub.Models
             public const string INVALID_EMAIL = "Invalid email";
 
             public const string DUPLICATE_EMAIL = "User with this email already exists";
+
+            public const string USERNAME_REQUIRED = "Username is required";
+
+            public const string PASSWORD_REQUIRED = "Password is required";
+
+            public const string PASSWORD_REGEX = @"^.{6,}";
+
+            public const string INVALID_PASSWORD = "Password length must be at least 6 characters.";
+
+            public const string PASSWORD_DIFFERENT = "Passwords don't match";
 
             public static string ValidateFirstName(string name)
             {

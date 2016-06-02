@@ -73,7 +73,7 @@ namespace AssetHub.DAL
                     LastName = "Kelemen",
                     UserName = "jan@asset.hub",
                     IsAdmin = true,
-                    Email = "jan.kelemen@asset.hub",
+                    Email = "jan@asset.hub",
                     UserPosition = userPositions[0],
                     Room = context.FindOrAddRoom("PCLAB2")
                 },

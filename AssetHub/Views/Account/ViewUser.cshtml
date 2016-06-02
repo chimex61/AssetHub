@@ -5,6 +5,7 @@
 }
 
 @using AssetHub.ViewModels.Admin.Partial
+@using AssetHub.ViewModels.Account.Partial
 
 @if (Model.AdministratorRights)
 {
@@ -114,23 +115,24 @@
                 </div>
             </div>
         </div>
-        @if (Model.SameAsCurrent)
-        {
             <div class="container" id="changePasswordContainer" style="display:none">
+                @if (Model.SameAsCurrent)
+                {
+                    @Html.Partial("_ChangePassword", new ChangePasswordViewModel { Id = Model.Id, })
+                }
             </div>
-        }
 
-        @if (Model.AdministratorRights)
-            {
             <div class="container" id="editContainer" style="display:none">
-                @Html.Partial("~/Views/Admin/_EditUser.cshtml", new EditUserViewModel(Model.Id))
+                @if (Model.AdministratorRights)
+                {
+                    @Html.Partial("~/Views/Admin/_EditUser.cshtml", new EditUserViewModel(Model.Id))
+                }
             </div>
-        }
     </div>
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/Scripts/Admin/ViewUser.js")
+    @Scripts.Render("~/Scripts/Account/ViewUser.js")
     @Scripts.Render("~/Scripts/Admin/EditUser.js")
 }

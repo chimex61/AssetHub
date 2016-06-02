@@ -57,7 +57,7 @@
                                 </ul>
                             </li>
                         }
-                        <li>@Html.ActionLink(user.FirstName, "Index", "Account")</li>
+                        <li>@Html.ActionLink(user.FirstName, "ViewUser", "Account", new { id = id }, new { })</li>
                         <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
                     </ul>
                 }
