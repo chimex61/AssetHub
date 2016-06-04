@@ -214,6 +214,7 @@
     <Compile Include="ViewModels\Admin\Partial\SearchViewModel.cs" />
     <Compile Include="ViewModels\Admin\Partial\UserPositionManagementViewModel.cs" />
     <Compile Include="ViewModels\Admin\UserIndexViewModel.cs" />
+    <Compile Include="ViewModels\Loan\ViewLoanViewModel.cs" />
     <Compile Include="ViewModels\Room\IndexViewModel.cs" />
     <Compile Include="ViewModels\Room\Partial\RoomManagementViewModel.cs" />
     <Compile Include="ViewModels\AssetModel\IndexViewModel.cs" />

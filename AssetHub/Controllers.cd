@@ -3,12 +3,15 @@
   <Class Name="AssetHub.Controllers.AccountController">
     <Position X="9.25" Y="1" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAIAACAAAAAAAAAAAAAAAIAAAAAAQAAAAAQAAAAAAA=</HashCode>
+      <HashCode>AAAIAACAAAAAgAAAAAAAAAIAAAAAAQAAAAAQAAAAAAA=</HashCode>
       <FileName>Controllers\AccountController.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AssetHub.Controllers.AdminController">
     <Position X="0.5" Y="0.5" Width="3" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAEACAAQAQAAAFAAAAAAAAAAAAAAAAAAAAQAAAAgA=</HashCode>
       <FileName>Controllers\AdminController.cs</FileName>
@@ -16,6 +19,9 @@
   </Class>
   <Class Name="AssetHub.Controllers.AssetController">
     <Position X="1.75" Y="3.75" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAQAMAAAgQAAAAAAAAAAAAAAAAAACAAIEAQAAAAAA=</HashCode>
       <FileName>Controllers\AssetController.cs</FileName>
@@ -23,6 +29,9 @@
   </Class>
   <Class Name="AssetHub.Controllers.AssetModelController">
     <Position X="3.75" Y="0.75" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>AABAAAAAAAAQAAAAAAAIAAAAAAAAAAAAAAEIQAAAAAA=</HashCode>
       <FileName>Controllers\AssetModelController.cs</FileName>
@@ -30,6 +39,9 @@
   </Class>
   <Class Name="AssetHub.Controllers.CategoryController">
     <Position X="4" Y="4" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAYQAAAAAAAAAAAAAAAAAwAAAAEAQAAAAAA=</HashCode>
       <FileName>Controllers\CategoryController.cs</FileName>
@@ -44,6 +56,9 @@
   </Class>
   <Class Name="AssetHub.Controllers.LoanController">
     <Position X="6.5" Y="4.25" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>gAAAAAIAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Controllers\LoanController.cs</FileName>
@@ -51,6 +66,9 @@
   </Class>
   <Class Name="AssetHub.Controllers.RoomController">
     <Position X="6.5" Y="1" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAQAAAEAAAAAAAAQAAAAAAAAAEAQAAAAAA=</HashCode>
       <FileName>Controllers\RoomController.cs</FileName>
