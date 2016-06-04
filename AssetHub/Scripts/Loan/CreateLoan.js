@@ -11,7 +11,7 @@
                     if (result.Success != null) {
                         if (result.Success) {
                             alert(result.Message);
-                            window.location.href = '/Admin/UserIndex'
+                            window.location.href = '/Home/Index'
                         }
                         else if (result.Message != "") {
                             alert(result.Message);

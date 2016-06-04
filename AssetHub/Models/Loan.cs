@@ -44,11 +44,18 @@ namespace AssetHub.Models
                 using (var db = new AssetHubContext())
                 {
                     var existing = (from l in db.Loans
-                                    where l.AssetId == assetId && !l.IsReturned
-                                    && (timeFrom >= l.TimeFrom && timeFrom <= l.TimeTo || timeTo >= l.TimeFrom && timeTo <= l.TimeTo)
-                                    select l).Count();
+                                    where l.AssetId == assetId
+                                    select l).ToList();
 
-                    return existing != 0 ? LOAN_EXISTS : null;
+                    foreach(var l in existing)
+                    {
+                        var x = timeFrom > l.TimeFrom && timeFrom < l.TimeTo;
+                        var y = timeTo > l.TimeFrom && timeTo < l.TimeTo;
+
+                        if(x || y) { return LOAN_EXISTS; }
+                    }
+
+                    return null;
                 }
             }
 
@@ -63,8 +70,6 @@ namespace AssetHub.Models
         public const string SAVE_FAIL = "Loan save failed";
 
         public int Id { get; set; }
-
-        public bool IsReturned { get; set; }
 
         public DateTime TimeFrom { get; set; }
 

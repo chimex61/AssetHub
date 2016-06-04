@@ -9,17 +9,13 @@ namespace AssetHub.ViewModels.Home
 {
     public class IndexViewModel
     {
+        AssetHubContext db = new AssetHubContext();
         public IndexViewModel(string userId)
         {
-            using (var db = new AssetHubContext())
-            {
-                var currentTime = DateTime.Now;
-                CurrentLoans = (from l in db.Loans
-                                where l.User.Id == userId
-                                && l.TimeFrom >= currentTime
-                                && l.TimeFrom <= currentTime
-                                select l).ToList();
-            }
+            CurrentLoans = (from l in db.Loans
+                            where l.User.Id == userId
+                            && DateTime.Now >= l.TimeFrom && DateTime.Now <= l.TimeTo
+                            select l).ToList();
         }
 
         public ICollection<Models.Loan> CurrentLoans { get; set; }

@@ -80,7 +80,6 @@ namespace AssetHub.Controllers
                     var loan = new Loan
                     {
                         AssetId = vm.AssetId,
-                        IsReturned = false,
                         RoomId = vm.SelectedRoomId,
                         TimeFrom = timeFrom,
                         TimeTo = timeTo,
@@ -96,6 +95,8 @@ namespace AssetHub.Controllers
                     return Json(new { Success = false, Message = Loan.SAVE_FAIL });
                 }
             }
+
+            vm.Hours = GenerateHours();
             vm.Rooms = db.RoomDropdown();
             return PartialView("_CreateLoan", vm);
         }

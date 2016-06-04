@@ -10,7 +10,7 @@ using System.Web;
 
 namespace AssetHub.DAL
 {
-    public class AssetHubContextInitializer : DropCreateDatabaseAlways<AssetHubContext>
+    public class AssetHubContextInitializer : DropCreateDatabaseIfModelChanges<AssetHubContext>
     {
         protected override void Seed(AssetHubContext context)
         {
@@ -214,7 +214,6 @@ namespace AssetHub.DAL
                 new Loan
                 {
                     Asset = assetList[0],
-                    IsReturned = false,
                     RoomId = 1,
                     TimeFrom = DateTime.Now,
                     TimeTo = DateTime.Now.AddHours(1),

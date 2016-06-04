@@ -5,15 +5,16 @@
 }
 
 <div>
-    <h2>Current loans</h2>
+    <h4>Current loans</h4>
     <hr />
     <table class="table">
         <thead>
             <tr>
                 <th>Asset</th>
-                <th>Location</th>
                 <th>Loaned from</th>
                 <th>Loaned to</th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -21,8 +22,10 @@
             {
                 <tr>
                     <td>@l.Asset.Name</td>
-                    <td>@l.TimeFrom.Date.</td>
-                    <td>@l.TimeFrom.Date</td>
+                    <td>@l.TimeFrom</td>
+                    <td>@l.TimeTo</td>
+                    <td>@Html.ActionLink("View", "ViewAsset", "Asset", new { id = l.AssetId },  htmlAttributes: new { @class = "btn btn-default" })</td>
+                    <td>@Html.ActionLink("Return", "EndLoan", "Loan", new { id = l.Id }, htmlAttributes: new { @class = "btn btn-default" })</td>
                 </tr>
             }
         </tbody>
