@@ -1,0 +1,64 @@
+﻿@model AssetHub.ViewModels.Account.UserReportViewModel
+
+@Styles.Render("~/Content/css")
+
+@{
+    ViewBag.Title = "Report for: " + Model.Name;
+    Layout = null;
+}
+
+<h4>Report for: @Model.Name</h4> <hr />
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Position)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Position)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Room)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Room)
+        </dd>
+    </dl>
+
+    @if (Model.Loans.Count > 0)
+    {
+        <h4>Loans between @Model.TimeFrom.ToShortDateString() and @Model.TimeTo.ToShortDateString()</h4> <hr />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Asset</th>
+                    <th>Serial number</th>
+                    <th>Time from</th>
+                    <th>Time to</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var l in Model.Loans)
+                {
+                    <tr>
+                        <td>@l.Item1</td>
+                        <td>@l.Item2</td>
+                        <td>@l.Item3</td>
+                        <td>@l.Item4</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

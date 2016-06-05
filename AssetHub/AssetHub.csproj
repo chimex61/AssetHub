@@ -208,12 +208,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Account\Partial\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\Account\LoginViewModel.cs" />
+    <Compile Include="ViewModels\Account\Partial\UserReportFormViewModel.cs" />
+    <Compile Include="ViewModels\Account\UserReportViewModel.cs" />
     <Compile Include="ViewModels\Account\ViewUserViewModel.cs" />
     <Compile Include="ViewModels\Admin\Partial\CreateUserViewModel.cs" />
     <Compile Include="ViewModels\Admin\Partial\EditUserViewModel.cs" />
     <Compile Include="ViewModels\Admin\Partial\SearchViewModel.cs" />
     <Compile Include="ViewModels\Admin\Partial\UserPositionManagementViewModel.cs" />
     <Compile Include="ViewModels\Admin\UserIndexViewModel.cs" />
+    <Compile Include="ViewModels\Asset\Partial\AssetReportFormViewModel.cs" />
+    <Compile Include="ViewModels\Asset\AssetReportViewModel.cs" />
     <Compile Include="ViewModels\Loan\ViewLoanViewModel.cs" />
     <Compile Include="ViewModels\Room\IndexViewModel.cs" />
     <Compile Include="ViewModels\Room\Partial\RoomManagementViewModel.cs" />
@@ -343,6 +347,10 @@
     <Content Include="Views\Account\_ChangePassword.cshtml" />
     <Content Include="Views\Admin\CreateUser.cshtml" />
     <Content Include="Views\Admin\_CreateUser.cshtml" />
+    <Content Include="Views\Asset\_AssetReportForm.cshtml" />
+    <Content Include="Views\Asset\AssetReport.cshtml" />
+    <Content Include="Views\Account\_UserReportForm.cshtml" />
+    <Content Include="Views\Account\UserReport.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -297,6 +297,11 @@ namespace AssetHub.Controllers
             return Json(new { Success, Message });
         }
 
+        public ActionResult AssetReport(AssetReportFormViewModel vm)
+        {
+            return View(new AssetReportViewModel(vm.Id, vm.DateFrom, vm.DateTo));
+        }
+
         public JsonResult GetAssetModelProperties(int id)
         {
             var properties = (from m in db.AssetModels where m.Id == id

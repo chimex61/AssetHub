@@ -64,6 +64,11 @@ namespace AssetHub.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        public ActionResult UserReport(UserReportFormViewModel vm)
+        {
+            return View(new UserReportViewModel(vm.Id, vm.DateFrom, vm.DateTo));
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ChangePassword(ChangePasswordViewModel vm)

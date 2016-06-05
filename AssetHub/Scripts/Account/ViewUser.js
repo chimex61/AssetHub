@@ -19,6 +19,13 @@
         $("#editContainer").hide();
     });
 
+    $("#reportBtn").click(function () {
+        $("#viewContainer").hide();
+        $("#editContainer").hide();
+        $("#changePasswordContainer").hide();
+        $("#reportContainer").show();
+    })
+
     $("#changePasswordContainer").on('submit', '#changePassForm', function (event) {
         event.preventDefault();
         var form = $(this);

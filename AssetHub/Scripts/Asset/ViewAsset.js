@@ -26,6 +26,12 @@
         }
     });
 
+    $("#reportBtn").click(function () {
+        $("#viewContainer").hide();
+        $("#editContainer").hide();
+        $("#reportContainer").show();
+    })
+
     $("#changeLocationBtn").click(function () {
         $("#viewLocationContainer").toggle();
         $("#changeLocationContainer").toggle();

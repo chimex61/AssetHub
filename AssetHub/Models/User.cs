@@ -106,6 +106,6 @@ namespace AssetHub.Models
 
         public virtual Room Room { get; set; }
 
-        public virtual IEnumerable<Loan> Loans { get; set; }
+        public virtual ICollection<Loan> Loans { get; set; }
     }
 }
