@@ -22,6 +22,20 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
   <ItemGroup>
+    <Content Include="DBtoPL.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="DBtoPL.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>DBtoPL.sequencediagram</DependentUpon>
+    </Content>
+    <Content Include="PLtoDB.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="PLtoDB.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>PLtoDB.sequencediagram</DependentUpon>
+    </Content>
     <Folder Include="ModelDefinition\" />
     <Content Include="ModelDefinition\AssetHub.Diagrams.uml">
       <SubType>Content</SubType>

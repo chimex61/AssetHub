@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
   dslVersion="1.0.0.0"
   Id="0f0a49a9-9e22-4ca0-8a98-1ccf826b7da6"
   name="AssetHub.Diagrams" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -17,28 +17,2281 @@
         name="StandardProfileL3" />
     </packageHasProfileInstances>
   </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <interaction
+        Id="ecfcd18d-130f-483e-b5a9-27d3a7aa6553"
+        name="PLtoDB"
+        collapseFragmentsFlag="false"
+        isActiveClass="false"
+        isAbstract="false"
+        isLeaf="false"
+        isReentrant="false">
+        <fragments>
+          <messageOccurrenceSpecification
+            Id="ae1380e0-2425-470a-8475-7b66816627aa"
+            name="MessageOccurrenceSpecification1">
+            <covered>
+              <lifelineMoniker
+                Id="3878fd59-6cc8-4bbf-8eb5-35495733aac2"
+                LastKnownName="Korisnik"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="2ed7dbd0-6c63-4aa5-a3a4-05de0097d1e3"
+            name="BehaviorExecutionSpecification1">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="3878fd59-6cc8-4bbf-8eb5-35495733aac2"
+                LastKnownName="Korisnik"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="2191d754-a240-4405-a0bb-d1a87d9b461f"
+                LastKnownName="ExecutionOccurrenceSpecification2"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="90c55816-77d3-4034-a76b-a64d8d65dbfa"
+                LastKnownName="ExecutionOccurrenceSpecification1"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="cd795d8f-d7cb-4a6c-9aab-82a644bdc226"
+                LastKnownName="MessageOccurrenceSpecification2"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="90c55816-77d3-4034-a76b-a64d8d65dbfa"
+            name="ExecutionOccurrenceSpecification1">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="810c9260-27c3-48c8-825d-2e36939c8782"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="AssetHub.Diagrams.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="3878fd59-6cc8-4bbf-8eb5-35495733aac2"
+                LastKnownName="Korisnik"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="cd795d8f-d7cb-4a6c-9aab-82a644bdc226"
+            name="MessageOccurrenceSpecification2">
+            <covered>
+              <lifelineMoniker
+                Id="3878fd59-6cc8-4bbf-8eb5-35495733aac2"
+                LastKnownName="Korisnik"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="2191d754-a240-4405-a0bb-d1a87d9b461f"
+            name="ExecutionOccurrenceSpecification2">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="2c39d28e-f1f2-426d-b346-7ba3137ffd23"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="AssetHub.Diagrams.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="3878fd59-6cc8-4bbf-8eb5-35495733aac2"
+                LastKnownName="Korisnik"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="2a302a46-0e5f-40ba-9c7d-50ee7ada2391"
+            name="BehaviorExecutionSpecification2">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="a650b479-a092-4a8d-a464-30b4eecc95fc"
+                LastKnownName="Upravljač"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="56dc2796-b4c2-4685-bfd8-2c54e56a5c07"
+                LastKnownName="ExecutionOccurrenceSpecification4"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="99cf2099-9f29-4582-97d4-da97b65416d0"
+                LastKnownName="ExecutionOccurrenceSpecification3"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="84a2bf45-9203-4269-a844-197ac5e23da0"
+                LastKnownName="MessageOccurrenceSpecification4"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="996900fa-6831-40e5-9668-b433fb074d40"
+                LastKnownName="MessageOccurrenceSpecification7"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="8f30de15-e2d9-4f1a-8efe-401c57945ddc"
+                LastKnownName="ExecutionOccurrenceSpecification5"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="0da688a8-6bc0-49b4-b856-6833f0ceb16d"
+                LastKnownName="ExecutionOccurrenceSpecification6"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="a24f69a0-70a5-4c45-82c4-a414f455270a"
+                LastKnownName="MessageOccurrenceSpecification9"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="489a2b63-61c0-4200-979d-6447e095ab9d"
+                LastKnownName="MessageOccurrenceSpecification12"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="4c028abc-204b-4060-90be-c5515ea22a9b"
+                LastKnownName="MessageOccurrenceSpecification5"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="99cf2099-9f29-4582-97d4-da97b65416d0"
+            name="ExecutionOccurrenceSpecification3">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="6b00ad8c-8c92-42a2-9ec2-c09e2b68bdae"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="AssetHub.Diagrams.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="a650b479-a092-4a8d-a464-30b4eecc95fc"
+                LastKnownName="Upravljač"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="a52eb019-9fd7-499a-8f26-cb7eecdc87d7"
+            name="MessageOccurrenceSpecification3">
+            <covered>
+              <lifelineMoniker
+                Id="3878fd59-6cc8-4bbf-8eb5-35495733aac2"
+                LastKnownName="Korisnik"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="84a2bf45-9203-4269-a844-197ac5e23da0"
+            name="MessageOccurrenceSpecification4">
+            <covered>
+              <lifelineMoniker
+                Id="a650b479-a092-4a8d-a464-30b4eecc95fc"
+                LastKnownName="Upravljač"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="996900fa-6831-40e5-9668-b433fb074d40"
+            name="MessageOccurrenceSpecification7">
+            <covered>
+              <lifelineMoniker
+                Id="a650b479-a092-4a8d-a464-30b4eecc95fc"
+                LastKnownName="Upravljač"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="43967d01-f304-4bb7-b07f-597acaacdc1b"
+            name="BehaviorExecutionSpecification3">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="a650b479-a092-4a8d-a464-30b4eecc95fc"
+                LastKnownName="Upravljač"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="0da688a8-6bc0-49b4-b856-6833f0ceb16d"
+                LastKnownName="ExecutionOccurrenceSpecification6"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="8f30de15-e2d9-4f1a-8efe-401c57945ddc"
+                LastKnownName="ExecutionOccurrenceSpecification5"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="637dff9a-ff2b-493f-bd0a-a3b485633bf6"
+                LastKnownName="MessageOccurrenceSpecification8"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="8f30de15-e2d9-4f1a-8efe-401c57945ddc"
+            name="ExecutionOccurrenceSpecification5">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="d8914988-6d9f-45d9-9474-a0bdcdc3704d"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="AssetHub.Diagrams.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="a650b479-a092-4a8d-a464-30b4eecc95fc"
+                LastKnownName="Upravljač"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="637dff9a-ff2b-493f-bd0a-a3b485633bf6"
+            name="MessageOccurrenceSpecification8">
+            <covered>
+              <lifelineMoniker
+                Id="a650b479-a092-4a8d-a464-30b4eecc95fc"
+                LastKnownName="Upravljač"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="0da688a8-6bc0-49b4-b856-6833f0ceb16d"
+            name="ExecutionOccurrenceSpecification6">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="4f5441c1-3c5c-4f42-bf0f-d7e9c2dacf95"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="AssetHub.Diagrams.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="a650b479-a092-4a8d-a464-30b4eecc95fc"
+                LastKnownName="Upravljač"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="4ae2b88a-fc54-4935-a662-383430a63e70"
+            name="BehaviorExecutionSpecification4">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="73ec0cdf-3e0e-4d6a-85f5-633dccd8f05c"
+                LastKnownName="Sloj za pristup podacima"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="522eb465-56dc-4b4c-aac4-4b9f92434828"
+                LastKnownName="ExecutionOccurrenceSpecification8"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="874d467c-c46a-4adb-b818-a36b8747f295"
+                LastKnownName="ExecutionOccurrenceSpecification7"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="cef0e6ad-dd22-49f7-87a5-be2d062b75a5"
+                LastKnownName="MessageOccurrenceSpecification10"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="dcfbde76-faf2-4a5c-a317-8cd47df084d5"
+                LastKnownName="MessageOccurrenceSpecification13"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="a9329d64-32b2-4df4-95a2-f44a658f79dd"
+                LastKnownName="ExecutionOccurrenceSpecification9"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="083e9d23-fc24-4100-a37f-74069f98d2c5"
+                LastKnownName="ExecutionOccurrenceSpecification10"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="10c084ae-69f9-469a-b6a3-7e97ef72c91d"
+                LastKnownName="MessageOccurrenceSpecification15"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="a79234ae-cb61-4ae8-aae8-34c2df0d092d"
+                LastKnownName="MessageOccurrenceSpecification18"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="b247c1d8-97ca-40d1-9c15-13874d8a827c"
+                LastKnownName="MessageOccurrenceSpecification11"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="874d467c-c46a-4adb-b818-a36b8747f295"
+            name="ExecutionOccurrenceSpecification7">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="6ad1fecc-f98b-4f0f-8d6a-7bd3450ad020"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="AssetHub.Diagrams.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="73ec0cdf-3e0e-4d6a-85f5-633dccd8f05c"
+                LastKnownName="Sloj za pristup podacima"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="cef0e6ad-dd22-49f7-87a5-be2d062b75a5"
+            name="MessageOccurrenceSpecification10">
+            <covered>
+              <lifelineMoniker
+                Id="73ec0cdf-3e0e-4d6a-85f5-633dccd8f05c"
+                LastKnownName="Sloj za pristup podacima"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="a24f69a0-70a5-4c45-82c4-a414f455270a"
+            name="MessageOccurrenceSpecification9">
+            <covered>
+              <lifelineMoniker
+                Id="a650b479-a092-4a8d-a464-30b4eecc95fc"
+                LastKnownName="Upravljač"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="dcfbde76-faf2-4a5c-a317-8cd47df084d5"
+            name="MessageOccurrenceSpecification13">
+            <covered>
+              <lifelineMoniker
+                Id="73ec0cdf-3e0e-4d6a-85f5-633dccd8f05c"
+                LastKnownName="Sloj za pristup podacima"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="3927e101-3bb4-4915-8826-dd87107c7eb4"
+            name="BehaviorExecutionSpecification5">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="73ec0cdf-3e0e-4d6a-85f5-633dccd8f05c"
+                LastKnownName="Sloj za pristup podacima"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="083e9d23-fc24-4100-a37f-74069f98d2c5"
+                LastKnownName="ExecutionOccurrenceSpecification10"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="a9329d64-32b2-4df4-95a2-f44a658f79dd"
+                LastKnownName="ExecutionOccurrenceSpecification9"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="962fdb8c-fa4d-4414-929f-b972a1e4d021"
+                LastKnownName="MessageOccurrenceSpecification14"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="a9329d64-32b2-4df4-95a2-f44a658f79dd"
+            name="ExecutionOccurrenceSpecification9">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="6f3579d6-5bc3-40d8-88e6-b2cc0c22a980"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="AssetHub.Diagrams.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="73ec0cdf-3e0e-4d6a-85f5-633dccd8f05c"
+                LastKnownName="Sloj za pristup podacima"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="962fdb8c-fa4d-4414-929f-b972a1e4d021"
+            name="MessageOccurrenceSpecification14">
+            <covered>
+              <lifelineMoniker
+                Id="73ec0cdf-3e0e-4d6a-85f5-633dccd8f05c"
+                LastKnownName="Sloj za pristup podacima"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="083e9d23-fc24-4100-a37f-74069f98d2c5"
+            name="ExecutionOccurrenceSpecification10">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="50a4dea7-a969-4e3b-8f5b-406513a047ad"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="AssetHub.Diagrams.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="73ec0cdf-3e0e-4d6a-85f5-633dccd8f05c"
+                LastKnownName="Sloj za pristup podacima"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="289b0152-3dc5-418b-a74f-5f329851dba2"
+            name="BehaviorExecutionSpecification6">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="e952bef2-4a47-42b9-98c5-b7adf3984d57"
+                LastKnownName="Spremište podataka"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="1c4de553-1293-4746-8851-34d2de4aaaff"
+                LastKnownName="ExecutionOccurrenceSpecification12"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="f7b00514-15b6-4352-802c-14adb8bdc6da"
+                LastKnownName="ExecutionOccurrenceSpecification11"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="e0cfb2fc-af49-41d0-9f38-3584d13f3438"
+                LastKnownName="MessageOccurrenceSpecification16"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="340abde5-9c40-4638-808f-7bf6bd0236ce"
+                LastKnownName="MessageOccurrenceSpecification19"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="298fbd64-2b6c-4dd3-9c9a-78305ca65344"
+                LastKnownName="ExecutionOccurrenceSpecification13"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="3236e626-082e-4dec-934e-77b95910183f"
+                LastKnownName="ExecutionOccurrenceSpecification14"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="ef3f1d66-bb23-494d-b4cc-54a2e67a13f6"
+                LastKnownName="MessageOccurrenceSpecification17"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="f7b00514-15b6-4352-802c-14adb8bdc6da"
+            name="ExecutionOccurrenceSpecification11">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="d20599f4-7562-477c-a4c4-0fc2ef36d088"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="AssetHub.Diagrams.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="e952bef2-4a47-42b9-98c5-b7adf3984d57"
+                LastKnownName="Spremište podataka"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="e0cfb2fc-af49-41d0-9f38-3584d13f3438"
+            name="MessageOccurrenceSpecification16">
+            <covered>
+              <lifelineMoniker
+                Id="e952bef2-4a47-42b9-98c5-b7adf3984d57"
+                LastKnownName="Spremište podataka"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="10c084ae-69f9-469a-b6a3-7e97ef72c91d"
+            name="MessageOccurrenceSpecification15">
+            <covered>
+              <lifelineMoniker
+                Id="73ec0cdf-3e0e-4d6a-85f5-633dccd8f05c"
+                LastKnownName="Sloj za pristup podacima"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="340abde5-9c40-4638-808f-7bf6bd0236ce"
+            name="MessageOccurrenceSpecification19">
+            <covered>
+              <lifelineMoniker
+                Id="e952bef2-4a47-42b9-98c5-b7adf3984d57"
+                LastKnownName="Spremište podataka"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="b0f225cd-965a-422c-a570-2948196d2f44"
+            name="BehaviorExecutionSpecification7">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="e952bef2-4a47-42b9-98c5-b7adf3984d57"
+                LastKnownName="Spremište podataka"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="3236e626-082e-4dec-934e-77b95910183f"
+                LastKnownName="ExecutionOccurrenceSpecification14"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="298fbd64-2b6c-4dd3-9c9a-78305ca65344"
+                LastKnownName="ExecutionOccurrenceSpecification13"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="290e8ddb-0b49-47a8-81c2-08181634bd69"
+                LastKnownName="MessageOccurrenceSpecification20"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="298fbd64-2b6c-4dd3-9c9a-78305ca65344"
+            name="ExecutionOccurrenceSpecification13">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="c2eeed3a-ae6f-4543-80ab-68870b767e11"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="AssetHub.Diagrams.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="e952bef2-4a47-42b9-98c5-b7adf3984d57"
+                LastKnownName="Spremište podataka"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="290e8ddb-0b49-47a8-81c2-08181634bd69"
+            name="MessageOccurrenceSpecification20">
+            <covered>
+              <lifelineMoniker
+                Id="e952bef2-4a47-42b9-98c5-b7adf3984d57"
+                LastKnownName="Spremište podataka"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="3236e626-082e-4dec-934e-77b95910183f"
+            name="ExecutionOccurrenceSpecification14">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="790c4e14-96ae-495d-98d3-08c5852b3523"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="AssetHub.Diagrams.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="e952bef2-4a47-42b9-98c5-b7adf3984d57"
+                LastKnownName="Spremište podataka"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="ef3f1d66-bb23-494d-b4cc-54a2e67a13f6"
+            name="MessageOccurrenceSpecification17">
+            <covered>
+              <lifelineMoniker
+                Id="e952bef2-4a47-42b9-98c5-b7adf3984d57"
+                LastKnownName="Spremište podataka"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="a79234ae-cb61-4ae8-aae8-34c2df0d092d"
+            name="MessageOccurrenceSpecification18">
+            <covered>
+              <lifelineMoniker
+                Id="73ec0cdf-3e0e-4d6a-85f5-633dccd8f05c"
+                LastKnownName="Sloj za pristup podacima"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="1c4de553-1293-4746-8851-34d2de4aaaff"
+            name="ExecutionOccurrenceSpecification12">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="71b5fcbc-be3b-4c81-aaf9-02a3d703ab25"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="AssetHub.Diagrams.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="e952bef2-4a47-42b9-98c5-b7adf3984d57"
+                LastKnownName="Spremište podataka"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="b247c1d8-97ca-40d1-9c15-13874d8a827c"
+            name="MessageOccurrenceSpecification11">
+            <covered>
+              <lifelineMoniker
+                Id="73ec0cdf-3e0e-4d6a-85f5-633dccd8f05c"
+                LastKnownName="Sloj za pristup podacima"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="489a2b63-61c0-4200-979d-6447e095ab9d"
+            name="MessageOccurrenceSpecification12">
+            <covered>
+              <lifelineMoniker
+                Id="a650b479-a092-4a8d-a464-30b4eecc95fc"
+                LastKnownName="Upravljač"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="522eb465-56dc-4b4c-aac4-4b9f92434828"
+            name="ExecutionOccurrenceSpecification8">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="5021b4fd-6767-4dad-bcd5-3e3bee395db4"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="AssetHub.Diagrams.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="73ec0cdf-3e0e-4d6a-85f5-633dccd8f05c"
+                LastKnownName="Sloj za pristup podacima"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="4c028abc-204b-4060-90be-c5515ea22a9b"
+            name="MessageOccurrenceSpecification5">
+            <covered>
+              <lifelineMoniker
+                Id="a650b479-a092-4a8d-a464-30b4eecc95fc"
+                LastKnownName="Upravljač"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="b427d5ab-ba7c-420e-8e20-b45aae0fc4ae"
+            name="MessageOccurrenceSpecification6">
+            <covered>
+              <lifelineMoniker
+                Id="3878fd59-6cc8-4bbf-8eb5-35495733aac2"
+                LastKnownName="Korisnik"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="56dc2796-b4c2-4685-bfd8-2c54e56a5c07"
+            name="ExecutionOccurrenceSpecification4">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="41155a50-e9bc-48e5-bf49-2178d3cf3252"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="AssetHub.Diagrams.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="a650b479-a092-4a8d-a464-30b4eecc95fc"
+                LastKnownName="Upravljač"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+        </fragments>
+        <lifelines>
+          <lifeline
+            Id="3878fd59-6cc8-4bbf-8eb5-35495733aac2"
+            name="Korisnik"
+            isActor="false"
+            lifelineDisplayName="Korisnik">
+            <topLevelOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="ae1380e0-2425-470a-8475-7b66816627aa"
+                LastKnownName="MessageOccurrenceSpecification1"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="90c55816-77d3-4034-a76b-a64d8d65dbfa"
+                LastKnownName="ExecutionOccurrenceSpecification1"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="2191d754-a240-4405-a0bb-d1a87d9b461f"
+                LastKnownName="ExecutionOccurrenceSpecification2"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="a52eb019-9fd7-499a-8f26-cb7eecdc87d7"
+                LastKnownName="MessageOccurrenceSpecification3"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="b427d5ab-ba7c-420e-8e20-b45aae0fc4ae"
+                LastKnownName="MessageOccurrenceSpecification6"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="a650b479-a092-4a8d-a464-30b4eecc95fc"
+            name="Upravljač"
+            isActor="false"
+            lifelineDisplayName="Upravljač">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="99cf2099-9f29-4582-97d4-da97b65416d0"
+                LastKnownName="ExecutionOccurrenceSpecification3"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="56dc2796-b4c2-4685-bfd8-2c54e56a5c07"
+                LastKnownName="ExecutionOccurrenceSpecification4"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="73ec0cdf-3e0e-4d6a-85f5-633dccd8f05c"
+            name="Sloj za pristup podacima"
+            isActor="false"
+            lifelineDisplayName="Sloj za pristup podacima">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="874d467c-c46a-4adb-b818-a36b8747f295"
+                LastKnownName="ExecutionOccurrenceSpecification7"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="522eb465-56dc-4b4c-aac4-4b9f92434828"
+                LastKnownName="ExecutionOccurrenceSpecification8"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="e952bef2-4a47-42b9-98c5-b7adf3984d57"
+            name="Spremište podataka"
+            isActor="false"
+            lifelineDisplayName="Spremište podataka">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="f7b00514-15b6-4352-802c-14adb8bdc6da"
+                LastKnownName="ExecutionOccurrenceSpecification11"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="1c4de553-1293-4746-8851-34d2de4aaaff"
+                LastKnownName="ExecutionOccurrenceSpecification12"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+        </lifelines>
+        <messages>
+          <message
+            Id="046c6304-d199-4ae0-9989-208694dc2757"
+            name="Upisuje podatke"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="true">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="ae1380e0-2425-470a-8475-7b66816627aa"
+                LastKnownName="MessageOccurrenceSpecification1"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="cd795d8f-d7cb-4a6c-9aab-82a644bdc226"
+                LastKnownName="MessageOccurrenceSpecification2"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="3e6b9fb8-44e4-40be-9638-ee3e8b6c88fd"
+            name="Model pogleda"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="a52eb019-9fd7-499a-8f26-cb7eecdc87d7"
+                LastKnownName="MessageOccurrenceSpecification3"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="84a2bf45-9203-4269-a844-197ac5e23da0"
+                LastKnownName="MessageOccurrenceSpecification4"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="6c3b268d-a47c-4369-a8b8-e2d9fc084861"
+            name="Stvara modele poslovnog sloja"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="true">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="996900fa-6831-40e5-9668-b433fb074d40"
+                LastKnownName="MessageOccurrenceSpecification7"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="637dff9a-ff2b-493f-bd0a-a3b485633bf6"
+                LastKnownName="MessageOccurrenceSpecification8"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="5931ecbf-d9b3-450d-8157-3e09d37cb695"
+            name="Model poslovnog sloja"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="a24f69a0-70a5-4c45-82c4-a414f455270a"
+                LastKnownName="MessageOccurrenceSpecification9"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="cef0e6ad-dd22-49f7-87a5-be2d062b75a5"
+                LastKnownName="MessageOccurrenceSpecification10"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="a7851b36-7942-44a4-97a0-47d4ab8f41ad"
+            name="Stvara odgovarajući SQL upit"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="true">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="dcfbde76-faf2-4a5c-a317-8cd47df084d5"
+                LastKnownName="MessageOccurrenceSpecification13"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="962fdb8c-fa4d-4414-929f-b972a1e4d021"
+                LastKnownName="MessageOccurrenceSpecification14"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="d322b9fb-a276-4b52-a4f1-21b6a0d3f907"
+            name="SQL upit"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="10c084ae-69f9-469a-b6a3-7e97ef72c91d"
+                LastKnownName="MessageOccurrenceSpecification15"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="e0cfb2fc-af49-41d0-9f38-3584d13f3438"
+                LastKnownName="MessageOccurrenceSpecification16"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="0ad6f49c-7790-4c7e-ba8c-dd4b14abdf46"
+            name="Izvršava SQL upit"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="true">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="340abde5-9c40-4638-808f-7bf6bd0236ce"
+                LastKnownName="MessageOccurrenceSpecification19"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="290e8ddb-0b49-47a8-81c2-08181634bd69"
+                LastKnownName="MessageOccurrenceSpecification20"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="5fdcd882-095e-4f74-b195-5117916bd432"
+            name="Uspješnost akcije"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="ef3f1d66-bb23-494d-b4cc-54a2e67a13f6"
+                LastKnownName="MessageOccurrenceSpecification17"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="a79234ae-cb61-4ae8-aae8-34c2df0d092d"
+                LastKnownName="MessageOccurrenceSpecification18"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="d98f11a0-cf54-4708-b65c-cace58399af1"
+            name="Uspješnost akcije"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="b247c1d8-97ca-40d1-9c15-13874d8a827c"
+                LastKnownName="MessageOccurrenceSpecification11"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="489a2b63-61c0-4200-979d-6447e095ab9d"
+                LastKnownName="MessageOccurrenceSpecification12"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="127c06ae-53d1-4b98-95ca-e5bb98a7e904"
+            name="Uspješnost akcije"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="4c028abc-204b-4060-90be-c5515ea22a9b"
+                LastKnownName="MessageOccurrenceSpecification5"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="b427d5ab-ba7c-420e-8e20-b45aae0fc4ae"
+                LastKnownName="MessageOccurrenceSpecification6"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </receiveEvent>
+          </message>
+        </messages>
+      </interaction>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="810c9260-27c3-48c8-825d-2e36939c8782"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="2c39d28e-f1f2-426d-b346-7ba3137ffd23"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="6b00ad8c-8c92-42a2-9ec2-c09e2b68bdae"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="41155a50-e9bc-48e5-bf49-2178d3cf3252"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="d8914988-6d9f-45d9-9474-a0bdcdc3704d"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="4f5441c1-3c5c-4f42-bf0f-d7e9c2dacf95"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="6ad1fecc-f98b-4f0f-8d6a-7bd3450ad020"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="5021b4fd-6767-4dad-bcd5-3e3bee395db4"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="6f3579d6-5bc3-40d8-88e6-b2cc0c22a980"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="50a4dea7-a969-4e3b-8f5b-406513a047ad"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="d20599f4-7562-477c-a4c4-0fc2ef36d088"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="71b5fcbc-be3b-4c81-aaf9-02a3d703ab25"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="c2eeed3a-ae6f-4543-80ab-68870b767e11"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="790c4e14-96ae-495d-98d3-08c5852b3523"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <interaction
+        Id="298b2704-2262-478d-9ed8-15d881efa1a7"
+        name="DBtoPL"
+        collapseFragmentsFlag="false"
+        isActiveClass="false"
+        isAbstract="false"
+        isLeaf="false"
+        isReentrant="false">
+        <fragments>
+          <messageOccurrenceSpecification
+            Id="2103e29a-15fb-4431-9fd7-7deeeda1bf21"
+            name="MessageOccurrenceSpecification1">
+            <covered>
+              <lifelineMoniker
+                Id="a39b2e7e-7eb9-4ce8-8081-2afdb00ae51d"
+                LastKnownName="Korisnik"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="7e74bd9d-382f-4eef-b75d-0ef6959107a4"
+            name="BehaviorExecutionSpecification1">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="a39b2e7e-7eb9-4ce8-8081-2afdb00ae51d"
+                LastKnownName="Korisnik"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="73e3ddd9-fd5f-470a-bdfa-f148bd37b5e0"
+                LastKnownName="ExecutionOccurrenceSpecification2"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="6798870d-f7d1-4daf-97c3-177fef19f967"
+                LastKnownName="ExecutionOccurrenceSpecification1"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="74a155bd-221a-4320-a79a-b66c438a3441"
+                LastKnownName="MessageOccurrenceSpecification2"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="6798870d-f7d1-4daf-97c3-177fef19f967"
+            name="ExecutionOccurrenceSpecification1">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="11c7a68d-a1a0-4557-85f1-38bdb8c0a8ab"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="AssetHub.Diagrams.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="a39b2e7e-7eb9-4ce8-8081-2afdb00ae51d"
+                LastKnownName="Korisnik"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="74a155bd-221a-4320-a79a-b66c438a3441"
+            name="MessageOccurrenceSpecification2">
+            <covered>
+              <lifelineMoniker
+                Id="a39b2e7e-7eb9-4ce8-8081-2afdb00ae51d"
+                LastKnownName="Korisnik"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="73e3ddd9-fd5f-470a-bdfa-f148bd37b5e0"
+            name="ExecutionOccurrenceSpecification2">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="54abaaf8-c0e4-400c-92d4-83b02286d57d"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="AssetHub.Diagrams.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="a39b2e7e-7eb9-4ce8-8081-2afdb00ae51d"
+                LastKnownName="Korisnik"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="0ff925c3-887f-40bf-a372-ba268ebe3187"
+            name="BehaviorExecutionSpecification2">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="850413ed-00e5-4032-b773-2f777d799c0a"
+                LastKnownName="Upravljač"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="e13f8dc5-19e2-4015-b5b9-4d1e3e4a1b25"
+                LastKnownName="ExecutionOccurrenceSpecification4"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="43f3e7b5-43dd-4608-861f-047e1e62784f"
+                LastKnownName="ExecutionOccurrenceSpecification3"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="d29a7b23-9625-47ef-a6f7-3431eab87415"
+                LastKnownName="MessageOccurrenceSpecification4"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="cd96bd9f-0f8c-4aa3-9c4f-14110416fc31"
+                LastKnownName="MessageOccurrenceSpecification9"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="9929e708-b318-45ed-9841-54951c538de2"
+                LastKnownName="MessageOccurrenceSpecification12"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="a121b754-d13d-4bfb-a0f0-1f072f0e66e9"
+                LastKnownName="MessageOccurrenceSpecification23"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="5149a8a5-a3bf-48b5-a258-f910317a3e05"
+                LastKnownName="ExecutionOccurrenceSpecification17"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="c0e9240a-047c-4738-a0ee-cd4a19d9be4f"
+                LastKnownName="ExecutionOccurrenceSpecification18"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="4a825d3a-67f2-49c9-a4fa-edda4891b654"
+                LastKnownName="MessageOccurrenceSpecification5"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="43f3e7b5-43dd-4608-861f-047e1e62784f"
+            name="ExecutionOccurrenceSpecification3">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="8ceaaf37-1285-4e7e-b03b-fb3983333f7c"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="AssetHub.Diagrams.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="850413ed-00e5-4032-b773-2f777d799c0a"
+                LastKnownName="Upravljač"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="bf9ccf64-6db9-4a95-9409-3a32347dce56"
+            name="MessageOccurrenceSpecification3">
+            <covered>
+              <lifelineMoniker
+                Id="a39b2e7e-7eb9-4ce8-8081-2afdb00ae51d"
+                LastKnownName="Korisnik"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="d29a7b23-9625-47ef-a6f7-3431eab87415"
+            name="MessageOccurrenceSpecification4">
+            <covered>
+              <lifelineMoniker
+                Id="850413ed-00e5-4032-b773-2f777d799c0a"
+                LastKnownName="Upravljač"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="cea89c45-482f-4cb5-938b-62cfb87260ba"
+            name="BehaviorExecutionSpecification4">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="f87d6a25-e630-43ca-918f-f3c6d1404af7"
+                LastKnownName="Sloj za pristup podacima"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="1cb4baee-44fe-4bae-82bc-35ef0f81c22d"
+                LastKnownName="ExecutionOccurrenceSpecification8"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="4a978116-1689-4b59-8d6b-17044b9d8fba"
+                LastKnownName="ExecutionOccurrenceSpecification7"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="d47093fe-134a-4963-9de1-595b419a5f72"
+                LastKnownName="MessageOccurrenceSpecification10"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="f72abc7c-d7ce-4b16-ba66-484e7d724085"
+                LastKnownName="MessageOccurrenceSpecification13"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="facab90b-8884-4888-a50f-b520c7f2b43e"
+                LastKnownName="ExecutionOccurrenceSpecification9"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="bf0401f7-d7d0-4a88-bdc8-0b15ca1e7a2e"
+                LastKnownName="ExecutionOccurrenceSpecification10"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="add63c37-d894-4e6f-aa33-956499360a53"
+                LastKnownName="MessageOccurrenceSpecification15"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="ddc12a78-ff72-4e14-b439-94d29c17c58e"
+                LastKnownName="MessageOccurrenceSpecification18"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="ea3eca7f-57d1-41e1-a177-a9e6a77cf377"
+                LastKnownName="MessageOccurrenceSpecification21"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="70643380-b411-46fe-877e-76bd6e2bc91c"
+                LastKnownName="ExecutionOccurrenceSpecification15"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="d0d205e7-4cdb-41d6-b357-5e926152f3bf"
+                LastKnownName="ExecutionOccurrenceSpecification16"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="0e7c3698-5e42-4930-a90f-58201f743663"
+                LastKnownName="MessageOccurrenceSpecification11"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="4a978116-1689-4b59-8d6b-17044b9d8fba"
+            name="ExecutionOccurrenceSpecification7">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="bf5da837-2f50-4916-b8b0-9ca9a4ba6a51"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="AssetHub.Diagrams.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="f87d6a25-e630-43ca-918f-f3c6d1404af7"
+                LastKnownName="Sloj za pristup podacima"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="cd96bd9f-0f8c-4aa3-9c4f-14110416fc31"
+            name="MessageOccurrenceSpecification9">
+            <covered>
+              <lifelineMoniker
+                Id="850413ed-00e5-4032-b773-2f777d799c0a"
+                LastKnownName="Upravljač"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="d47093fe-134a-4963-9de1-595b419a5f72"
+            name="MessageOccurrenceSpecification10">
+            <covered>
+              <lifelineMoniker
+                Id="f87d6a25-e630-43ca-918f-f3c6d1404af7"
+                LastKnownName="Sloj za pristup podacima"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="f72abc7c-d7ce-4b16-ba66-484e7d724085"
+            name="MessageOccurrenceSpecification13">
+            <covered>
+              <lifelineMoniker
+                Id="f87d6a25-e630-43ca-918f-f3c6d1404af7"
+                LastKnownName="Sloj za pristup podacima"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="270766d0-e623-4d4b-9860-b7106a25484a"
+            name="BehaviorExecutionSpecification5">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="f87d6a25-e630-43ca-918f-f3c6d1404af7"
+                LastKnownName="Sloj za pristup podacima"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="bf0401f7-d7d0-4a88-bdc8-0b15ca1e7a2e"
+                LastKnownName="ExecutionOccurrenceSpecification10"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="facab90b-8884-4888-a50f-b520c7f2b43e"
+                LastKnownName="ExecutionOccurrenceSpecification9"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="d82e7192-4973-4aae-95d1-185f527e5271"
+                LastKnownName="MessageOccurrenceSpecification14"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="facab90b-8884-4888-a50f-b520c7f2b43e"
+            name="ExecutionOccurrenceSpecification9">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="e3c189d5-c5f6-4e7d-84ff-a0448c97421d"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="AssetHub.Diagrams.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="f87d6a25-e630-43ca-918f-f3c6d1404af7"
+                LastKnownName="Sloj za pristup podacima"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="d82e7192-4973-4aae-95d1-185f527e5271"
+            name="MessageOccurrenceSpecification14">
+            <covered>
+              <lifelineMoniker
+                Id="f87d6a25-e630-43ca-918f-f3c6d1404af7"
+                LastKnownName="Sloj za pristup podacima"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="bf0401f7-d7d0-4a88-bdc8-0b15ca1e7a2e"
+            name="ExecutionOccurrenceSpecification10">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="03dc2a6c-a300-4959-80fe-2e1b554a0b4e"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="AssetHub.Diagrams.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="f87d6a25-e630-43ca-918f-f3c6d1404af7"
+                LastKnownName="Sloj za pristup podacima"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="479ccfec-2123-462f-b5d3-3f3415487c76"
+            name="BehaviorExecutionSpecification6">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="4d83247d-be14-4341-8cf6-1b9cf0d7d1e2"
+                LastKnownName="Spremište podataka"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="95117ef1-2b67-493d-bf73-cc9851165e56"
+                LastKnownName="ExecutionOccurrenceSpecification12"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="80d3490e-7cbd-4b83-b964-cd3904fb6e55"
+                LastKnownName="ExecutionOccurrenceSpecification11"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="5064b814-3818-4244-bd66-ce8f54bfbc85"
+                LastKnownName="MessageOccurrenceSpecification16"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="f4fe78fb-76ff-4a57-b3ac-b6ee21f8bc7c"
+                LastKnownName="MessageOccurrenceSpecification19"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="9d21cb16-1117-46de-b74a-539c4fc5c4f3"
+                LastKnownName="ExecutionOccurrenceSpecification13"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="a3ebdb1d-06cc-4beb-83d2-bcb8bab95aad"
+                LastKnownName="ExecutionOccurrenceSpecification14"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="08d499b7-e5fb-4f99-8377-f6687922360b"
+                LastKnownName="MessageOccurrenceSpecification17"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="80d3490e-7cbd-4b83-b964-cd3904fb6e55"
+            name="ExecutionOccurrenceSpecification11">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="adff8843-f370-418f-8d5b-9d5576e0eb93"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="AssetHub.Diagrams.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="4d83247d-be14-4341-8cf6-1b9cf0d7d1e2"
+                LastKnownName="Spremište podataka"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="add63c37-d894-4e6f-aa33-956499360a53"
+            name="MessageOccurrenceSpecification15">
+            <covered>
+              <lifelineMoniker
+                Id="f87d6a25-e630-43ca-918f-f3c6d1404af7"
+                LastKnownName="Sloj za pristup podacima"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="5064b814-3818-4244-bd66-ce8f54bfbc85"
+            name="MessageOccurrenceSpecification16">
+            <covered>
+              <lifelineMoniker
+                Id="4d83247d-be14-4341-8cf6-1b9cf0d7d1e2"
+                LastKnownName="Spremište podataka"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="f4fe78fb-76ff-4a57-b3ac-b6ee21f8bc7c"
+            name="MessageOccurrenceSpecification19">
+            <covered>
+              <lifelineMoniker
+                Id="4d83247d-be14-4341-8cf6-1b9cf0d7d1e2"
+                LastKnownName="Spremište podataka"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="8b276cae-13af-42fc-b889-b60c29dd0ac9"
+            name="BehaviorExecutionSpecification7">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="4d83247d-be14-4341-8cf6-1b9cf0d7d1e2"
+                LastKnownName="Spremište podataka"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="a3ebdb1d-06cc-4beb-83d2-bcb8bab95aad"
+                LastKnownName="ExecutionOccurrenceSpecification14"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="9d21cb16-1117-46de-b74a-539c4fc5c4f3"
+                LastKnownName="ExecutionOccurrenceSpecification13"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="60184e0f-b376-48de-b496-5760c2153c6f"
+                LastKnownName="MessageOccurrenceSpecification20"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="9d21cb16-1117-46de-b74a-539c4fc5c4f3"
+            name="ExecutionOccurrenceSpecification13">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="fd937ed5-b0e5-4ccf-9864-21af80fcceed"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="AssetHub.Diagrams.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="4d83247d-be14-4341-8cf6-1b9cf0d7d1e2"
+                LastKnownName="Spremište podataka"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="60184e0f-b376-48de-b496-5760c2153c6f"
+            name="MessageOccurrenceSpecification20">
+            <covered>
+              <lifelineMoniker
+                Id="4d83247d-be14-4341-8cf6-1b9cf0d7d1e2"
+                LastKnownName="Spremište podataka"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="a3ebdb1d-06cc-4beb-83d2-bcb8bab95aad"
+            name="ExecutionOccurrenceSpecification14">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="d100cee5-6bed-4264-a59c-8464b631a6ba"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="AssetHub.Diagrams.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="4d83247d-be14-4341-8cf6-1b9cf0d7d1e2"
+                LastKnownName="Spremište podataka"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="08d499b7-e5fb-4f99-8377-f6687922360b"
+            name="MessageOccurrenceSpecification17">
+            <covered>
+              <lifelineMoniker
+                Id="4d83247d-be14-4341-8cf6-1b9cf0d7d1e2"
+                LastKnownName="Spremište podataka"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="ddc12a78-ff72-4e14-b439-94d29c17c58e"
+            name="MessageOccurrenceSpecification18">
+            <covered>
+              <lifelineMoniker
+                Id="f87d6a25-e630-43ca-918f-f3c6d1404af7"
+                LastKnownName="Sloj za pristup podacima"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="95117ef1-2b67-493d-bf73-cc9851165e56"
+            name="ExecutionOccurrenceSpecification12">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="0be381e5-11c1-4615-87e0-e5181bddc009"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="AssetHub.Diagrams.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="4d83247d-be14-4341-8cf6-1b9cf0d7d1e2"
+                LastKnownName="Spremište podataka"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="ea3eca7f-57d1-41e1-a177-a9e6a77cf377"
+            name="MessageOccurrenceSpecification21">
+            <covered>
+              <lifelineMoniker
+                Id="f87d6a25-e630-43ca-918f-f3c6d1404af7"
+                LastKnownName="Sloj za pristup podacima"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="3c35b2f8-bdd5-4d3b-89ea-a1efd8d7c8d3"
+            name="BehaviorExecutionSpecification8">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="f87d6a25-e630-43ca-918f-f3c6d1404af7"
+                LastKnownName="Sloj za pristup podacima"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="d0d205e7-4cdb-41d6-b357-5e926152f3bf"
+                LastKnownName="ExecutionOccurrenceSpecification16"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="70643380-b411-46fe-877e-76bd6e2bc91c"
+                LastKnownName="ExecutionOccurrenceSpecification15"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="bbd2b4db-9d6c-4352-8a4f-7c44aa8241cc"
+                LastKnownName="MessageOccurrenceSpecification22"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="70643380-b411-46fe-877e-76bd6e2bc91c"
+            name="ExecutionOccurrenceSpecification15">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="61689f32-c699-4c31-b84b-2a44acb3c5d4"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="AssetHub.Diagrams.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="f87d6a25-e630-43ca-918f-f3c6d1404af7"
+                LastKnownName="Sloj za pristup podacima"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="bbd2b4db-9d6c-4352-8a4f-7c44aa8241cc"
+            name="MessageOccurrenceSpecification22">
+            <covered>
+              <lifelineMoniker
+                Id="f87d6a25-e630-43ca-918f-f3c6d1404af7"
+                LastKnownName="Sloj za pristup podacima"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="d0d205e7-4cdb-41d6-b357-5e926152f3bf"
+            name="ExecutionOccurrenceSpecification16">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="fef8c815-8357-4c8e-8793-59ca12dabaaa"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="AssetHub.Diagrams.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="f87d6a25-e630-43ca-918f-f3c6d1404af7"
+                LastKnownName="Sloj za pristup podacima"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="0e7c3698-5e42-4930-a90f-58201f743663"
+            name="MessageOccurrenceSpecification11">
+            <covered>
+              <lifelineMoniker
+                Id="f87d6a25-e630-43ca-918f-f3c6d1404af7"
+                LastKnownName="Sloj za pristup podacima"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="9929e708-b318-45ed-9841-54951c538de2"
+            name="MessageOccurrenceSpecification12">
+            <covered>
+              <lifelineMoniker
+                Id="850413ed-00e5-4032-b773-2f777d799c0a"
+                LastKnownName="Upravljač"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="1cb4baee-44fe-4bae-82bc-35ef0f81c22d"
+            name="ExecutionOccurrenceSpecification8">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="b4bceac7-168a-44b1-9f4f-33f4093eaf6d"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="AssetHub.Diagrams.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="f87d6a25-e630-43ca-918f-f3c6d1404af7"
+                LastKnownName="Sloj za pristup podacima"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="a121b754-d13d-4bfb-a0f0-1f072f0e66e9"
+            name="MessageOccurrenceSpecification23">
+            <covered>
+              <lifelineMoniker
+                Id="850413ed-00e5-4032-b773-2f777d799c0a"
+                LastKnownName="Upravljač"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="ddf718f8-18fc-40ff-8c50-55cd982f6b0b"
+            name="BehaviorExecutionSpecification9">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="850413ed-00e5-4032-b773-2f777d799c0a"
+                LastKnownName="Upravljač"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="c0e9240a-047c-4738-a0ee-cd4a19d9be4f"
+                LastKnownName="ExecutionOccurrenceSpecification18"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="5149a8a5-a3bf-48b5-a258-f910317a3e05"
+                LastKnownName="ExecutionOccurrenceSpecification17"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="fc56a235-1543-45c5-b4a3-09b104a04282"
+                LastKnownName="MessageOccurrenceSpecification24"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="5149a8a5-a3bf-48b5-a258-f910317a3e05"
+            name="ExecutionOccurrenceSpecification17">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="f1d8db0a-0916-414d-9141-1609d4d302ae"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="AssetHub.Diagrams.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="850413ed-00e5-4032-b773-2f777d799c0a"
+                LastKnownName="Upravljač"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="fc56a235-1543-45c5-b4a3-09b104a04282"
+            name="MessageOccurrenceSpecification24">
+            <covered>
+              <lifelineMoniker
+                Id="850413ed-00e5-4032-b773-2f777d799c0a"
+                LastKnownName="Upravljač"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="c0e9240a-047c-4738-a0ee-cd4a19d9be4f"
+            name="ExecutionOccurrenceSpecification18">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="c9c76041-9231-4b87-9e41-e0c302ef0976"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="AssetHub.Diagrams.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="850413ed-00e5-4032-b773-2f777d799c0a"
+                LastKnownName="Upravljač"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="4a825d3a-67f2-49c9-a4fa-edda4891b654"
+            name="MessageOccurrenceSpecification5">
+            <covered>
+              <lifelineMoniker
+                Id="850413ed-00e5-4032-b773-2f777d799c0a"
+                LastKnownName="Upravljač"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="f0b132a3-7e66-4e4c-8f8d-1e88fe56aac8"
+            name="MessageOccurrenceSpecification6">
+            <covered>
+              <lifelineMoniker
+                Id="a39b2e7e-7eb9-4ce8-8081-2afdb00ae51d"
+                LastKnownName="Korisnik"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="e13f8dc5-19e2-4015-b5b9-4d1e3e4a1b25"
+            name="ExecutionOccurrenceSpecification4">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="9cf1c492-557a-40ab-843f-c7b5c2ecba4b"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="AssetHub.Diagrams.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="850413ed-00e5-4032-b773-2f777d799c0a"
+                LastKnownName="Upravljač"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+        </fragments>
+        <lifelines>
+          <lifeline
+            Id="a39b2e7e-7eb9-4ce8-8081-2afdb00ae51d"
+            name="Korisnik"
+            isActor="false"
+            lifelineDisplayName="Korisnik">
+            <topLevelOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="2103e29a-15fb-4431-9fd7-7deeeda1bf21"
+                LastKnownName="MessageOccurrenceSpecification1"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="6798870d-f7d1-4daf-97c3-177fef19f967"
+                LastKnownName="ExecutionOccurrenceSpecification1"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="73e3ddd9-fd5f-470a-bdfa-f148bd37b5e0"
+                LastKnownName="ExecutionOccurrenceSpecification2"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="bf9ccf64-6db9-4a95-9409-3a32347dce56"
+                LastKnownName="MessageOccurrenceSpecification3"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="f0b132a3-7e66-4e4c-8f8d-1e88fe56aac8"
+                LastKnownName="MessageOccurrenceSpecification6"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="850413ed-00e5-4032-b773-2f777d799c0a"
+            name="Upravljač"
+            isActor="false"
+            lifelineDisplayName="Upravljač">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="43f3e7b5-43dd-4608-861f-047e1e62784f"
+                LastKnownName="ExecutionOccurrenceSpecification3"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="e13f8dc5-19e2-4015-b5b9-4d1e3e4a1b25"
+                LastKnownName="ExecutionOccurrenceSpecification4"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="f87d6a25-e630-43ca-918f-f3c6d1404af7"
+            name="Sloj za pristup podacima"
+            isActor="false"
+            lifelineDisplayName="Sloj za pristup podacima">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="4a978116-1689-4b59-8d6b-17044b9d8fba"
+                LastKnownName="ExecutionOccurrenceSpecification7"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="1cb4baee-44fe-4bae-82bc-35ef0f81c22d"
+                LastKnownName="ExecutionOccurrenceSpecification8"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="4d83247d-be14-4341-8cf6-1b9cf0d7d1e2"
+            name="Spremište podataka"
+            isActor="false"
+            lifelineDisplayName="Spremište podataka">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="80d3490e-7cbd-4b83-b964-cd3904fb6e55"
+                LastKnownName="ExecutionOccurrenceSpecification11"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="95117ef1-2b67-493d-bf73-cc9851165e56"
+                LastKnownName="ExecutionOccurrenceSpecification12"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+        </lifelines>
+        <messages>
+          <message
+            Id="a2872f30-7166-4c02-afca-04231e6db304"
+            name="Zatraži podatak"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="true">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="2103e29a-15fb-4431-9fd7-7deeeda1bf21"
+                LastKnownName="MessageOccurrenceSpecification1"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="74a155bd-221a-4320-a79a-b66c438a3441"
+                LastKnownName="MessageOccurrenceSpecification2"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="7977fa04-ccbe-4514-a36e-7c4356e1bbc3"
+            name="Jedinstveni identifikator podatka"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="bf9ccf64-6db9-4a95-9409-3a32347dce56"
+                LastKnownName="MessageOccurrenceSpecification3"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="d29a7b23-9625-47ef-a6f7-3431eab87415"
+                LastKnownName="MessageOccurrenceSpecification4"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="f560d439-b62a-4500-a950-1e0356f8b239"
+            name="Jedinstveni identifikator podatka"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="cd96bd9f-0f8c-4aa3-9c4f-14110416fc31"
+                LastKnownName="MessageOccurrenceSpecification9"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="d47093fe-134a-4963-9de1-595b419a5f72"
+                LastKnownName="MessageOccurrenceSpecification10"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="dd631e78-d861-4432-8af8-9d462cdd2259"
+            name="Stvara odgovarajući SQL upit"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="true">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="f72abc7c-d7ce-4b16-ba66-484e7d724085"
+                LastKnownName="MessageOccurrenceSpecification13"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="d82e7192-4973-4aae-95d1-185f527e5271"
+                LastKnownName="MessageOccurrenceSpecification14"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="887bf54a-49f1-4174-9d4f-1599a96b81a3"
+            name="SQL upit"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="add63c37-d894-4e6f-aa33-956499360a53"
+                LastKnownName="MessageOccurrenceSpecification15"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="5064b814-3818-4244-bd66-ce8f54bfbc85"
+                LastKnownName="MessageOccurrenceSpecification16"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="6743a07e-1035-4b2a-bb37-5c61997460d6"
+            name="Izvršava SQL upit"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="true">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="f4fe78fb-76ff-4a57-b3ac-b6ee21f8bc7c"
+                LastKnownName="MessageOccurrenceSpecification19"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="60184e0f-b376-48de-b496-5760c2153c6f"
+                LastKnownName="MessageOccurrenceSpecification20"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="85c58641-3716-4c18-b23f-a7f22dfa85a5"
+            name="Rezultat upita"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="08d499b7-e5fb-4f99-8377-f6687922360b"
+                LastKnownName="MessageOccurrenceSpecification17"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="ddc12a78-ff72-4e14-b439-94d29c17c58e"
+                LastKnownName="MessageOccurrenceSpecification18"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="c7ac3fed-adaa-465e-a717-6fad0765d2e5"
+            name="Stvara model poslovnog sloja"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="true">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="ea3eca7f-57d1-41e1-a177-a9e6a77cf377"
+                LastKnownName="MessageOccurrenceSpecification21"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="bbd2b4db-9d6c-4352-8a4f-7c44aa8241cc"
+                LastKnownName="MessageOccurrenceSpecification22"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="de511dd5-dd9b-4f04-8e01-80b035132b97"
+            name="Model poslovnog sloja"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="0e7c3698-5e42-4930-a90f-58201f743663"
+                LastKnownName="MessageOccurrenceSpecification11"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="9929e708-b318-45ed-9841-54951c538de2"
+                LastKnownName="MessageOccurrenceSpecification12"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="125d1eb9-8213-4d26-9be5-1069633f9409"
+            name="Stvara model pogleda"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="true">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="a121b754-d13d-4bfb-a0f0-1f072f0e66e9"
+                LastKnownName="MessageOccurrenceSpecification23"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="fc56a235-1543-45c5-b4a3-09b104a04282"
+                LastKnownName="MessageOccurrenceSpecification24"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="260a6638-1048-4ce5-9585-b0877bb344a9"
+            name="Pogled za zatraženi podatak"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="4a825d3a-67f2-49c9-a4fa-edda4891b654"
+                LastKnownName="MessageOccurrenceSpecification5"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="f0b132a3-7e66-4e4c-8f8d-1e88fe56aac8"
+                LastKnownName="MessageOccurrenceSpecification6"
+                LastKnownLocation="AssetHub.Diagrams.uml" />
+            </receiveEvent>
+          </message>
+        </messages>
+      </interaction>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="11c7a68d-a1a0-4557-85f1-38bdb8c0a8ab"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="54abaaf8-c0e4-400c-92d4-83b02286d57d"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="8ceaaf37-1285-4e7e-b03b-fb3983333f7c"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="9cf1c492-557a-40ab-843f-c7b5c2ecba4b"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="bf5da837-2f50-4916-b8b0-9ca9a4ba6a51"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="b4bceac7-168a-44b1-9f4f-33f4093eaf6d"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="adff8843-f370-418f-8d5b-9d5576e0eb93"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="0be381e5-11c1-4615-87e0-e5181bddc009"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="e3c189d5-c5f6-4e7d-84ff-a0448c97421d"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="03dc2a6c-a300-4959-80fe-2e1b554a0b4e"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="fd937ed5-b0e5-4ccf-9864-21af80fcceed"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="d100cee5-6bed-4264-a59c-8464b631a6ba"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="61689f32-c699-4c31-b84b-2a44acb3c5d4"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="fef8c815-8357-4c8e-8793-59ca12dabaaa"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="f1d8db0a-0916-414d-9141-1609d4d302ae"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="c9c76041-9231-4b87-9e41-e0c302ef0976"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+  </packagedElements>
   <primitiveType
     Id="220a3521-e091-4221-bae9-3ef9018e845c"
     name="Integer"
     isAbstract="false"
-    isTemplate="false"
     isLeaf="false" />
   <primitiveType
     Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
     name="Boolean"
     isAbstract="false"
-    isTemplate="false"
     isLeaf="false" />
   <primitiveType
     Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
     name="String"
     isAbstract="false"
-    isTemplate="false"
     isLeaf="false" />
   <primitiveType
     Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
     name="UnlimitedNatural"
     isAbstract="false"
-    isTemplate="false"
     isLeaf="false" />
 </modelStoreModel>

@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="AssetHub.Models.Asset">
-    <Position X="2.75" Y="0.5" Width="2" />
+    <Position X="12.5" Y="7" Width="2" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <NestedTypes>
-      <Class Name="AssetHub.Models.Asset.Validator">
+      <Class Name="AssetHub.Models.Asset.Validator" Collapsed="true">
         <Compartments>
           <Compartment Name="Fields" Collapsed="true" />
         </Compartments>
@@ -16,26 +16,56 @@
         </TypeIdentifier>
       </Class>
     </NestedTypes>
+    <AssociationLine Name="AssetModel" Type="AssetHub.Models.AssetModel" FixedFromPoint="true">
+      <Path>
+        <Point X="14.5" Y="9.75" />
+        <Point X="18.75" Y="9.75" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Loans" Type="AssetHub.Models.Loan" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="12.5" Y="9.875" />
+        <Point X="11.25" Y="9.875" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AQACAAAAAAAGAAAEAAIIAAQAAAEAAAAAAAAgEAARAAA=</HashCode>
       <FileName>Models\Asset.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AssetModel" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="AssetProperties" />
+      <Property Name="Loans" />
+      <Property Name="Locations" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="AssetHub.Models.AssetLocation">
-    <Position X="11.25" Y="4" Width="1.5" />
+    <Position X="7.5" Y="7.5" Width="1.5" />
+    <AssociationLine Name="Room" Type="AssetHub.Models.Room" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="8.062" Y="9.373" />
+        <Point X="8.062" Y="10.5" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>BAASAAACAAAAAAAAABAAAAAAAgAAAAAAAAAgAAAAAAA=</HashCode>
       <FileName>Models\AssetLocation.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Asset" />
+      <Property Name="Room" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="AssetHub.Models.AssetModel">
-    <Position X="5" Y="0.5" Width="2" />
+    <Position X="18.75" Y="9.5" Width="2" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <NestedTypes>
-      <Class Name="AssetHub.Models.AssetModel.Validator">
+      <Class Name="AssetHub.Models.AssetModel.Validator" Collapsed="true">
         <Compartments>
           <Compartment Name="Fields" Collapsed="true" />
         </Compartments>
@@ -44,19 +74,50 @@
         </TypeIdentifier>
       </Class>
     </NestedTypes>
+    <AssociationLine Name="AssetModelCategory" Type="AssetHub.Models.AssetModelCategory" FixedToPoint="true">
+      <Path>
+        <Point X="20" Y="12.229" />
+        <Point X="20" Y="13.25" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.592" Y="0.183" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Assets" Type="AssetHub.Models.Asset" FixedFromPoint="true">
+      <Path>
+        <Point X="18.75" Y="10.095" />
+        <Point X="14.5" Y="10.095" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.146" Y="-0.304" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Properties" Type="AssetHub.Models.AssetModelProperty" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="20.062" Y="9.5" />
+        <Point X="20.062" Y="8.68" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAEAAAEAAAAAAQgAAAAAAAABAAgAAATAAA=</HashCode>
       <FileName>Models\AssetModel.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AssetModelCategory" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Assets" />
+      <Property Name="Properties" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="AssetHub.Models.AssetModelCategory">
-    <Position X="9.25" Y="0.5" Width="1.75" />
+    <Position X="19" Y="13.25" Width="1.75" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <NestedTypes>
-      <Class Name="AssetHub.Models.AssetModelCategory.Validator">
+      <Class Name="AssetHub.Models.AssetModelCategory.Validator" Collapsed="true">
         <Compartments>
           <Compartment Name="Fields" Collapsed="true" />
         </Compartments>
@@ -65,36 +126,67 @@
         </TypeIdentifier>
       </Class>
     </NestedTypes>
+    <AssociationLine Name="AssetModels" Type="AssetHub.Models.AssetModel" FixedFromPoint="true">
+      <Path>
+        <Point X="19.25" Y="13.25" />
+        <Point X="19.25" Y="12.229" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAEAAAEAAAgAAQAAAAAAAAAAAAAAAARAAA=</HashCode>
       <FileName>Models\AssetModelCategory.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="AssetModels" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="AssetHub.Models.AssetModelProperty">
-    <Position X="7.25" Y="4.5" Width="1.75" />
+    <Position X="19" Y="7" Width="1.75" />
+    <AssociationLine Name="AssetProperties" Type="AssetHub.Models.AssetProperty" FixedFromPoint="true">
+      <Path>
+        <Point X="19" Y="7.812" />
+        <Point X="17.5" Y="7.812" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="AssetModel" Type="AssetHub.Models.AssetModel" FixedFromPoint="true">
+      <Path>
+        <Point X="19.312" Y="8.68" />
+        <Point X="19.312" Y="9.5" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AQACAAAAAAACAAAAAAAIAAQAAAAAAAAAAAAAAAAAAAg=</HashCode>
       <FileName>Models\AssetModelProperty.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AssetModel" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="AssetProperties" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="AssetHub.Models.AssetNote">
-    <Position X="11.25" Y="6.5" Width="1.5" />
+    <Position X="10.25" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAEAAAAAAAAAAAgAAAAAAAAAgCAAAAAA=</HashCode>
       <FileName>Models\AssetNote.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Asset" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="AssetHub.Models.AssetProperty">
-    <Position X="5" Y="5.5" Width="2" />
+    <Position X="15.5" Y="6.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAACAAAAABAAAAAAAAAAAIAAAgAAAAAAAAAgAAAAAAA=</HashCode>
       <FileName>Models\AssetProperty.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AssetHub.Models.Loan">
-    <Position X="11.25" Y="0.5" Width="1.5" />
+    <Position X="9.75" Y="9" Width="1.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <NestedTypes>
       <Class Name="AssetHub.Models.Loan.Validator" Collapsed="true">
@@ -103,19 +195,46 @@
         </TypeIdentifier>
       </Class>
     </NestedTypes>
+    <AssociationLine Name="Asset" Type="AssetHub.Models.Asset" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.25" Y="9.375" />
+        <Point X="11.875" Y="9.375" />
+        <Point X="11.875" Y="9.375" />
+        <Point X="12.5" Y="9.375" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Room" Type="AssetHub.Models.Room" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="9.75" Y="11.312" />
+        <Point X="9.375" Y="11.312" />
+        <Point X="9.375" Y="11.313" />
+        <Point X="9" Y="11.313" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="User" Type="AssetHub.Models.User" FixedFromPoint="true">
+      <Path>
+        <Point X="11.25" Y="11.438" />
+        <Point X="12.75" Y="11.438" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>BAATAAACAAAAAAAEABAAAAgAAgAAAAAAAAAgAAAQAAA=</HashCode>
       <FileName>Models\Loan.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Asset" />
+      <Property Name="Room" />
+      <Property Name="User" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="AssetHub.Models.Room">
-    <Position X="9.25" Y="4.25" Width="1.75" />
+    <Position X="7.25" Y="10.5" Width="1.75" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <NestedTypes>
-      <Class Name="AssetHub.Models.Room.Validator">
+      <Class Name="AssetHub.Models.Room.Validator" Collapsed="true">
         <Compartments>
           <Compartment Name="Fields" Collapsed="true" />
         </Compartments>
@@ -130,13 +249,13 @@
     </TypeIdentifier>
   </Class>
   <Class Name="AssetHub.Models.User">
-    <Position X="0.5" Y="0.5" Width="2" />
+    <Position X="12.75" Y="10.75" Width="2" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <NestedTypes>
-      <Class Name="AssetHub.Models.User.Validator">
+      <Class Name="AssetHub.Models.User.Validator" Collapsed="true">
         <Compartments>
           <Compartment Name="Fields" Collapsed="true" />
         </Compartments>
@@ -145,19 +264,40 @@
         </TypeIdentifier>
       </Class>
     </NestedTypes>
+    <AssociationLine Name="Room" Type="AssetHub.Models.Room" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="12.75" Y="12.688" />
+        <Point X="12.375" Y="12.688" />
+        <Point X="12.375" Y="12.688" />
+        <Point X="9" Y="12.688" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Loans" Type="AssetHub.Models.Loan" FixedToPoint="true">
+      <Path>
+        <Point X="12.75" Y="12.125" />
+        <Point X="11.25" Y="12.125" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAAEADAAAkAAAEABAAAAAACAAAAAAAAAAAEAARAAg=</HashCode>
       <FileName>Models\User.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Room" />
+      <Property Name="UserPosition" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Loans" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="AssetHub.Models.UserPosition">
-    <Position X="7.25" Y="0.5" Width="1.75" />
+    <Position X="15.75" Y="11" Width="1.75" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <NestedTypes>
-      <Class Name="AssetHub.Models.UserPosition.Validator">
+      <Class Name="AssetHub.Models.UserPosition.Validator" Collapsed="true">
         <Compartments>
           <Compartment Name="Fields" Collapsed="true" />
         </Compartments>
@@ -170,6 +310,9 @@
       <HashCode>AAACACAAAAAAAAAEAAAAAAQAAAAAAAAAAAAAAAAQAAA=</HashCode>
       <FileName>Models\UserPosition.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Users" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
