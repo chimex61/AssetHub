@@ -1,0 +1,135 @@
+﻿@model AssetHub.ViewModels.AssetModel.Partial.EditAssetModelViewModel
+
+<script>
+    var propertyCounter = @((Model.DeletedProperties == null ? 0 : Model.DeletedProperties.Count)
+        + (Model.Properties == null ? 0 : Model.Properties.Count) + (Model.NewProperties == null ? 0 : Model.NewProperties.Count));
+</script>
+
+<div class="row">
+    <div class="col-sm-10">
+        @using (Html.BeginForm("EditAssetModel", "AssetModel", FormMethod.Post, htmlAttributes: new { id = "editForm" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Id)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SelectedCategoryId, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.SelectedCategoryId, Model.Categories, "", htmlAttributes: new { @class = "form-control", @id = "categorySelector" })
+                        @Html.ValidationMessageFor(m => m.SelectedCategoryId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <h4>Properties</h4> <hr />
+                @Html.ValidationMessageFor(m => m.Properties, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <table class="table" id="propertyTable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Is numeric</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (var i = 0; i < Model.DeletedProperties.Count; i++)
+                            {
+                                <tr class="danger">
+                                    <td>
+                                        <input type="hidden" name="DeletedProperties.Index" value="@i" />
+                                        @Html.HiddenFor(model => model.DeletedProperties[i].Id)
+                                    </td>
+                                    <td class="col-md-4">
+                                        @Html.EditorFor(m => m.DeletedProperties[i].Name, new { htmlAttributes = new { @class = "form-control" } })
+                                    </td>
+                                    <td class="col-md-2">
+                                        @Html.CheckBoxFor(m => m.DeletedProperties[i].IsNumeric)
+                                    </td>
+                                    <td class="col-md-1">
+                                        <button type="button" class="btn btn-default" id="cancelBtn">Cancel</button>
+                                    </td>
+                                    <td>
+                                        @Html.ValidationMessageFor(m => m.DeletedProperties[i].Name, "", new { @class = "text-danger"})
+                                    </td>
+                                </tr>
+                            }
+                            @for (var i = 0; i < Model.Properties.Count; i++)
+                            {
+                                <tr>
+                                    <td hidden>
+                                        <input type="hidden" name="Properties.Index" value="@i" />
+                                        @Html.HiddenFor(model => model.Properties[i].Id);
+                                    </td>
+                                    <td class="col-md-4">
+                                        @Html.EditorFor(m => m.Properties[i].Name, new { htmlAttributes = new { @class = "form-control" } })
+                                    </td>
+                                    @if (Model.Properties[i].IsEditable)
+                                    {
+                                        <td class="col-md-2">
+                                            @Html.CheckBoxFor(m => m.Properties[i].IsNumeric)
+                                        </td>
+                                        <td class="col-md-1">
+                                                <button type="button" class="btn btn-default" id="deleteBtn">Remove</button>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td class="col-md-2">
+                                            @Html.HiddenFor(m => m.Properties[i].IsNumeric)
+                                            @Html.DisplayFor(m => m.Properties[i].IsNumeric)
+                                        </td>
+                                        <td class="col-md-1">
+                                        </td>
+                                    }
+                                    <td>
+                                        @Html.ValidationMessageFor(m => m.Properties[i].Name, "", new { @class = "text-danger" })
+                                    </td>
+                                </tr>
+                            }
+                            @for (var i = 0; i < Model.NewProperties.Count; i++)
+                            {
+                                <tr class="success">
+                                    <td hidden>
+                                        <input type="hidden" name="NewProperties.Index" value="@i" />
+                                    </td>
+                                    <td class="col-md-4">
+                                        @Html.EditorFor(m => m.NewProperties[i].Name, new { htmlAttributes = new { @class = "form-control" } })
+                                    </td>
+                                    <td class="col-md-2">
+                                        @Html.CheckBoxFor(m => m.NewProperties[i].IsNumeric)
+                                    </td>
+                                    <td class="col-md-1">
+                                        <button type="button" class="btn btn-default" onclick="remove_property(this)">Remove</button>
+                                    </td>
+                                    <td>
+                                        @Html.ValidationMessageFor(m => m.NewProperties[i].Name, "", new { @class = "text-danger" })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <hr />
+                    <button type="button" class="btn btn-default" id="addPropertyBtn">Add property</button>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,84 @@
+﻿@model AssetHub.ViewModels.Asset.AssetReportViewModel
+
+@Styles.Render("~/Content/css")
+
+@{
+    ViewBag.Title = "Report for: " + Model.Name;
+    Layout = null;
+}
+
+<h4>Report for: @Model.Name</h4> <hr />
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SerialNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SerialNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AssetModel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AssetModel)
+        </dd>
+    </dl>
+
+    @if (Model.Properties.Count > 0)
+    {
+        <h4>Properties</h4> <hr />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var p in Model.Properties)
+                {
+                    <tr>
+                        <td>@p.Item1</td>
+                        <td>@p.Item2</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    @if (Model.Loans.Count > 0)
+    {
+        <h4>Loans between @Model.TimeFrom.ToShortDateString() and @Model.TimeTo.ToShortDateString()</h4> <hr />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Time from</th>
+                    <th>Time to</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var l in Model.Loans)
+                {
+                    <tr>
+                        <td>@l.Item1</td>
+                        <td>@l.Item2</td>
+                        <td>@l.Item3</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

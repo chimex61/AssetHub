@@ -1,0 +1,16 @@
+﻿@model AssetHub.ViewModels.Asset.Partial.AddAssetViewModel
+
+@{
+    ViewBag.Title = "Add asset";
+}
+
+<h4>Add asset</h4>
+
+<div class="container" id="addContainer">
+    @Html.Partial("_AddAsset")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/Asset/AddAsset.js")
+}

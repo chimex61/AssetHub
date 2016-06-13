@@ -1,0 +1,39 @@
+﻿@model  AssetHub.ViewModels.Room.IndexViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@using AssetHub.ViewModels.Room.Partial
+
+    <h4>Search</h4> <hr />
+    <div class="container" id="searchContainer">
+        @Html.Partial("_Search", new SearchViewModel())
+    </div>
+
+    @if (Model.Rooms.Count > 0)
+    {
+        <h4>Rooms</h4> <hr />
+        <table class="table table-hover" id="resultsTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var c in Model.Rooms)
+                {
+                    <tr onclick="location.href = '@Url.Action("ViewRoom", "Room", new { id = c.Id })'">
+                        <td>@c.Name</td>
+                        <td>@Html.ActionLink("View", "ViewRoom", "Room", new { id = c.Id }, htmlAttributes: new { @class = "btn btn-default" })</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/Room/SearchRoom.js")
+}

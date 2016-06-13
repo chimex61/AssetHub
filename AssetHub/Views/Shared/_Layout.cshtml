@@ -1,0 +1,79 @@
+﻿@using AssetHub.DAL
+@using Microsoft.AspNet.Identity
+@using AssetHub.Models
+
+@{ 
+    var id = HttpContext.Current.User.Identity.GetUserId();
+    var user = new AssetHubContext().Users.Find(id);
+    var isUserConnected = user != null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - AssetHub</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @if (isUserConnected)
+                {
+                    @Html.ActionLink("AssetHub", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                }
+                else
+                {
+                    @Html.ActionLink("AssetHub", "Login", "Account", new { area = "" }, new { @class = "navbar-brand" })
+                }
+            </div>
+            <div class="navbar-collapse collapse">
+                @if (isUserConnected)
+                {
+                    <ul class="nav navbar-nav">
+                      <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                      <li>@Html.ActionLink("Assets", "Index", "Asset")</li>
+                      <li>@Html.ActionLink("Asset models", "Index", "AssetModel")</li>
+                      <li>@Html.ActionLink("Categories", "index", "Category")</li>
+                      <li>@Html.ActionLink("Rooms", "Index", "Room")</li>
+                    </ul>
+                
+                    <ul class="nav navbar-nav navbar-right">
+                        @if (user.IsAdmin)
+                        {
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Room management", "RoomManagement", "Room")</li>
+                                    <li>@Html.ActionLink("Users", "UserIndex", "Admin")</li>
+                                </ul>
+                            </li>
+                        }
+                        <li>@Html.ActionLink(user.FirstName, "ViewUser", "Account", new { id = id }, new { })</li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
+                    </ul>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - AssetHub</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

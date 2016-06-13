@@ -1,0 +1,51 @@
+﻿@model AssetHub.ViewModels.Admin.Partial.SearchViewModel
+
+@using (Html.BeginForm("GetSearchResults", "Admin", FormMethod.Post, new { id = "searchForm" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+@*        
+        <div class="form-group">
+            @Html.LabelFor(model => model.SelectedPositionId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="row">
+                <div class="col-md-3">
+                    @Html.DropDownListFor(model => model.SelectedPositionId, Model.Positions, htmlAttributes: new { @class = "form-control", @id = "positionSelector" })
+                </div>
+                <div class="col-md-2">
+                    <input type="button" value="Reset" id="resetPositionBtn" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+*@
+        <div class="form-group">
+            @Html.LabelFor(model => model.SelectedRoomId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="row">
+                <div class="col-md-3">
+                    @Html.DropDownListFor(model => model.SelectedRoomId, Model.Rooms, htmlAttributes: new { @class = "form-control", @id = "roomSelector" })
+                </div>
+                <div class="col-md-2">
+                    <input type="button" value="Reset" id="resetRoomBtn" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="button" id="searchBtn" value="Search" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+    document.getElementById("roomSelector").value = @Model.SelectedRoomId;
+@*    document.getElementById("positionSelector").value = @Model.SelectedPositionId; *@
+</script>

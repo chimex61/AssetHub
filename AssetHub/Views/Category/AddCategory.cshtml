@@ -1,0 +1,15 @@
+﻿@using AssetHub.ViewModels.Category.Partial
+
+@{
+    ViewBag.Title = "Add category";
+}
+
+<h4>Add category</h4> <hr />
+<div class="container" id="addContainer">
+    @Html.Partial("_AddCategory", new AddCategoryViewModel())
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval"),
+    @Scripts.Render("~/Scripts/Category/AddCategory.js")
+}

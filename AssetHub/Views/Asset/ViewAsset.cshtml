@@ -1,0 +1,188 @@
+﻿@model AssetHub.ViewModels.Asset.ViewAssetViewModel
+
+@{
+    ViewBag.Title = "Asset: " + Model.Name;
+}
+
+@using AssetHub.ViewModels.Asset.Partial
+
+<script>
+    var inEdit = "false";
+    var deleteUrl = "/Asset/DeleteAsset/@Model.Id";
+</script>
+
+<div class="row">
+    <div class="col-sm-2">
+        <h4>Actions</h4> <hr />
+        <button type="button" class="btn btn-default" id="editBtn">Edit</button>
+        <br /><br />
+        <button type="button" class="btn btn-danger" id="deleteBtn">Delete</button>
+        <h4>Loans</h4> <hr />
+        @Html.ActionLink("Loan", "CreateLoan", "Loan", new { id = Model.Id }, htmlAttributes: new { @class = "btn btn-default" })
+        <h4>Report</h4> <hr />
+        <button type="button" class="btn btn-default" id="reportBtn">View report</button>
+    </div>
+
+    <div class="col-sm-10">
+        <h4>@Model.Name</h4> <hr />
+        <div class="container" id="viewContainer">
+            <div class="row">
+                <div class="col-sm-10">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Name)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.SerialNumber)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.SerialNumber)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Value)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Value)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayName("AssetModel")
+                        </dt>
+
+                        <dd>
+                            @Html.ActionLink(Model.AssetModel.Name, "ViewAssetModel", "AssetModel", new { id = Model.AssetModel.Id }, new { })
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-10">
+                    @if (Model.Properties.Count > 0)
+                    {
+                        <h4>Properties</h4> <hr />
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var p in Model.Properties)
+                                {
+                                    <tr>
+                                        <td>@p.AssetModelProperty.Name</td>
+                                        <td>@p.Value</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-10">
+                    @if (Model.CurrentLocation != null)
+                    {
+                        <h4>Current location</h4> <hr />
+                        <div class="col-sm-10">
+                            <div id="viewLocationContainer">
+                                <dl class="dl-horizontal">
+                                    <dt>
+                                        @Html.DisplayName("Room")
+                                    </dt>
+
+                                    <dd>
+                                        @if (Model.CurrentLocation.RoomId.HasValue)
+                                        {
+                                            @Html.DisplayFor(model => model.CurrentLocation.Room.Name)
+                                        }
+                                        else
+                                        {
+                                            @Html.Display("Unknown")
+                                        }
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div id="changeLocationContainer" style="display: none">
+                                @if(Model.CurrentLocation.RoomId.HasValue)
+                                {
+                                    @Html.Partial("_ChangeLocation", new ChangeLocationViewModel(Model.Id, Model.CurrentLocation.RoomId.Value))
+                                }
+                                else
+                                {
+                                    @Html.Partial("_ChangeLocation", new ChangeLocationViewModel(Model.Id, -1))
+                                }
+                            </div>
+                        </div>
+                        if (Model.CurrentLoan == null)
+                        {
+                            <div class="col-sm-2">
+                                <button type="button" class="btn btn-default" id="changeLocationBtn">Change</button>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-10">
+                    @if (Model.CurrentLoan != null)
+                    {
+                        <h4>Current loan</h4> <hr />
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayName("Loaned to")
+                            </dt>
+
+                            <dd>
+                                @Model.CurrentLoan.User.FirstName @Model.CurrentLoan.User.LastName
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayName("Loan start")
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.CurrentLoan.TimeFrom)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayName("Loan end")
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.CurrentLoan.TimeTo)
+                            </dd>
+                        </dl>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="container" id="editContainer" style="display: none">
+            @Html.Partial("_EditAsset", new EditAssetViewModel(Model.Id))
+        </div>
+
+        <div class="container" id="reportContainer" style="display:none">
+            <h4>Report</h4> <hr />
+            @Html.Partial("_AssetReportForm", new AssetReportFormViewModel() { Id = Model.Id });
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/Asset/ViewAsset.js")
+    @Scripts.Render("~/Scripts/Asset/EditAsset.js")
+}

@@ -1,0 +1,91 @@
+﻿@model AssetHub.ViewModels.Room.Partial.RoomManagementViewModel
+
+<script>
+    var roomCounter = @((Model.DeletedRooms == null ? 0 : Model.DeletedRooms.Count)
+        + (Model.Rooms == null ? 0 : Model.Rooms.Count) + (Model.NewRooms == null ? 0 : Model.NewRooms.Count));
+</script>
+
+
+@using (Html.BeginForm("RoomManagement", "Room", FormMethod.Post, htmlAttributes: new { id = "form" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <table class="table" id="roomTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (var i = 0; i < Model.DeletedRooms.Count; i++)
+                    {
+                        <tr class="danger">
+                            <td hidden>
+                                <input type="hidden" name="DeletedRooms.Index" value="@i" />
+                                @Html.HiddenFor(model => model.DeletedRooms[i].Id)
+                            </td>
+                            <td class="col-md-4">
+                                @Html.EditorFor(m => m.DeletedRooms[i].Name, new { htmlAttributes = new { @class = "form-control" } })
+                            </td>
+                            <td class="col-md-1">
+                                <button type="button" class="btn btn-default" id="cancelBtn">Cancel</button>
+                            </td>
+                            <td>
+                                @Html.ValidationMessageFor(m => m.DeletedRooms[i].Name, "", new { @class = "text-danger" })
+                            </td>
+                        </tr>
+                    }
+                    @for (var i = 0; i < Model.Rooms.Count; i++)
+                    {
+                        <tr>
+                            <td hidden>
+                                <input type="hidden" name="Rooms.Index" value="@i" />
+                                @Html.HiddenFor(model => model.Rooms[i].Id);
+                            </td>
+                            <td class="col-md-4">
+                                @Html.EditorFor(m => m.Rooms[i].Name, new { htmlAttributes = new { @class = "form-control" } })
+                            </td>
+                            <td class="col-md-1">
+                                <button type="button" class="btn btn-default" id="deleteBtn">Remove</button>
+                            </td>
+                            <td>
+                                @Html.ValidationMessageFor(m => m.Rooms[i].Name, "", new { @class = "text-danger" })
+                            </td>
+                        </tr>
+                    }
+                    @for (var i = 0; i < Model.NewRooms.Count; i++)
+                    {
+                        <tr class="success">
+                            <td hidden>
+                                <input type="hidden" name="NewRooms.Index" value="@i" />
+                            </td>
+                            <td class="col-md-4">
+                                @Html.EditorFor(m => m.NewRooms[i].Name, new { htmlAttributes = new { @class = "form-control" } })
+                            </td>
+                            <td class="col-md-1">
+                                <button type="button" class="btn btn-default" onclick="remove_room(this)">Remove</button>
+                            </td>
+                            <td>
+                                @Html.ValidationMessageFor(m => m.NewRooms[i].Name, "", new { @class = "text-danger" })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <hr />
+            <button type="button" class="btn btn-default" id="addRoomBtn">Add room</button>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

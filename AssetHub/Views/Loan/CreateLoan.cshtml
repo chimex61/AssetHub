@@ -1,0 +1,17 @@
+﻿@model AssetHub.ViewModels.Loan.Partial.CreateLoanViewModel
+
+@{
+    ViewBag.Title = "Loan " + Model.AssetName;
+}
+
+<h4>Loan @Model.AssetName</h4> <hr />
+
+<div class="container" id="createContainer">
+    @Html.Partial("_CreateLoan")
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/Loan/CreateLoan.js")
+}

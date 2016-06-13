@@ -1,0 +1,110 @@
+﻿@model AssetHub.ViewModels.AssetModel.ViewAssetModelViewModel
+
+@{
+    ViewBag.Title = "Asset model: " + Model.Name;
+}
+
+@using AssetHub.ViewModels.AssetModel.Partial
+
+<script>
+    var inEdit = "false";
+    var deleteUrl = "/AssetModel/DeleteAssetModel/@Model.Id";
+</script>
+
+<div class="row">
+    <div class="col-sm-2">
+        <h4>Actions</h4> <hr />
+        <button type="button" class="btn btn-default" id="editBtn">Edit</button>
+        <br /><br />
+        <button type="button" class="btn btn-danger" id="deleteBtn">Delete</button>
+    </div>
+
+    <div class="col-sm-10">
+        <h4>@Model.Name</h4> <hr />
+        <div class="container" id="viewContainer">
+            <div class="row">
+                <div class="col-sm-10">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Name)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Category)
+                        </dt>
+
+                        <dd>
+                            @Html.ActionLink(Model.Category.Name, "ViewCategory", "Category", new { id = Model.Category.Id }, new { })
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-10">
+                    @if (Model.Properties.Count > 0)
+                    {
+                        <h4>Properties</h4> <hr />
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Is numeric</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (var i = 0; i < Model.Properties.Count; i++)
+                                {
+                                    <tr>
+                                        <td>@Html.DisplayFor(m => m.Properties[i].Name)</td>
+                                        <td>@Html.DisplayFor(m => m.Properties[i].IsNumeric)</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-10">
+                    @if (Model.Assets.Count > 0)
+                    {
+                        <h4>Asset models</h4> <hr />
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var a in Model.Assets)
+                                {
+                                    <tr onclick="location.href = '@Url.Action("ViewAsset", "Asset", new { id = a.Id })'">
+                                        <td>@a.Name</td>
+                                        <td>@Html.ActionLink("View", "ViewAsset", "Asset", new { id = a.Id }, new { @class = "btn btn-default" })</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="container" id="editContainer" style="display: none">
+            @Html.Partial("_EditAssetModel", new EditAssetModelViewModel(Model.Id))
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/AssetModel/ViewAssetModel.js")
+    @Scripts.Render("~/Scripts/AssetModel/EditAssetModel.js")
+}
