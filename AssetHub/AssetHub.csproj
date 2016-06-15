@@ -351,6 +351,7 @@
     <Content Include="Views\Asset\AssetReport.cshtml" />
     <Content Include="Views\Account\_UserReportForm.cshtml" />
     <Content Include="Views\Account\UserReport.cshtml" />
+    <Content Include="Views\Loan\ViewLoan.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
