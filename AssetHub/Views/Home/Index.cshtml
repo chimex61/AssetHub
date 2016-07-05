@@ -23,7 +23,7 @@
                     <td>@l.Asset.Name</td>
                     <td>@l.TimeFrom</td>
                     <td>@l.TimeTo</td>
-                    <td>@Html.ActionLink("View", "ViewLoan", "Loan", new { id = l.AssetId },  htmlAttributes: new { @class = "btn btn-default" })</td>
+                    <td>@Html.ActionLink("View", "ViewLoan", "Loan", new { id = l.Id },  htmlAttributes: new { @class = "btn btn-default" })</td>
                 </tr>
             }
         </tbody>

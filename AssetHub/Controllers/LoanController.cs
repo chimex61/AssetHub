@@ -1,5 +1,6 @@
 ﻿using AssetHub.DAL;
 using AssetHub.Models;
+using AssetHub.ViewModels.Loan;
 using AssetHub.ViewModels.Loan.Partial;
 using Microsoft.AspNet.Identity;
 using System;
@@ -99,6 +100,19 @@ namespace AssetHub.Controllers
             vm.Hours = GenerateHours();
             vm.Rooms = db.RoomDropdown();
             return PartialView("_CreateLoan", vm);
+        }
+
+        public ActionResult ViewLoan(int id)
+        {
+            return View(new ViewLoanViewModel(id));
+        }
+
+        public ActionResult ReturnLoan(int id)
+        {
+            var l = db.Loans.Find(id);
+            l.TimeTo = DateTime.Now;
+            db.SaveChanges();
+            return RedirectToAction("Index", "Home");
         }
 
         private IEnumerable<SelectListItem> GenerateHours()
